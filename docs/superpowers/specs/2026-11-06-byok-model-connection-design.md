@@ -10,8 +10,8 @@
 
 支持两种 OpenAI 兼容协议：
 
-- Responses：POST `/v1/responses`，请求体使用 `input`
-- Chat Completions：POST `/v1/chat/completions`，请求体使用 `messages`
+- Responses：POST /v1/responses，请求体使用 input
+- Chat Completions：POST /v1/chat/completions，请求体使用 messages
 
 Base URL 只允许 HTTPS；本机调试允许 localhost/127.0.0.1。页面不把 Key 写入 URL、localStorage、sessionStorage、历史记录、埋点或错误信息。接口需要允许发布页面的 CORS 请求，否则页面显示可理解的连接失败提示。
 
@@ -21,7 +21,7 @@ Base URL 只允许 HTTPS；本机调试允许 localhost/127.0.0.1。页面不把
 
 ## 代码边界
 
-新增 `public/model.mjs`，负责配置生命周期、URL 规范化、POPO/BYOK 请求选择和错误分类。修改 `public/app.js` 使用统一请求入口；扩展 `public/core.mjs` 的响应读取，兼容 Responses 非流式和 SSE 的 `response.output_text.delta`。不改变现有安全分流、RAG 校验、历史保存和健康数据结构。
+新增 public/model.mjs，负责配置生命周期、URL 规范化、POPO/BYOK 请求选择和错误分类。修改 public/app.js 使用统一请求入口；扩展 public/core.mjs 的响应读取，兼容 Responses 非流式和 SSE 的 response.output_text.delta。 不改变现有安全分流、RAG 校验、历史保存和健康数据结构。
 
 ## 验证
 
