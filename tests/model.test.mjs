@@ -36,12 +36,16 @@ test('keeps BYOK configuration in memory and never exposes the key', () => {
   assert.equal(modelMode(), 'byok');
 });
 
-test('uses POPO when no BYOK configuration exists', async () => {
-  let called;
-  globalThis.window={PopSDK:{model:{request:async (...args)=>{called=args;return new Response('{}',{status:200});}}}};
-  const response=await requestModel({model:'demo',messages:[{role:'user',content:'hi'}],stream:true},{signal:null});
-  assert.equal(response.status,200);
-  assert.equal(called[1].path,'/v1/chat/completions');
+test('unconfigured or cleared API never invokes POPO or fetch', async () => {
+  let called=0;
+  globalThis.window={PopSDK:{model:{request:async()=>{called++;}}}};
+  globalThis.fetch=async()=>{called++;};
+  assert.equal(modelMode(),'unconfigured');
+  await assert.rejects(requestModel({messages:[]}),{code:'BYOK_NOT_CONFIGURED'});
+  setModelConfig({protocol:'chat',baseUrl:'https://api.example.com',apiKey:'secret-key',model:'demo'});
+  clearModelConfig();
+  await assert.rejects(requestModel({messages:[]}),{code:'BYOK_NOT_CONFIGURED'});
+  assert.equal(called,0);
 });
 
 test('sends Responses payload directly to the user endpoint', async () => {
@@ -79,7 +83,7 @@ test('测试连接必须能读取模型正文，不能把 HTTP 200 HTML 或空�
   const input={protocol:'responses',baseUrl:'https://api.example.com',apiKey:'secret-key',model:'demo'};
   globalThis.fetch=async()=>Response.json({output:[{type:'message',role:'assistant',content:[{type:'output_text',text:'连接成功'}]}]});
   assert.equal(await testModelConfig(input),true);
-  assert.equal(modelMode(),'popo');
+  assert.equal(modelMode(),'unconfigured');
   globalThis.fetch=async()=>new Response('<html>login</html>');
   await assert.rejects(testModelConfig(input));
   globalThis.fetch=async()=>Response.json({});

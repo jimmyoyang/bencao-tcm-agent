@@ -140,11 +140,12 @@ export async function readCompletion(response, onText) {
 }
 
 export function friendlyError(error) {
+  if (error?.code === 'BYOK_NOT_CONFIGURED') return '请先配置自己的 API，再继续问答。你的问题已保留，填写后点击重新尝试即可。';
   if (error?.status === 429) return '提问有点密集，请稍后再试。';
   if (error?.code === 'BYOK_NETWORK_ERROR') return '暂时无法连接你填写的接口，请检查 Base URL、CORS 设置和网络连接。';
   if (error?.code === 'BYOK_HTTP_ERROR' && (error?.status === 401 || error?.status === 403)) return '你填写的 API Key 或模型权限不正确，请重新检查模型连接设置。';
-  if (error?.code === 'BYOK_HTTP_ERROR') return '自有接口未接受请求，请检查地址、协议、模型名称和额度；本次未改用 POPO。';
-  if (error?.status === 401 || error?.status === 403) return '暂时无法连接问答服务，请确认已登录 POPO，或联系作品作者检查模型权限。';
+  if (error?.code === 'BYOK_HTTP_ERROR') return '自有接口未接受请求，请检查地址、协议、模型名称和额度；本次没有改用其他 Key。';
+  if (error?.status === 401 || error?.status === 403) return '暂时无法连接问答服务，请检查模型连接中的 Key 和模型权限。';
   if (/NOT_CONFIGURED|UNAVAILABLE|NOT_ENABLED|NOT_FOUND/.test(String(error?.code || '')) || error?.message === 'SDK_UNAVAILABLE') return '问答服务尚未接通，请稍后再试。你也可以先查看首页的示例对话。';
   if (error?.message === 'TIMEOUT') return '这次回答等待较久，请稍后重试。';
   return '这次没能完成回答，请重试。你的问题还在，不需要重新输入。';

@@ -1,4 +1,3 @@
-import { MODEL as DEFAULT_MODEL } from './config.js';
 import { readCompletion } from './core.mjs';
 
 const ROUTES = { responses: 'responses', chat: 'chat/completions' };
@@ -48,9 +47,9 @@ export function getModelConfig() {
   return { mode:'byok', protocol:config.protocol, baseUrl:config.baseUrl, model:config.model, hasKey:true };
 }
 
-export function modelMode() { return config ? 'byok' : 'popo'; }
+export function modelMode() { return config ? 'byok' : 'unconfigured'; }
 export function modelStatus() {
-  return config ? { mode:'byok', label:'本页自有 API', model:config.model, protocol:config.protocol } : { mode:'popo', label:'POPO 演示模式', model:DEFAULT_MODEL, protocol:'chat' };
+  return config ? { mode:'byok', label:'本页自有 API', model:config.model, protocol:config.protocol } : { mode:'unconfigured', label:'配置自己的 API', model:'', protocol:'responses' };
 }
 
 async function directRequest(candidate, payload, { signal } = {}) {
@@ -75,8 +74,7 @@ export async function testModelConfig(input, options = {}) {
 
 export async function requestModel(payload, { signal } = {}) {
   if (!config) {
-    if (!globalThis.window?.PopSDK?.model?.request) throw Object.assign(new Error('SDK_UNAVAILABLE'), { code:'SDK_UNAVAILABLE' });
-    return globalThis.window.PopSDK.model.request(payload, { path:'/v1/chat/completions', signal });
+    throw Object.assign(new Error('BYOK_NOT_CONFIGURED'), { code:'BYOK_NOT_CONFIGURED' });
   }
   return directRequest(config, payload, { signal });
 }

@@ -5,8 +5,8 @@
 - 直接体验：[本草 · 中医健康助手（POPO 外部授权链接）](https://bencao-tcm-tm.popo.baidu.com/?k=psajtik7)
 - 公开代码：[jimmyoyang/bencao-tcm-agent](https://github.com/jimmyoyang/bencao-tcm-agent)
 - 当前 POPO 版本：v18
-- 默认模型：gpt-6.1-sol（POPO 演示模式）
-- 连接方式：POPO 演示模式或用户自带 API（BYOK）
+- 体验前先点击「模型连接」，填写自己的 Base URL、API Key 和模型名称
+- 连接方式：仅支持用户自带 API（BYOK），没有作者共享额度或默认模型
 - POPO 授权链接的有效性和可见范围由 POPO 控制，链接失效时请从线上作品页进入
 
 ## 项目背景
@@ -103,19 +103,16 @@
 
 ### 模型连接与用户自带 API
 
-本草现在提供两种模型连接方式。
-
-- **POPO 演示模式**：默认使用 POPO 作品绑定的模型，适合直接体验；调用额度由作品绑定配置承担。
-- **用户自带 API（BYOK）**：在“模型连接”中填写自己的 Base URL、API Key、模型名称和协议，浏览器直接请求用户填写的 OpenAI 兼容接口，不经过 POPO 模型代理。
+在「模型连接」中填写自己的 Base URL、API Key、模型名称和协议，点击「测试连接」后保存。浏览器直接请求用户填写的 OpenAI 兼容接口，额度由用户自己的服务账户承担。未配置、刷新或清除配置后，问答会提示重新连接，不会使用作者的 Key。
 
 BYOK 支持：
 
 - `POST /v1/responses`，请求字段为 `input`
 - `POST /v1/chat/completions`，请求字段为 `messages`
 
-Key 只保存在当前页面内存中，不写入 URL、localStorage、sessionStorage、历史记录、埋点或 GitHub。刷新或离开页面、点击清除后，Key 会清除并恢复 POPO 演示模式；继续使用自有 API 需重新填写。用户的接口需要允许当前页面的 CORS 请求；如果接口不支持浏览器跨域，测试连接会失败。页面 JavaScript 可以读取用户主动填写的 Key，因此只应使用自己信任的页面和接口。
+Key 只保存在当前页面内存中，不写入 URL、localStorage、sessionStorage、历史记录、埋点或 GitHub。刷新或离开页面、点击清除后，Key 会清除，继续问答需重新填写。用户的接口需要允许当前页面的 CORS 请求；如果接口不支持浏览器跨域，测试连接会失败。页面 JavaScript 可以读取用户主动填写的 Key，因此只应使用自己信任的页面和接口。
 
-当前功能仍然是浏览器直连方案，没有用户账户、额度控制或后端代理。切换至自有 API 后，失败不会自动改用作者额度；默认 POPO 模式仍会消耗作者额度，因此双模式本身不等于关闭共享额度。Responses 请求带有 `store: false`，服务商仍可能按自身规则保留请求。
+当前功能是浏览器直连方案，没有用户账户或自有后端。POPO 的作者共享模型服务已停用，页面也移除了调用路径。连接失败不会回退到其他 Key。Responses 请求带有 `store: false`，服务商仍可能按自身规则保留请求。静态示例和本机安全提示不调用模型。
 
 ### 图片入口
 
@@ -131,7 +128,7 @@ flowchart LR
     B --> C[意图 主题 人群 风险预筛]
     C -->|急症或专业边界| D[就医提示与就医摘要]
     C -->|可回答| E[精选知识卡检索]
-    E --> F[模型适配层：POPO 或用户自有 API]
+    E --> F[用户自带 API：Responses 或 Chat Completions]
     F --> G[结论 来源 风险字段校验]
     G --> H[回答 行动 依据 下一步]
     H --> I[本机历史与可控记录]
@@ -143,7 +140,7 @@ flowchart LR
 | --- | --- |
 | 页面 | HTML5、CSS3、原生 JavaScript ES Modules |
 | 交互 | 原生 Dialog、表单、Radio、File API、localStorage、sessionStorage |
-| 模型 | POPO PopSDK 默认代理；可切换用户自有 OpenAI 兼容 Responses 或 Chat Completions 接口 |
+| 模型 | 浏览器 fetch 直连用户的 OpenAI 兼容 Responses 或 Chat Completions 接口；Key 仅在页面内存使用 |
 | 检索 | Node.js 构建脚本、本地 BM25 倒排索引、中文短词切分和主题过滤 |
 | 内容 | JSONL 原始卡片、JSON 来源注册表、构建后的页面索引 |
 | 测试 | Node.js node:test、Python unittest、浏览器模拟服务 |
@@ -174,7 +171,7 @@ flowchart LR
 | v15 | 扩充到 80 张卡、19 个来源，加入穴位位置科普、图片本机质量提示和更完整的历史恢复 | 覆盖更多常见问题，同时保留能力边界 |
 | v16 | 加入来源级和卡片级人工审核表、来源新鲜度、问题编码和 verified-index 门禁 | 让资料能否上线有明确状态，不把机器整理写成医学审核 |
 | v17 | 首页移除重复的睡眠问诊入口和场景栏，保留睡眠知识入口、问答后问诊和日常偏好 | 减少首页分流，让入口与回答后的下一步职责一致 |
-| v18 | 增加模型连接设置，支持 POPO 演示模式与用户自带 API，兼容 Responses 和 Chat Completions | 让选择自有 API 的用户独立承担调用额度，让评审者可以使用自己的模型服务 |
+| v18 | 仅允许用户自带 API，新增连接测试、会话内配置和清除；停用作者共享模型服务 | 每位使用者独立承担调用额度，未配置或失败时不回退到作者 Key |
 
 ## 截图
 
@@ -231,7 +228,7 @@ flowchart LR
 
 以下结果来自合成回归集和浏览器模拟，不代表临床准确率或真实用户满意度。
 
-- Node 测试 86/86（含模型连接与 Responses 解析）
+- Node 测试 87/87（含模型连接与 Responses 解析）
 - BYOK 的 Responses / Chat Completions 模拟跨域问答、错误响应、清除与切换通过；第三方接口仍需在页面测试 CORS、权限和协议兼容性
 - Python 测试 3/3
 - 精选资料构建成功，80 张卡、19 个来源
@@ -278,4 +275,4 @@ flowchart LR
 
 ## 发布说明
 
-POPO 发布只上传 public/，不会上传测试、文档、截图、配置工具或模型 Key。模型 Key 由 POPO 服务端保存，源码中只保留模型 ID。每次发布前会做基线校验，发布后回读作品状态并保留 ZIP 备份。
+POPO 发布只上传 public/，不会上传测试、文档、截图、配置工具或模型 Key。当前作品仅托管页面，作者共享模型服务已停用；访问者的 Key 由浏览器直接发送到其指定的服务商。每次发布前核对线上基线，发布后回读作品状态并保留 ZIP 备份。

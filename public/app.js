@@ -1,4 +1,3 @@
-import { MODEL } from './config.js';
 import { requestModel, testModelConfig, setModelConfig, clearModelConfig, getModelConfig, modelStatus } from './model.mjs';
 import { buildMessages, splitAnswer, readCompletion, friendlyError, quickTestPrompt, buildVisitSummary, turnPrompt, userDescription, routeTurn } from './core.mjs';
 import {SOURCES,TOPICS,CHECKIN_QUESTIONS,allQuestions,questionsFor,confirmedFacts,detectTopic,normalizeCareData,careRows,careTriage,sourceIdsFor,citedSources,cleanPreferences,localDate,answerWithSources,canConfirmCare,evidenceFor,preferenceRecord,activePreferences,recentTurn} from './care.mjs';
@@ -278,6 +277,7 @@ function renderResultSteps(turn) {
 
 function showError(turn, error) {
   const box = element('div','error-card',friendlyError(error)); box.setAttribute('role','alert');
+  if(error?.code==='BYOK_NOT_CONFIGURED' || String(error?.code || '').startsWith('BYOK_')) {const configure=element('button','','配置模型连接');configure.type='button';configure.addEventListener('click',openModelSettings);box.append(configure);}
   const retry = element('button','','重新尝试'); retry.type='button'; retry.addEventListener('click', () => {
     if (active) return;
     // Retry only the latest turn so the request uses the correct preceding context.
@@ -314,6 +314,7 @@ async function run(turn) {
   const timeout=setTimeout(()=>{request.timedOut=true;request.controller.abort();},90000);
   try {
     if(gate.route!=='retrieve') {metric('riskBlocks');finishLocal(turn,gate.answer,gate.risk,'blocked',gate.reason);return;}
+    if(!getModelConfig()) throw Object.assign(new Error('BYOK_NOT_CONFIGURED'),{code:'BYOK_NOT_CONFIGURED'});
     let bundle;
     try {bundle=await loadKnowledge(request.controller.signal);}catch(error){if(request.controller.signal.aborted || request.cleared)throw error;metric('abstentions');finishLocal(turn,'这次暂时无法读取核对资料。'+ABSTAIN,'consult','abstained','knowledge-unavailable');return;}
     if(request.controller.signal.aborted || request.cleared)throw new DOMException('Aborted','AbortError');
@@ -323,7 +324,7 @@ async function run(turn) {
     if(!retrieval.cards.length) {metric('abstentions');finishLocal(turn,ABSTAIN,'consult','abstained',retrieval.reason);return;}
     metric('retrievalHits');
     showThinking(turn);turn.answerEl.querySelector('.thinking span').textContent='已找到相关资料，正在核对回答…';
-    const response=await requestModel({model:MODEL,messages:buildMessages(turns.slice(0,turns.indexOf(turn)),modelInput,{retrieval,preferences,currentCareData:turn.careData,context:turn.context}),stream:true,max_tokens:1400,temperature:0.2},{signal:request.controller.signal});
+    const response=await requestModel({messages:buildMessages(turns.slice(0,turns.indexOf(turn)),modelInput,{retrieval,preferences,currentCareData:turn.careData,context:turn.context}),stream:true,max_tokens:1400,temperature:0.2},{signal:request.controller.signal});
     if(request.controller.signal.aborted || request.cleared)throw new DOMException('Aborted','AbortError');
     // Never render or persist unvalidated model prose, including streaming fragments.
     const raw=await readCompletion(response,()=>{if(request.controller.signal.aborted || request.cleared)throw new DOMException('Aborted','AbortError');});
@@ -336,10 +337,11 @@ async function run(turn) {
   }catch(error) {
     if(request.cleared)return;
     if(request.stopped){turn.status='stopped';turn.rag.status='stopped';turn.answerEl.replaceChildren(element('p','','已停止整理。问题已保存，尚未展示未核对的内容。'));notify('已停止生成');}
-    else {turn.status='error';turn.rag.status='abstained';turn.risk='consult';metric('modelFailures');showError(turn,request.timedOut?new Error('TIMEOUT'):error);}
+    else {request.needsConfig=error.code==='BYOK_NOT_CONFIGURED';turn.status='error';turn.rag.status='abstained';turn.risk='consult';metric('modelFailures');showError(turn,request.timedOut?new Error('TIMEOUT'):error);}
   }finally {
     clearTimeout(timeout);if(active===request)active=null;if(request.cleared)return;
     saveTurnProgress(true);updateBusy();renderActions(turn);renderFollowups(turn);renderResultSteps(turn);renderEvidence(turn);renderRiskNote(turn);
+    if(request.needsConfig) openModelSettings();
   }
 }
 
@@ -502,7 +504,7 @@ function readPreferenceRecord() {try {return loadLocalPreference(localStorage);}
 function renderModelStatus() {
   const status=modelStatus();
   const button=$('#model-status');
-  if(button) { button.textContent=status.label; button.title=`${status.label} · ${status.model}`; }
+  if(button) { button.textContent=status.label; button.title=status.model ? `${status.label} · ${status.model}` : status.label; }
 }
 function openModelSettings() {
   if(active) {toast('请先停止当前回答，再修改模型连接');return;}
@@ -510,8 +512,8 @@ function openModelSettings() {
   $('#model-protocol').value=current?.protocol || 'responses';
   $('#model-base-url').value=current?.baseUrl || '';
   $('#model-api-key').value='';
-  $('#model-name').value=current?.model || MODEL;
-  $('#model-settings-status').textContent=current ? `当前使用本页自有 API（${current.model}）。如需修改，请重新填写 Key。` : '当前使用 POPO 演示模式。';
+  $('#model-name').value=current?.model || '';
+  $('#model-settings-status').textContent=current ? `当前使用本页自有 API（${current.model}）。如需修改，请重新填写 Key。` : '尚未连接模型。请填写自己的 API 后使用。';
   $('#model-settings').showModal();
 }
 function modelFormValue() {
@@ -627,7 +629,7 @@ $('#delete-session').addEventListener('close',()=>{
 });
 $('#show-example').addEventListener('click',()=>{
   if (!newConversation()) return;
-  showConversation(); conversation.append(element('div','example-banner','这是一段预先编写的体验示例，展示回答与追问方式。输入你的问题后，将开启真实 AI 对话。'));
+  showConversation(); conversation.append(element('div','example-banner','这是一段预先编写的体验示例，展示回答与追问方式。配置自己的 API 后，输入问题即可开始真实对话。'));
   const first=createTurn('最近总觉得累，没精神，是脾虚吗？',true);
   first.answer='总觉得累，不一定就是脾虚。**睡眠不足、压力、贫血、甲状腺问题等**也可能引起疲惫；中医判断还需要结合饮食、排便等表现，不能凭这一个症状下结论。\n\n### 现在可以先做的两件事\n- 保持规律作息，给自己足够的睡眠时间，避免靠浓茶或咖啡硬撑。\n- 按时吃饭，适度活动，先不急着自行吃“补气健脾”的药。\n\n这种疲惫大约持续多久了？最近睡眠怎么样？';
   first.status='done';renderMarkdown(first.answerEl,first.answer);renderActions(first);
@@ -653,7 +655,7 @@ $('#model-settings').addEventListener('cancel',()=>{cancelModelTest();$('#model-
 $('#model-settings-form').addEventListener('input',()=>{cancelModelTest();$('#model-settings-status').textContent='配置已修改，请测试或保存。';});
 $('#model-test').addEventListener('click',testModelConnection);
 $('#model-settings-form').addEventListener('submit',saveModelConnection);
-$('#model-clear').addEventListener('click',()=>{clearModelConnection();$('#model-settings').close();toast('已清除自有 API，恢复 POPO 演示模式');});
+$('#model-clear').addEventListener('click',()=>{clearModelConnection();$('#model-settings').close();toast('已清除 API，问答前需重新配置');});
 document.querySelectorAll('.preferences-trigger').forEach(button=>button.addEventListener('click',openPreferences));
 $('#preferences-close').addEventListener('click',()=>$('#preferences-dialog').close());
 $('#preferences-form').addEventListener('submit',event=>{event.preventDefault();
