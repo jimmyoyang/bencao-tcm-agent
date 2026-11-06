@@ -5,5 +5,7 @@ screenshots/*
 !screenshots/published-care-flow.jpg
 !screenshots/published-trust-evidence.jpg
 !screenshots/published-history.jpg
+!screenshots/model-connection-mobile.jpg
+!screenshots/model-connection-published.jpg
 __pycache__/
 tests/__pycache__/

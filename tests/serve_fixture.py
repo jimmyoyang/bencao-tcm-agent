@@ -10,7 +10,13 @@ class Handler(SimpleHTTPRequestHandler):
         super().__init__(*args, directory=str(ROOT / 'public'), **kwargs)
 
     def do_GET(self):
-        if self.path == '/':
+        if self.path == '/mobile':
+            body=b'<!doctype html><title>Mobile layout fixture</title><iframe title="Mobile layout" src="/" style="width:390px;height:844px;border:0"></iframe>'
+            self.send_response(200)
+            self.send_header('Content-Type','text/html; charset=utf-8')
+            self.end_headers()
+            self.wfile.write(body)
+        elif self.path == '/':
             html = (ROOT / 'public/index.html').read_text()
             fixture = (ROOT / 'tests/ui-fixture.js').read_text()
             html = html.replace('<script type="module"', '<script>' + fixture + '</script><script type="module"', 1)

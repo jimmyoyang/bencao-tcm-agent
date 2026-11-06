@@ -18,6 +18,7 @@ const form = $('#chat-form'), input = $('#question'), send = $('#send');
 const welcome = $('#welcome'), conversation = $('#conversation');
 const turns = [];
 let active = null, toastTimer;
+let modelTestController=null;
 let currentSession = null, historySessions = [], saveTimer, saveFailed = false, pendingDeleteId = null;
 const NAV_KEY = 'bencao.navigation.v1';
 let quickTestState = null, careState=null;
@@ -504,6 +505,7 @@ function renderModelStatus() {
   if(button) { button.textContent=status.label; button.title=`${status.label} · ${status.model}`; }
 }
 function openModelSettings() {
+  if(active) {toast('请先停止当前回答，再修改模型连接');return;}
   const current=getModelConfig();
   $('#model-protocol').value=current?.protocol || 'responses';
   $('#model-base-url').value=current?.baseUrl || '';
@@ -515,16 +517,41 @@ function openModelSettings() {
 function modelFormValue() {
   return {protocol:$('#model-protocol').value,baseUrl:$('#model-base-url').value,apiKey:$('#model-api-key').value,model:$('#model-name').value};
 }
+function cancelModelTest() {
+  if(modelTestController) modelTestController.abort();
+  modelTestController=null;
+  $('#model-test').disabled=false;
+  $('#model-save').disabled=false;
+}
+function clearModelConnection() {
+  cancelModelTest();
+  clearModelConfig();
+  $('#model-settings-form').reset();
+  $('#model-api-key').value='';
+  $('#model-settings-status').textContent='';
+  renderModelStatus();
+}
 async function testModelConnection() {
-  const button=$('#model-test'),status=$('#model-settings-status');
-  button.disabled=true;status.textContent='正在发送一条最小测试请求，请稍候…';
-  try { await testModelConfig(modelFormValue()); status.textContent='连接成功。还没有切换模式，点击“保存并使用”后才会用于问答。'; }
-  catch(error) { status.textContent=error.code==='BYOK_NETWORK_ERROR'?'连接失败：接口可能未允许当前页面跨域（CORS），或地址无法访问。':error.status===401||error.status===403?'连接失败：API Key 或模型权限不正确。':'连接失败：请检查 Base URL、协议和模型名称。'; }
-  finally { button.disabled=false; }
+  cancelModelTest();
+  const controller=new AbortController();modelTestController=controller;
+  const status=$('#model-settings-status');
+  $('#model-test').disabled=true;$('#model-save').disabled=true;
+  status.textContent='正在测试连接（会消耗少量额度）…';
+  const timeout=setTimeout(()=>controller.abort(),20000);
+  try {
+    await testModelConfig(modelFormValue(),{signal:controller.signal});
+    if(modelTestController===controller) status.textContent='已收到模型回答。点击“保存并使用”后用于问答；实际问答还需模型支持结构化输出。';
+  } catch(error) {
+    if(modelTestController===controller) status.textContent=controller.signal.aborted?'连接测试超时，请检查接口后重试。':error.code ? friendlyError(error) : '未收到有效模型回答，请检查地址、协议、Key 和模型名称。';
+  } finally {
+    clearTimeout(timeout);
+    if(modelTestController===controller) cancelModelTest();
+  }
 }
 function saveModelConnection(event) {
   event.preventDefault();
-  try { setModelConfig(modelFormValue()); $('#model-api-key').value=''; $('#model-settings-status').textContent='已保存。Key 只在当前页面内存中使用。'; renderModelStatus(); toast('已切换为本页自有 API'); }
+  if(active || modelTestController) return;
+  try { setModelConfig(modelFormValue()); $('#model-api-key').value=''; renderModelStatus(); $('#model-settings').close(); toast('已切换为本页自有 API'); }
   catch(error) { $('#model-settings-status').textContent=error.message || '保存失败，请检查填写内容。'; }
 }
 
@@ -538,6 +565,7 @@ function ensureEpoch() {
   return true;
 }
 function forgetInMemory() {
+  clearModelConnection();
   clearTimeout(saveTimer);saveTimer=null;
   if(active){active.cleared=true;active.controller.abort();active=null;}
   currentSession=null;historySessions=[];saveFailed=false;quickTestState=null;careState=null;
@@ -620,9 +648,12 @@ $('#care-back').addEventListener('click',()=>{if(careState){if(careState.editing
 $('#care-skip').addEventListener('click',()=>chooseCare(''));
 document.querySelectorAll('.model-trigger').forEach(button=>button.addEventListener('click',openModelSettings));
 $('#model-settings-close').addEventListener('click',()=>$('#model-settings').close());
+$('#model-settings').addEventListener('close',()=>{cancelModelTest();$('#model-api-key').value='';});
+$('#model-settings').addEventListener('cancel',()=>{cancelModelTest();$('#model-api-key').value='';});
+$('#model-settings-form').addEventListener('input',()=>{cancelModelTest();$('#model-settings-status').textContent='配置已修改，请测试或保存。';});
 $('#model-test').addEventListener('click',testModelConnection);
 $('#model-settings-form').addEventListener('submit',saveModelConnection);
-$('#model-clear').addEventListener('click',()=>{clearModelConfig();renderModelStatus();$('#model-settings').close();toast('已恢复 POPO 演示模式');});
+$('#model-clear').addEventListener('click',()=>{clearModelConnection();$('#model-settings').close();toast('已清除自有 API，恢复 POPO 演示模式');});
 document.querySelectorAll('.preferences-trigger').forEach(button=>button.addEventListener('click',openPreferences));
 $('#preferences-close').addEventListener('click',()=>$('#preferences-dialog').close());
 $('#preferences-form').addEventListener('submit',event=>{event.preventDefault();
@@ -668,7 +699,7 @@ $('#image-file').addEventListener('change',async()=>{
 
 refreshHistory();
 try { const last=JSON.parse(sessionStorage.getItem(NAV_KEY)); if(last?.id && last.view==='chat') openSession(last.id); } catch { /* Open the home page if navigation metadata is unavailable. */ }
-window.addEventListener('pagehide',persistSession);
+window.addEventListener('pagehide',()=>{persistSession();clearModelConnection();});
 document.addEventListener('visibilitychange',()=>{if(document.hidden) persistSession();});
 window.addEventListener('storage',event=>{if(event.key===EPOCH_KEY || event.key===null){forgetInMemory();toast('本机数据已在其他标签页清除');}else if(event.key?.startsWith('bencao.chat.v1.')) refreshHistory();});
 resizeInput();

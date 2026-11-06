@@ -98,3 +98,13 @@ test('兼容 Responses SSE output_text.delta', async () => {
   assert.equal(await readCompletion(response, value => chunks.push(value)), '第一段第二段');
   assert.deepEqual(chunks, ['第一段','第一段第二段']);
 });
+
+test('Responses 原生 output 只收集助手正文并拒绝失败与未完成响应',async()=>{
+  const body={output:[{type:'reasoning',content:[{type:'text',text:'隐藏推理'}]},{type:'message',role:'assistant',content:[{type:'output_text',text:'有效回答'}]}]};
+  assert.equal(await readCompletion(Response.json(body),()=>{}),'有效回答');
+  for(const status of ['failed','incomplete']) {
+    await assert.rejects(readCompletion(Response.json({...body,status}),()=>{}),/MODEL_RESPONSE_ERROR/);
+    const stream='data: {"type":"response.output_text.delta","delta":"部分内容"}\n\ndata: '+JSON.stringify({type:'response.'+status})+'\n\n';
+    await assert.rejects(readCompletion(new Response(stream,{headers:{'Content-Type':'text/event-stream'}}),()=>{}),/MODEL_RESPONSE_ERROR/);
+  }
+});

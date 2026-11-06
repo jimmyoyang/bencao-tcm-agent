@@ -1,4 +1,5 @@
 import { MODEL as DEFAULT_MODEL } from './config.js';
+import { readCompletion } from './core.mjs';
 
 const ROUTES = { responses: 'responses', chat: 'chat/completions' };
 let config = null;
@@ -10,16 +11,18 @@ function cleanBaseUrl(value) {
   const local = ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname);
   if (url.protocol !== 'https:' && !(local && url.protocol === 'http:')) throw new Error('Base URL 必须使用 HTTPS');
   if (url.username || url.password || url.search || url.hash) throw new Error('Base URL 不能包含账号、参数或片段');
-  url.pathname = url.pathname.replace(/\/+$/, '');
+  url.pathname = url.pathname.replace(/\/+$/, '').replace(/\/(?:responses|chat\/completions)$/, '');
   return url.toString().replace(/\/$/, '');
 }
 
 export function normalizeConfig(input = {}) {
-  const protocol = input.protocol === 'chat' ? 'chat' : 'responses';
+  const protocol = input.protocol || 'responses';
+  if (!Object.hasOwn(ROUTES, protocol)) throw new Error('请选择支持的接口协议');
   const baseUrl = cleanBaseUrl(input.baseUrl);
   const apiKey = String(input.apiKey || '').trim();
   const model = String(input.model || '').trim();
   if (!apiKey) throw new Error('请填写 API Key');
+  if (/[\s\x00-\x1f\x7f]/.test(apiKey) || apiKey.length > 4096) throw new Error('API Key 格式不正确');
   if (apiKey.length < 8) throw new Error('API Key 太短，请检查后再试');
   if (!model || model.length > 200 || /[\r\n]/.test(model)) throw new Error('请填写有效的模型名称');
   return { protocol, baseUrl, apiKey, model };
@@ -51,12 +54,13 @@ export function modelStatus() {
 }
 
 async function directRequest(candidate, payload, { signal } = {}) {
-  const body = candidate.protocol === 'responses' ? { model:candidate.model, input:payload.messages, stream:Boolean(payload.stream), ...(payload.max_tokens !== undefined ? {max_output_tokens:payload.max_tokens} : {}), ...(payload.temperature !== undefined ? {temperature:payload.temperature} : {}) } : { ...payload, model:candidate.model };
+  const body = candidate.protocol === 'responses' ? { model:candidate.model, input:payload.messages, store:false, stream:Boolean(payload.stream), ...(payload.max_tokens !== undefined ? {max_output_tokens:payload.max_tokens} : {}), ...(payload.temperature !== undefined ? {temperature:payload.temperature} : {}) } : { ...payload, model:candidate.model };
   let response;
   try {
-    response = await fetch(endpointFor(candidate), { method:'POST', headers:{ Authorization:`Bearer ${candidate.apiKey}`, 'Content-Type':'application/json' }, body:JSON.stringify(body), signal });
+    response = await fetch(endpointFor(candidate), { method:'POST', headers:{ Authorization:`Bearer ${candidate.apiKey}`, 'Content-Type':'application/json' }, body:JSON.stringify(body), signal, redirect:'error', credentials:'omit', referrerPolicy:'no-referrer', cache:'no-store' });
   } catch (error) {
-    throw Object.assign(new Error('BYOK_NETWORK_ERROR'), { code:'BYOK_NETWORK_ERROR', cause:error });
+    if (signal?.aborted) throw error;
+    throw Object.assign(new Error('BYOK_NETWORK_ERROR'), { code:'BYOK_NETWORK_ERROR' });
   }
   if (!response.ok) throw Object.assign(new Error('BYOK_HTTP_ERROR'), { code:'BYOK_HTTP_ERROR', status:response.status });
   return response;
@@ -65,7 +69,7 @@ async function directRequest(candidate, payload, { signal } = {}) {
 export async function testModelConfig(input, options = {}) {
   const candidate = normalizeConfig(input);
   const response = await directRequest(candidate, { model:candidate.model, messages:[{role:'user',content:'请只回复：连接成功'}], stream:false }, options);
-  await response.arrayBuffer();
+  await readCompletion(response, () => {});
   return true;
 }
 

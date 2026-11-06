@@ -98,7 +98,9 @@ export async function readCompletion(response, onText) {
   if (!response.ok) throw Object.assign(new Error('MODEL_HTTP_ERROR'), { status: response.status });
   if (!(response.headers.get('content-type') || '').includes('text/event-stream')) {
     const result = await response.json();
-    const text = result.choices?.[0]?.message?.content || result.output_text || result.output?.flatMap?.(item => item.content || []).map?.(item => item.text || '').join('');
+    if (result.error || ['failed','incomplete'].includes(result.status)) throw new Error('MODEL_RESPONSE_ERROR');
+    const output = Array.isArray(result.output) ? result.output.filter(item => item.type === 'message' && item.role === 'assistant').flatMap(item => Array.isArray(item.content) ? item.content : []).filter(item => item.type === 'output_text').map(item => item.text || '').join('') : '';
+    const text = result.choices?.[0]?.message?.content || result.output_text || output;
     if (typeof text !== 'string' || !text.trim()) throw new Error('EMPTY_RESPONSE');
     onText(text);
     return text;
@@ -112,8 +114,8 @@ export async function readCompletion(response, onText) {
     if (!data) return;
     if (data.trim() === '[DONE]') { done = true; return; }
     const result = JSON.parse(data);
-    if (result.error) throw new Error('MODEL_RESPONSE_ERROR');
-    if (result.type === 'response.completed' || result.type === 'response.failed' || result.type === 'response.incomplete') done = true;
+    if (result.error || ['error','response.failed','response.incomplete'].includes(result.type) || ['failed','incomplete'].includes(result.response?.status)) throw new Error('MODEL_RESPONSE_ERROR');
+    if (result.type === 'response.completed') done = true;
     const delta = result.choices?.[0]?.delta?.content ?? (result.type === 'response.output_text.delta' ? result.delta : null);
     if (typeof delta === 'string') { text += delta; onText(text); }
   }
@@ -141,6 +143,7 @@ export function friendlyError(error) {
   if (error?.status === 429) return '提问有点密集，请稍后再试。';
   if (error?.code === 'BYOK_NETWORK_ERROR') return '暂时无法连接你填写的接口，请检查 Base URL、CORS 设置和网络连接。';
   if (error?.code === 'BYOK_HTTP_ERROR' && (error?.status === 401 || error?.status === 403)) return '你填写的 API Key 或模型权限不正确，请重新检查模型连接设置。';
+  if (error?.code === 'BYOK_HTTP_ERROR') return '自有接口未接受请求，请检查地址、协议、模型名称和额度；本次未改用 POPO。';
   if (error?.status === 401 || error?.status === 403) return '暂时无法连接问答服务，请确认已登录 POPO，或联系作品作者检查模型权限。';
   if (/NOT_CONFIGURED|UNAVAILABLE|NOT_ENABLED|NOT_FOUND/.test(String(error?.code || '')) || error?.message === 'SDK_UNAVAILABLE') return '问答服务尚未接通，请稍后再试。你也可以先查看首页的示例对话。';
   if (error?.message === 'TIMEOUT') return '这次回答等待较久，请稍后重试。';
