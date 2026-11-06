@@ -1,4 +1,9 @@
 .local-setup-status.json
-screenshots/
+screenshots/*
+!screenshots/published-rag-desktop.png
+!screenshots/published-rag-mobile.png
+!screenshots/published-care-flow.jpg
+!screenshots/published-trust-evidence.jpg
+!screenshots/published-history.jpg
 __pycache__/
 tests/__pycache__/
