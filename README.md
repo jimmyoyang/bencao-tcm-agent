@@ -2,8 +2,7 @@
 
 面向百度搜索健康问题的中医健康信息与日常调养助手。当前作品是一个受控 Alpha Demo，用来验证搜索后的连续问答、风险边界、精选资料引用和本机历史。
 
-- 线上作品：[本草 · 中医健康助手](https://bencao-tcm-tm.popo.baidu-int.com/)
-- 外部访问：[POPO 授权链接](https://bencao-tcm-tm.popo.baidu.com/?k=psajtik7)
+- 直接体验：[本草 · 中医健康助手（POPO 外部授权链接）](https://bencao-tcm-tm.popo.baidu.com/?k=psajtik7)
 - 公开代码：[jimmyoyang/bencao-tcm-agent](https://github.com/jimmyoyang/bencao-tcm-agent)
 - 当前 POPO 版本：v17
 - 当前模型：gpt-6.1-sol
@@ -239,18 +238,6 @@ flowchart LR
 4. 进行内部 Alpha 和小范围灰度，设置安全、延迟和回滚标准
 5. 根据用户研究推进女性记录、适老化、图片能力和医院承接
 6. 在内容和服务稳定后，再评估实时搜索、视频内容和商业推荐
-
-## 本地运行
-
-~~~bash
-npm run build
-npm test
-npm run evaluate
-python3 -m unittest discover -s tests -p 'test_*.py'
-npm start
-~~~
-
-打开 <http://127.0.0.1:8765/> 查看本地页面。POPO SDK 只在发布页面注入，本地页面没有真实模型请求。
 
 ## 目录结构
 
