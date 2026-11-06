@@ -1,6 +1,6 @@
 # 本草 · 中医健康助手
 
-访问 https://bencao-tcm-tm.popo.baidu-int.com/ ，沿用原作品、指定人可见。模型 Key 只在 POPO 服务端，前端模型 ID 为 gpt-6.1-sol。
+访问 [POPO 作品页](https://bencao-tcm-tm.popo.baidu-int.com/)；外部访问可使用[授权链接](https://bencao-tcm-tm.popo.baidu.com/?k=psajtik7)。模型 Key 只在 POPO 服务端，前端模型 ID 为 gpt-6.1-sol。
 
 ## 本轮版本
 
