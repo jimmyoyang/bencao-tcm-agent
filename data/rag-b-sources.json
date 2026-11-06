@@ -1,0 +1,322 @@
+[
+  {
+    "id": "sleep-core",
+    "title": "全国爱卫办发布睡眠健康核心信息及释义",
+    "publisher": "全国爱卫办 · 国家卫生健康委员会",
+    "url": "https://www.nhc.gov.cn/guihuaxxs/c100133/202503/70d5836afe804a858b899ee951a24a13.shtml",
+    "publishedAt": "2025-03-18",
+    "reviewedAt": null,
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "睡眠需求存在个体差异；饮食与电子设备等习惯、就医信号、中医治疗需辨证。",
+    "supportedClaims": [
+      "睡眠时长需求存在个体差异。",
+      "晚餐不宜过饱过晚。",
+      "睡前饮酒、喝茶或咖啡可能对睡眠产生不良影响。",
+      "睡前长时间使用电子产品会对睡眠产生不良影响。",
+      "夜间鼾声响亮伴呼吸间歇时，应寻求专业评估。",
+      "中医治疗睡眠障碍需根据具体证候辨证施治。"
+    ],
+    "unsupportedClaims": [
+      "固定睡眠时长适合所有人",
+      "按症状自行套用中药、针灸或穴位治疗",
+      "个人病因诊断"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Chrome cua visible page; public HTTP returned 412"
+  },
+  {
+    "id": "baduanjin",
+    "title": "天坛科普——八段锦 老祖宗传下来的助眠秘方",
+    "publisher": "首都医科大学附属北京天坛医院 · 北京市卫生健康委员会转载",
+    "url": "https://wjw.beijing.gov.cn/bmfw_20143/jkzs/jksh/202503/t20250317_4036769.html",
+    "publishedAt": "2025-03-17",
+    "reviewedAt": null,
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "仅收录八段锦配合身体动作与呼吸，以及原文指向正规演练视频的说明。原文为医院科普，没有提供试验设计、样本或参考文献。",
+    "supportedClaims": [
+      "八段锦练习配合身体活动与呼吸。",
+      "八段锦具体动作可参考国家体育总局健身气功管理中心的演练视频。"
+    ],
+    "unsupportedClaims": [
+      "治愈失眠",
+      "人人适用",
+      "动作治疗某病",
+      "疗效数字",
+      "穴位准确定位与按压操作"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "hospital-education",
+    "fetchMethod": "public HTTPS HTML text extraction"
+  },
+  {
+    "id": "nhs-insomnia",
+    "title": "Insomnia",
+    "publisher": "英国 NHS",
+    "url": "https://www.nhs.uk/conditions/insomnia/",
+    "publishedAt": null,
+    "reviewedAt": "2024-03-19",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "一般成人睡眠习惯、困倦驾驶风险、持续睡眠问题的就诊时机。",
+    "supportedClaims": [
+      "有困意时再上床。",
+      "尽量每天在同一时间起床。",
+      "睡前至少一小时可安排放松活动。",
+      "卧室宜保持黑暗、安静。",
+      "感觉困倦时不要驾驶。",
+      "睡眠困难持续数月时，应寻求医疗评估。"
+    ],
+    "unsupportedClaims": [
+      "仅凭描述确诊失眠",
+      "保证习惯调整有效",
+      "药物选择或剂量",
+      "将英国服务号码当中国就医路径"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "public HTTPS HTML text extraction"
+  },
+  {
+    "id": "nhs-bloating",
+    "title": "Bloating",
+    "publisher": "英国 NHS",
+    "url": "https://www.nhs.uk/conditions/bloating/",
+    "publishedAt": null,
+    "reviewedAt": "2026-01-21",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "腹胀的一般饮食习惯与持续腹胀的就诊时机。",
+    "supportedClaims": [
+      "闭口咀嚼有助于减少进食时吞入空气。",
+      "腹胀时可尝试少量多餐，避免单次大餐。",
+      "腹胀时应避免大量饮用碳酸饮料。",
+      "经常腹胀时应寻求医疗评估。"
+    ],
+    "unsupportedClaims": [
+      "以腹胀判定某种中医证型",
+      "排除器质性疾病",
+      "腹部按摩的操作安全",
+      "限制所有蔬菜豆类"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "public HTTPS HTML text extraction"
+  },
+  {
+    "id": "nhs-heartburn",
+    "title": "Heartburn and acid reflux",
+    "publisher": "英国 NHS",
+    "url": "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/",
+    "publishedAt": null,
+    "reviewedAt": "2023-11-20",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "反酸烧心的一般生活习惯及不要自行停处方药。",
+    "supportedClaims": [
+      "反酸烧心时可避免在睡前三至四小时内进食。",
+      "反酸烧心时应避免腰部过紧的衣物。",
+      "反酸烧心时可避免明确会诱发自身症状的食物或饮品。",
+      "怀疑处方药引起反酸时，不应自行停药。"
+    ],
+    "unsupportedClaims": [
+      "将任何胸痛归因反酸",
+      "诊断胃食管反流病",
+      "药物选择、剂量或疗程"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "public HTTPS HTML text extraction"
+  },
+  {
+    "id": "nhs-constipation",
+    "title": "Constipation",
+    "publisher": "英国 NHS",
+    "url": "https://www.nhs.uk/conditions/constipation/",
+    "publishedAt": null,
+    "reviewedAt": "2023-10-26",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "成人便秘的一般纤维、如厕与活动习惯。页面计划复核日为2026-10-26，核对时已过期；文本仍在线，需优先复核。视频另有2026-05-12复核日，不冒充正文复核日期。",
+    "supportedClaims": [
+      "调整便秘饮食时，膳食纤维应逐步增加。",
+      "规律、留有充足时间的如厕安排有助于便秘的日常管理。",
+      "有便意时不要拖延如厕。",
+      "日常步行可以帮助排便更规律。"
+    ],
+    "unsupportedClaims": [
+      "排除肠梗阻或其他病因",
+      "保证数日有效",
+      "自行灌肠或取出粪便",
+      "声称正文已按2026年更新"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "public HTTPS HTML text extraction",
+    "sourceNextReviewAt": "2026-10-26",
+    "freshnessNote": "原站计划复核日已过；2026-11-05正文仍可读取。项目的90天复核计划不等于原站更新。"
+  },
+  {
+    "id": "nhs-diarrhoea",
+    "title": "Diarrhoea and vomiting",
+    "publisher": "英国 NHS",
+    "url": "https://www.nhs.uk/conditions/diarrhoea-and-vomiting/",
+    "publishedAt": null,
+    "reviewedAt": "2023-12-21",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "成人短期腹泻或呕吐的一般饮水、饮食、卫生与就医提示。",
+    "supportedClaims": [
+      "腹泻或呕吐伴恶心时，可以小口喝水。",
+      "腹泻时果汁或碳酸饮料可能使腹泻加重。",
+      "腹泻或呕吐期间，勤用肥皂和水洗手有助于减少感染传播。",
+      "持续呕吐、无法留住液体时，应及时就医。"
+    ],
+    "unsupportedClaims": [
+      "确诊感染病原",
+      "个人补液量",
+      "药物选择或剂量",
+      "可无条件居家等待"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "public HTTPS HTML text extraction"
+  },
+  {
+    "id": "who-healthy-diet",
+    "title": "Healthy diet",
+    "publisher": "世界卫生组织 WHO",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/healthy-diet",
+    "publishedAt": null,
+    "reviewedAt": "2026-01-26",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "健康饮食的多样性、全谷物等食物来源、果汁中的游离糖和减盐。reviewedAt记录页面所示日期，页面未另标审阅者或初始发布日期。",
+    "supportedClaims": [
+      "健康饮食应包含多样的营养食物。",
+      "膳食碳水化合物宜主要来自全谷物、蔬菜、水果和豆类。",
+      "没有添加糖或过量钠的冷冻、罐装果蔬也可作为选择。",
+      "多数果汁即使没有添加糖，也含较多游离糖。",
+      "减少烹调中的盐和高钠调味品，有助于降低盐摄入。"
+    ],
+    "unsupportedClaims": [
+      "用特定食物治疗疾病",
+      "保证个人减重",
+      "个体化营养处方",
+      "所有人都可用含钾代盐"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "public HTTPS HTML text extraction"
+  },
+  {
+    "id": "who-physical-activity",
+    "title": "Physical activity",
+    "publisher": "世界卫生组织 WHO",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity",
+    "publishedAt": null,
+    "reviewedAt": "2026-11-04",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "身体活动包含日常移动；适量活动与减少久坐、肌肉力量活动的公共健康原则。reviewedAt记录页面所示日期，页面未另标审阅者或初始发布日期。",
+    "supportedClaims": [
+      "身体活动也包括通勤和家务中的身体移动。",
+      "在适合自身条件的前提下，一些身体活动好过完全不活动。",
+      "应减少久坐的时间。",
+      "肌肉力量活动也是有健康价值的身体活动。",
+      "规律身体活动有助于身心健康。"
+    ],
+    "unsupportedClaims": [
+      "任何运动对所有人都安全",
+      "具体康复动作或强度处方",
+      "疾病治疗效果保证",
+      "八段锦专项疗效"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "public HTTPS HTML text extraction"
+  }
+]

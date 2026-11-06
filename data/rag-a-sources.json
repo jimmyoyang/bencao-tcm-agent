@@ -1,0 +1,331 @@
+[
+  {
+    "id": "nhs-fatigue",
+    "title": "Tiredness and fatigue",
+    "publisher": "NHS (UK National Health Service)",
+    "url": "https://www.nhs.uk/conditions/tiredness-and-fatigue/",
+    "publishedAt": null,
+    "reviewedAt": "2023-06-02",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "疲劳可能由睡眠、生活方式、压力或疾病引起；持续不明原因疲劳应接受评估。",
+    "supportedClaims": [
+      "疲劳可与睡眠不足、生活方式、压力、疾病或某些药物有关。",
+      "原因不明的疲劳持续数周或影响日常生活时，应就医评估。",
+      "保持相对固定的睡眠时间是 NHS 对日常疲劳的自助建议之一。",
+      "睡前安排阅读或听音乐等放松活动可作为疲劳自助的一部分。"
+    ],
+    "unsupportedClaims": [
+      "不支持中医体质、气血或脏腑证型诊断。",
+      "不支持任何草药、补品的个体化推荐或剂量。",
+      "不支持通过单一症状判断疾病或排除急症。",
+      "不支持将英国健康教育直接等同于中国本地诊疗标准。"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Public HTTPS GET via Python urllib; HTTP 200; HTML text extraction; Firecrawl unavailable (not authenticated)",
+    "sourceNextReviewAt": "2026-06-02",
+    "freshnessNote": "截至核对日 2026-11-05，原站标注的 Next review due（2026-06-02）已过。本次公开正文仍可读取，但不能据此声称来源已更新；需优先复核。expiresAt 是本项目的再次核验计划，不延长原站复核日期。"
+  },
+  {
+    "id": "nhs-fatigue-self-help",
+    "title": "Self-help tips to fight tiredness",
+    "publisher": "NHS (UK National Health Service)",
+    "url": "https://www.nhs.uk/live-well/sleep-and-tiredness/self-help-tips-to-fight-fatigue/",
+    "publishedAt": null,
+    "reviewedAt": "2023-11-08",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "饮食规律、咖啡因、酒精及轻度缺水与日常疲劳的生活方式建议。",
+    "supportedClaims": [
+      "规律进餐和适当的健康加餐有助于维持日间精力。",
+      "咖啡因会提神，也可能扰乱睡眠节律并造成白天疲倦。",
+      "酒精可能帮助入睡，却会使睡眠变浅并增加次日疲倦。",
+      "轻度缺水有时会使人感到疲倦。"
+    ],
+    "unsupportedClaims": [
+      "不支持中医体质、气血或脏腑证型诊断。",
+      "不支持任何草药、补品的个体化推荐或剂量。",
+      "不支持通过单一症状判断疾病或排除急症。",
+      "不支持将英国健康教育直接等同于中国本地诊疗标准。"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Public HTTPS GET via Python urllib; HTTP 200; HTML text extraction; Firecrawl unavailable (not authenticated)",
+    "sourceNextReviewAt": "2026-11-08",
+    "freshnessNote": "原站标注的 Next review due 为 2026-11-08，距核对日仅三天，需优先复核；expiresAt 是本项目的再次核验计划，不替代原站复核日期。"
+  },
+  {
+    "id": "nhs-insomnia",
+    "title": "Insomnia",
+    "publisher": "NHS (UK National Health Service)",
+    "url": "https://www.nhs.uk/conditions/insomnia/",
+    "publishedAt": null,
+    "reviewedAt": "2024-03-19",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "成人睡眠需求有个体差异；提供睡眠习惯建议、困倦驾驶限制和求医界限。",
+    "supportedClaims": [
+      "成年人平均需要约 7 至 9 小时睡眠，但个体需求不同。",
+      "保持每天同一时间起床是 NHS 列出的失眠自助建议之一。",
+      "感到困倦时不应驾车。",
+      "睡眠习惯调整无效、睡眠困难持续数月或明显影响生活时应咨询医生。"
+    ],
+    "unsupportedClaims": [
+      "不支持中医体质、气血或脏腑证型诊断。",
+      "不支持任何草药、补品的个体化推荐或剂量。",
+      "不支持通过单一症状判断疾病或排除急症。",
+      "不支持将英国健康教育直接等同于中国本地诊疗标准。"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Public HTTPS GET via Python urllib; HTTP 200; HTML text extraction; Firecrawl unavailable (not authenticated)",
+    "sourceNextReviewAt": "2027-03-19"
+  },
+  {
+    "id": "nhs-periods",
+    "title": "Periods",
+    "publisher": "NHS (UK National Health Service)",
+    "url": "https://www.nhs.uk/conditions/periods/",
+    "publishedAt": null,
+    "reviewedAt": "2023-01-05",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "月经周期、持续时间和颜色的一般信息，以及异常出血的就医提示。",
+    "supportedClaims": [
+      "月经周期并非都固定为 28 天，NHS 页面列举常见间隔为 21 至 35 天。",
+      "月经出血通常持续约 2 至 7 天，常在前两天较多。",
+      "出血较少的经期日子，月经血可呈粉色或棕色。",
+      "经间出血、性交后出血或绝经后出血需要由医生检查。"
+    ],
+    "unsupportedClaims": [
+      "不支持中医体质、气血或脏腑证型诊断。",
+      "不支持任何草药、补品的个体化推荐或剂量。",
+      "不支持通过单一症状判断疾病或排除急症。",
+      "不支持将英国健康教育直接等同于中国本地诊疗标准。"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Public HTTPS GET via Python urllib; HTTP 200; HTML text extraction; Firecrawl unavailable (not authenticated)",
+    "sourceNextReviewAt": "2026-01-05",
+    "freshnessNote": "截至核对日 2026-11-05，原站标注的 Next review due（2026-01-05）已过。本次公开正文仍可读取，但不能据此声称来源已更新；需优先复核。expiresAt 是本项目的再次核验计划，不延长原站复核日期。"
+  },
+  {
+    "id": "nhs-period-pain",
+    "title": "Period pain",
+    "publisher": "NHS (UK National Health Service)",
+    "url": "https://www.nhs.uk/symptoms/period-pain/",
+    "publishedAt": null,
+    "reviewedAt": "2026-03-18",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "痛经可尝试温热和轻柔活动；影响日常生活或存在其他原因时需评估。",
+    "supportedClaims": [
+      "隔着毛巾使用热水袋或热垫是 NHS 列出的痛经缓解方法之一。",
+      "步行等轻柔活动可作为缓解痛经的尝试。",
+      "部分痛经可能与子宫内膜异位症、肌瘤或盆腔炎等疾病有关。",
+      "痛经妨碍日常活动，或月经变得更痛、更重或不规律时，应就医。"
+    ],
+    "unsupportedClaims": [
+      "不支持中医体质、气血或脏腑证型诊断。",
+      "不支持任何草药、补品的个体化推荐或剂量。",
+      "不支持通过单一症状判断疾病或排除急症。",
+      "不支持将英国健康教育直接等同于中国本地诊疗标准。"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Public HTTPS GET via Python urllib; HTTP 200; HTML text extraction; Firecrawl unavailable (not authenticated)",
+    "sourceNextReviewAt": "2029-03-18"
+  },
+  {
+    "id": "nhs-pms",
+    "title": "PMS (premenstrual syndrome)",
+    "publisher": "NHS (UK National Health Service)",
+    "url": "https://www.nhs.uk/conditions/pre-menstrual-syndrome/",
+    "publishedAt": null,
+    "reviewedAt": "2024-06-18",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "经前症状可变化；症状日记、生活方式和补充疗法证据局限。",
+    "supportedClaims": [
+      "经前综合征的表现因人而异，同一个人每月也可能不同。",
+      "连续记录至少两个经期的症状日记可为就医讨论提供信息。",
+      "规律运动是 NHS 列出的经前症状自助建议之一。",
+      "针对经前综合征的补充疗法和膳食补充剂，有效性证据有限。",
+      "正在用药者在开始规律服用补充剂前，应先咨询医生或药师。"
+    ],
+    "unsupportedClaims": [
+      "不支持中医体质、气血或脏腑证型诊断。",
+      "不支持任何草药、补品的个体化推荐或剂量。",
+      "不支持通过单一症状判断疾病或排除急症。",
+      "不支持将英国健康教育直接等同于中国本地诊疗标准。"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Public HTTPS GET via Python urllib; HTTP 200; HTML text extraction; Firecrawl unavailable (not authenticated)",
+    "sourceNextReviewAt": "2027-06-18"
+  },
+  {
+    "id": "nhs-stress",
+    "title": "Get help with stress",
+    "publisher": "NHS (UK National Health Service)",
+    "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/stress/",
+    "publishedAt": null,
+    "reviewedAt": "2026-03-06",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "压力应对中的小目标、交流、事前安排与寻求专业支持。",
+    "supportedClaims": [
+      "面对压力时，把任务拆成容易完成的小目标是一种自助方法。",
+      "与信任的人或健康专业人员谈谈感受可作为压力应对方式。",
+      "提前为容易产生压力的日程做准备可以帮助应对压力。",
+      "难以应对压力或自助方法没有帮助时，应寻求专业支持。"
+    ],
+    "unsupportedClaims": [
+      "不支持中医体质、气血或脏腑证型诊断。",
+      "不支持任何草药、补品的个体化推荐或剂量。",
+      "不支持通过单一症状判断疾病或排除急症。",
+      "不支持将英国健康教育直接等同于中国本地诊疗标准。"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Public HTTPS GET via Python urllib; HTTP 200; HTML text extraction; Firecrawl unavailable (not authenticated)",
+    "sourceNextReviewAt": "2029-03-06"
+  },
+  {
+    "id": "nhs-anxiety",
+    "title": "Get help with anxiety, fear or panic",
+    "publisher": "NHS (UK National Health Service)",
+    "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/anxiety-fear-panic/",
+    "publishedAt": null,
+    "reviewedAt": "2026-07-13",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "焦虑相关生活方式建议、避免有害应对，以及不能自行诊断的界限。",
+    "supportedClaims": [
+      "持续的焦虑、恐惧或惊恐可能与多种健康问题有关，不宜自行诊断。",
+      "步行等规律活动可帮助一些人放松并应对焦虑。",
+      "规律进餐和健康饮食有助于保持较稳定的精力。",
+      "用酒精、吸烟、赌博或药物滥用缓解焦虑可能进一步损害心理健康。"
+    ],
+    "unsupportedClaims": [
+      "不支持中医体质、气血或脏腑证型诊断。",
+      "不支持任何草药、补品的个体化推荐或剂量。",
+      "不支持通过单一症状判断疾病或排除急症。",
+      "不支持将英国健康教育直接等同于中国本地诊疗标准。"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Public HTTPS GET via Python urllib; HTTP 200; HTML text extraction; Firecrawl unavailable (not authenticated)",
+    "sourceNextReviewAt": "2029-07-13"
+  },
+  {
+    "id": "nhs-breathing",
+    "title": "Breathing exercises for stress",
+    "publisher": "NHS (UK National Health Service)",
+    "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/breathing-exercises-for-stress/",
+    "publishedAt": null,
+    "reviewedAt": "2026-06-12",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "日常温和呼吸练习的姿势、舒适度和节奏，不作为急症处理。",
+    "supportedClaims": [
+      "将温和呼吸练习纳入日常习惯，比只偶尔尝试更符合该指南的建议。",
+      "呼吸练习可采用舒适的站姿、背部有支撑的坐姿或卧姿。",
+      "呼吸应保持舒适自然，不需要强迫自己吸得很深。",
+      "可尝试轻柔规律地鼻吸口呼，数数只作为可选的节奏辅助。",
+      "呼吸练习前可在条件允许时松开限制呼吸的衣物。"
+    ],
+    "unsupportedClaims": [
+      "不支持中医体质、气血或脏腑证型诊断。",
+      "不支持任何草药、补品的个体化推荐或剂量。",
+      "不支持通过单一症状判断疾病或排除急症。",
+      "不支持将英国健康教育直接等同于中国本地诊疗标准。"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Public HTTPS GET via Python urllib; HTTP 200; HTML text extraction; Firecrawl unavailable (not authenticated)",
+    "sourceNextReviewAt": "2029-06-12"
+  }
+]

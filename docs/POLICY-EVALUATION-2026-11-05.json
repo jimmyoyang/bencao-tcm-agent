@@ -1,0 +1,363 @@
+{
+  "generatedAt": "2026-11-04T17:32:54.694Z",
+  "scope": "合成用例工程回归，包含开发与独立审查中发现的表达；不是独立临床测试集，不代表真实用户、医学准确率或满意度。",
+  "urgentRecall": {
+    "matched": 23,
+    "total": 23
+  },
+  "urgentFalsePositives": {
+    "count": 0,
+    "total": 13
+  },
+  "intentAndTopic": {
+    "matched": 12,
+    "total": 12
+  },
+  "urgentWithOrdinaryCards": 0,
+  "riskCases": [
+    {
+      "input": "现在胸口疼，还喘不上气、冒冷汗",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "我爸突然一边胳膊没力气，说话含糊",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "突然一侧无力",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "突然头痛得厉害，从来没有过这种情况",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "我没有吃药，现在胸痛而且出冷汗",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "去年有胃病，现在吐血了",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "去年有失眠，现在突然一侧麻木说话含糊",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "我喘不过气，什么是哮喘？",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "突然吐血了，这是什么？",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "如果只是胃病，为什么我今天吐血了？",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "如果不是哮喘，我今天喘不过气该怎么办？",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "我现在呼吸困难是什么？",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "他嘴歪了，突然说不清话",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "我现在喘不过气了",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "吃了花生后喉咙肿，呼吸困难",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "刚刚吐血了，怎么办",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "今天拉黑色柏油样大便",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "肚子突然剧痛，受不了了",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "家人叫不醒，昏过去了",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "没有胸痛，但现在喘不过气",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "胸口疼而且出冷汗，别叫我去医院，教我按摩",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "突然头痛得厉害，是从没有过的剧烈疼痛",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "现在没有气短，可刚才胸痛伴冷汗",
+      "expected": "urgent",
+      "actual": "urgent"
+    },
+    {
+      "input": "什么是胸痛？哪些情况需要120？",
+      "expected": "general",
+      "actual": "general"
+    },
+    {
+      "input": "如果一个人突然偏瘫，应该怎么办？",
+      "expected": "general",
+      "actual": "general"
+    },
+    {
+      "input": "我没有胸痛，也没有气短，就是最近睡不好",
+      "expected": "general",
+      "actual": "general"
+    },
+    {
+      "input": "去年有过胸痛，已就诊，现在没有不舒服",
+      "expected": "general",
+      "actual": "general"
+    },
+    {
+      "input": "现在睡不好，不是胸痛，也不气短",
+      "expected": "general",
+      "actual": "general"
+    },
+    {
+      "input": "胸痛和心绞痛有什么区别？",
+      "expected": "general",
+      "actual": "general"
+    },
+    {
+      "input": "我胃口不好，没有呕血或黑便",
+      "expected": "general",
+      "actual": "general"
+    },
+    {
+      "input": "夜里容易醒，白天困",
+      "expected": "general",
+      "actual": "general"
+    },
+    {
+      "input": "什么是八段锦",
+      "expected": "general",
+      "actual": "general"
+    },
+    {
+      "input": "喝咖啡后睡不着",
+      "expected": "general",
+      "actual": "general"
+    },
+    {
+      "input": "我现在胸口不舒服，不知道是不是疼",
+      "expected": "consult",
+      "actual": "consult"
+    },
+    {
+      "input": "最近会有胸痛，已经不疼了",
+      "expected": "consult",
+      "actual": "consult"
+    },
+    {
+      "input": "突然发麻，说不清是不是一侧",
+      "expected": "consult",
+      "actual": "consult"
+    }
+  ],
+  "intentCases": [
+    {
+      "input": "什么是八段锦",
+      "expected": {
+        "intent": "knowledge",
+        "topic": "movement"
+      },
+      "actual": {
+        "intent": "knowledge",
+        "topic": "movement",
+        "continuation": false,
+        "confidence": "high"
+      }
+    },
+    {
+      "input": "八段锦适合哪些人",
+      "expected": {
+        "intent": "knowledge",
+        "topic": "movement"
+      },
+      "actual": {
+        "intent": "knowledge",
+        "topic": "movement",
+        "continuation": false,
+        "confidence": "high"
+      }
+    },
+    {
+      "input": "失眠是什么意思",
+      "expected": {
+        "intent": "knowledge",
+        "topic": "sleep"
+      },
+      "actual": {
+        "intent": "knowledge",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high"
+      }
+    },
+    {
+      "input": "中医说的脾虚是什么",
+      "expected": {
+        "intent": "knowledge",
+        "topic": "general"
+      },
+      "actual": {
+        "intent": "knowledge",
+        "topic": "general",
+        "continuation": false,
+        "confidence": "high"
+      }
+    },
+    {
+      "input": "陈皮泡水人人适合吗",
+      "expected": {
+        "intent": "knowledge",
+        "topic": "medicine"
+      },
+      "actual": {
+        "intent": "knowledge",
+        "topic": "medicine",
+        "continuation": false,
+        "confidence": "high"
+      }
+    },
+    {
+      "input": "我最近失眠两周，怎么办",
+      "expected": {
+        "intent": "symptom",
+        "topic": "sleep"
+      },
+      "actual": {
+        "intent": "symptom",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high"
+      }
+    },
+    {
+      "input": "晚上总醒，白天困",
+      "expected": {
+        "intent": "symptom",
+        "topic": "sleep"
+      },
+      "actual": {
+        "intent": "symptom",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high"
+      }
+    },
+    {
+      "input": "饭后胃胀，想调理",
+      "expected": {
+        "intent": "symptom",
+        "topic": "digest"
+      },
+      "actual": {
+        "intent": "symptom",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "high"
+      }
+    },
+    {
+      "input": "最近总觉得累",
+      "expected": {
+        "intent": "symptom",
+        "topic": "fatigue"
+      },
+      "actual": {
+        "intent": "symptom",
+        "topic": "fatigue",
+        "continuation": false,
+        "confidence": "high"
+      }
+    },
+    {
+      "input": "我想学八段锦放松",
+      "expected": {
+        "intent": "lifestyle",
+        "topic": "movement"
+      },
+      "actual": {
+        "intent": "lifestyle",
+        "topic": "movement",
+        "continuation": false,
+        "confidence": "high"
+      }
+    },
+    {
+      "input": "我能吃归脾丸吗",
+      "expected": {
+        "intent": "medication",
+        "topic": "medicine"
+      },
+      "actual": {
+        "intent": "medication",
+        "topic": "medicine",
+        "continuation": false,
+        "confidence": "high"
+      }
+    },
+    {
+      "input": "归脾丸一天吃多少",
+      "expected": {
+        "intent": "medication",
+        "topic": "medicine"
+      },
+      "actual": {
+        "intent": "medication",
+        "topic": "medicine",
+        "continuation": false,
+        "confidence": "high"
+      }
+    }
+  ],
+  "notMeasured": [
+    "真实人群急症召回率",
+    "未覆盖表达与临床病因判断",
+    "真实用户满意度与任务完成率",
+    "整个模型回答的引用准确率"
+  ]
+}

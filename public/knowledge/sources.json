@@ -1,0 +1,692 @@
+[
+  {
+    "id": "nhs-fatigue",
+    "title": "Tiredness and fatigue",
+    "publisher": "NHS (UK National Health Service)",
+    "url": "https://www.nhs.uk/conditions/tiredness-and-fatigue/",
+    "publishedAt": null,
+    "reviewedAt": "2023-06-02",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "疲劳可能由睡眠、生活方式、压力或疾病引起；持续不明原因疲劳应接受评估。",
+    "supportedClaims": [
+      "疲劳可与睡眠不足、生活方式、压力、疾病或某些药物有关。",
+      "原因不明的疲劳持续数周或影响日常生活时，应就医评估。",
+      "保持相对固定的睡眠时间是 NHS 对日常疲劳的自助建议之一。",
+      "睡前安排阅读或听音乐等放松活动可作为疲劳自助的一部分。"
+    ],
+    "unsupportedClaims": [
+      "不支持中医体质、气血或脏腑证型诊断。",
+      "不支持任何草药、补品的个体化推荐或剂量。",
+      "不支持通过单一症状判断疾病或排除急症。",
+      "不支持将英国健康教育直接等同于中国本地诊疗标准。"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Public HTTPS GET via Python urllib; HTTP 200; HTML text extraction; Firecrawl unavailable (not authenticated)",
+    "sourceNextReviewAt": "2026-06-02",
+    "freshnessNote": "截至核对日 2026-11-05，原站标注的 Next review due（2026-06-02）已过。本次公开正文仍可读取，但不能据此声称来源已更新；需优先复核。expiresAt 是本项目的再次核验计划，不延长原站复核日期。"
+  },
+  {
+    "id": "nhs-fatigue-self-help",
+    "title": "Self-help tips to fight tiredness",
+    "publisher": "NHS (UK National Health Service)",
+    "url": "https://www.nhs.uk/live-well/sleep-and-tiredness/self-help-tips-to-fight-fatigue/",
+    "publishedAt": null,
+    "reviewedAt": "2023-11-08",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "饮食规律、咖啡因、酒精及轻度缺水与日常疲劳的生活方式建议。",
+    "supportedClaims": [
+      "规律进餐和适当的健康加餐有助于维持日间精力。",
+      "咖啡因会提神，也可能扰乱睡眠节律并造成白天疲倦。",
+      "酒精可能帮助入睡，却会使睡眠变浅并增加次日疲倦。",
+      "轻度缺水有时会使人感到疲倦。"
+    ],
+    "unsupportedClaims": [
+      "不支持中医体质、气血或脏腑证型诊断。",
+      "不支持任何草药、补品的个体化推荐或剂量。",
+      "不支持通过单一症状判断疾病或排除急症。",
+      "不支持将英国健康教育直接等同于中国本地诊疗标准。"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Public HTTPS GET via Python urllib; HTTP 200; HTML text extraction; Firecrawl unavailable (not authenticated)",
+    "sourceNextReviewAt": "2026-11-08",
+    "freshnessNote": "原站标注的 Next review due 为 2026-11-08，距核对日仅三天，需优先复核；expiresAt 是本项目的再次核验计划，不替代原站复核日期。"
+  },
+  {
+    "id": "nhs-insomnia",
+    "title": "Insomnia",
+    "publisher": "英国 NHS",
+    "url": "https://www.nhs.uk/conditions/insomnia/",
+    "publishedAt": null,
+    "reviewedAt": "2024-03-19",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "一般成人睡眠习惯、困倦驾驶风险、持续睡眠问题的就诊时机。",
+    "supportedClaims": [
+      "成年人平均需要约 7 至 9 小时睡眠，但个体需求不同。",
+      "保持每天同一时间起床是 NHS 列出的失眠自助建议之一。",
+      "感到困倦时不应驾车。",
+      "睡眠习惯调整无效、睡眠困难持续数月或明显影响生活时应咨询医生。",
+      "有困意时再上床。",
+      "尽量每天在同一时间起床。",
+      "睡前至少一小时可安排放松活动。",
+      "卧室宜保持黑暗、安静。",
+      "感觉困倦时不要驾驶。",
+      "睡眠困难持续数月时，应寻求医疗评估。"
+    ],
+    "unsupportedClaims": [
+      "不支持中医体质、气血或脏腑证型诊断。",
+      "不支持任何草药、补品的个体化推荐或剂量。",
+      "不支持通过单一症状判断疾病或排除急症。",
+      "不支持将英国健康教育直接等同于中国本地诊疗标准。",
+      "仅凭描述确诊失眠",
+      "保证习惯调整有效",
+      "药物选择或剂量",
+      "将英国服务号码当中国就医路径"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "public HTTPS HTML text extraction",
+    "sourceNextReviewAt": "2027-03-19"
+  },
+  {
+    "id": "nhs-periods",
+    "title": "Periods",
+    "publisher": "NHS (UK National Health Service)",
+    "url": "https://www.nhs.uk/conditions/periods/",
+    "publishedAt": null,
+    "reviewedAt": "2023-01-05",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "月经周期、持续时间和颜色的一般信息，以及异常出血的就医提示。",
+    "supportedClaims": [
+      "月经周期并非都固定为 28 天，NHS 页面列举常见间隔为 21 至 35 天。",
+      "月经出血通常持续约 2 至 7 天，常在前两天较多。",
+      "出血较少的经期日子，月经血可呈粉色或棕色。",
+      "经间出血、性交后出血或绝经后出血需要由医生检查。"
+    ],
+    "unsupportedClaims": [
+      "不支持中医体质、气血或脏腑证型诊断。",
+      "不支持任何草药、补品的个体化推荐或剂量。",
+      "不支持通过单一症状判断疾病或排除急症。",
+      "不支持将英国健康教育直接等同于中国本地诊疗标准。"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Public HTTPS GET via Python urllib; HTTP 200; HTML text extraction; Firecrawl unavailable (not authenticated)",
+    "sourceNextReviewAt": "2026-01-05",
+    "freshnessNote": "截至核对日 2026-11-05，原站标注的 Next review due（2026-01-05）已过。本次公开正文仍可读取，但不能据此声称来源已更新；需优先复核。expiresAt 是本项目的再次核验计划，不延长原站复核日期。"
+  },
+  {
+    "id": "nhs-period-pain",
+    "title": "Period pain",
+    "publisher": "NHS (UK National Health Service)",
+    "url": "https://www.nhs.uk/symptoms/period-pain/",
+    "publishedAt": null,
+    "reviewedAt": "2026-03-18",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "痛经可尝试温热和轻柔活动；影响日常生活或存在其他原因时需评估。",
+    "supportedClaims": [
+      "隔着毛巾使用热水袋或热垫是 NHS 列出的痛经缓解方法之一。",
+      "步行等轻柔活动可作为缓解痛经的尝试。",
+      "部分痛经可能与子宫内膜异位症、肌瘤或盆腔炎等疾病有关。",
+      "痛经妨碍日常活动，或月经变得更痛、更重或不规律时，应就医。"
+    ],
+    "unsupportedClaims": [
+      "不支持中医体质、气血或脏腑证型诊断。",
+      "不支持任何草药、补品的个体化推荐或剂量。",
+      "不支持通过单一症状判断疾病或排除急症。",
+      "不支持将英国健康教育直接等同于中国本地诊疗标准。"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Public HTTPS GET via Python urllib; HTTP 200; HTML text extraction; Firecrawl unavailable (not authenticated)",
+    "sourceNextReviewAt": "2029-03-18"
+  },
+  {
+    "id": "nhs-pms",
+    "title": "PMS (premenstrual syndrome)",
+    "publisher": "NHS (UK National Health Service)",
+    "url": "https://www.nhs.uk/conditions/pre-menstrual-syndrome/",
+    "publishedAt": null,
+    "reviewedAt": "2024-06-18",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "经前症状可变化；症状日记、生活方式和补充疗法证据局限。",
+    "supportedClaims": [
+      "经前综合征的表现因人而异，同一个人每月也可能不同。",
+      "连续记录至少两个经期的症状日记可为就医讨论提供信息。",
+      "规律运动是 NHS 列出的经前症状自助建议之一。",
+      "针对经前综合征的补充疗法和膳食补充剂，有效性证据有限。",
+      "正在用药者在开始规律服用补充剂前，应先咨询医生或药师。"
+    ],
+    "unsupportedClaims": [
+      "不支持中医体质、气血或脏腑证型诊断。",
+      "不支持任何草药、补品的个体化推荐或剂量。",
+      "不支持通过单一症状判断疾病或排除急症。",
+      "不支持将英国健康教育直接等同于中国本地诊疗标准。"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Public HTTPS GET via Python urllib; HTTP 200; HTML text extraction; Firecrawl unavailable (not authenticated)",
+    "sourceNextReviewAt": "2027-06-18"
+  },
+  {
+    "id": "nhs-stress",
+    "title": "Get help with stress",
+    "publisher": "NHS (UK National Health Service)",
+    "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/stress/",
+    "publishedAt": null,
+    "reviewedAt": "2026-03-06",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "压力应对中的小目标、交流、事前安排与寻求专业支持。",
+    "supportedClaims": [
+      "面对压力时，把任务拆成容易完成的小目标是一种自助方法。",
+      "与信任的人或健康专业人员谈谈感受可作为压力应对方式。",
+      "提前为容易产生压力的日程做准备可以帮助应对压力。",
+      "难以应对压力或自助方法没有帮助时，应寻求专业支持。"
+    ],
+    "unsupportedClaims": [
+      "不支持中医体质、气血或脏腑证型诊断。",
+      "不支持任何草药、补品的个体化推荐或剂量。",
+      "不支持通过单一症状判断疾病或排除急症。",
+      "不支持将英国健康教育直接等同于中国本地诊疗标准。"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Public HTTPS GET via Python urllib; HTTP 200; HTML text extraction; Firecrawl unavailable (not authenticated)",
+    "sourceNextReviewAt": "2029-03-06"
+  },
+  {
+    "id": "nhs-anxiety",
+    "title": "Get help with anxiety, fear or panic",
+    "publisher": "NHS (UK National Health Service)",
+    "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/anxiety-fear-panic/",
+    "publishedAt": null,
+    "reviewedAt": "2026-07-13",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "焦虑相关生活方式建议、避免有害应对，以及不能自行诊断的界限。",
+    "supportedClaims": [
+      "持续的焦虑、恐惧或惊恐可能与多种健康问题有关，不宜自行诊断。",
+      "步行等规律活动可帮助一些人放松并应对焦虑。",
+      "规律进餐和健康饮食有助于保持较稳定的精力。",
+      "用酒精、吸烟、赌博或药物滥用缓解焦虑可能进一步损害心理健康。"
+    ],
+    "unsupportedClaims": [
+      "不支持中医体质、气血或脏腑证型诊断。",
+      "不支持任何草药、补品的个体化推荐或剂量。",
+      "不支持通过单一症状判断疾病或排除急症。",
+      "不支持将英国健康教育直接等同于中国本地诊疗标准。"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Public HTTPS GET via Python urllib; HTTP 200; HTML text extraction; Firecrawl unavailable (not authenticated)",
+    "sourceNextReviewAt": "2029-07-13"
+  },
+  {
+    "id": "nhs-breathing",
+    "title": "Breathing exercises for stress",
+    "publisher": "NHS (UK National Health Service)",
+    "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/breathing-exercises-for-stress/",
+    "publishedAt": null,
+    "reviewedAt": "2026-06-12",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "日常温和呼吸练习的姿势、舒适度和节奏，不作为急症处理。",
+    "supportedClaims": [
+      "将温和呼吸练习纳入日常习惯，比只偶尔尝试更符合该指南的建议。",
+      "呼吸练习可采用舒适的站姿、背部有支撑的坐姿或卧姿。",
+      "呼吸应保持舒适自然，不需要强迫自己吸得很深。",
+      "可尝试轻柔规律地鼻吸口呼，数数只作为可选的节奏辅助。",
+      "呼吸练习前可在条件允许时松开限制呼吸的衣物。"
+    ],
+    "unsupportedClaims": [
+      "不支持中医体质、气血或脏腑证型诊断。",
+      "不支持任何草药、补品的个体化推荐或剂量。",
+      "不支持通过单一症状判断疾病或排除急症。",
+      "不支持将英国健康教育直接等同于中国本地诊疗标准。"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Public HTTPS GET via Python urllib; HTTP 200; HTML text extraction; Firecrawl unavailable (not authenticated)",
+    "sourceNextReviewAt": "2029-06-12"
+  },
+  {
+    "id": "sleep-core",
+    "title": "全国爱卫办发布睡眠健康核心信息及释义",
+    "publisher": "全国爱卫办 · 国家卫生健康委员会",
+    "url": "https://www.nhc.gov.cn/guihuaxxs/c100133/202503/70d5836afe804a858b899ee951a24a13.shtml",
+    "publishedAt": "2025-03-18",
+    "reviewedAt": null,
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "睡眠需求存在个体差异；饮食与电子设备等习惯、就医信号、中医治疗需辨证。",
+    "supportedClaims": [
+      "睡眠时长需求存在个体差异。",
+      "晚餐不宜过饱过晚。",
+      "睡前饮酒、喝茶或咖啡可能对睡眠产生不良影响。",
+      "睡前长时间使用电子产品会对睡眠产生不良影响。",
+      "夜间鼾声响亮伴呼吸间歇时，应寻求专业评估。",
+      "中医治疗睡眠障碍需根据具体证候辨证施治。"
+    ],
+    "unsupportedClaims": [
+      "固定睡眠时长适合所有人",
+      "按症状自行套用中药、针灸或穴位治疗",
+      "个人病因诊断"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Chrome cua visible page; public HTTP returned 412"
+  },
+  {
+    "id": "baduanjin",
+    "title": "天坛科普——八段锦 老祖宗传下来的助眠秘方",
+    "publisher": "首都医科大学附属北京天坛医院 · 北京市卫生健康委员会转载",
+    "url": "https://wjw.beijing.gov.cn/bmfw_20143/jkzs/jksh/202503/t20250317_4036769.html",
+    "publishedAt": "2025-03-17",
+    "reviewedAt": null,
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "仅收录八段锦配合身体动作与呼吸，以及原文指向正规演练视频的说明。原文为医院科普，没有提供试验设计、样本或参考文献。",
+    "supportedClaims": [
+      "八段锦练习配合身体活动与呼吸。",
+      "八段锦具体动作可参考国家体育总局健身气功管理中心的演练视频。"
+    ],
+    "unsupportedClaims": [
+      "治愈失眠",
+      "人人适用",
+      "动作治疗某病",
+      "疗效数字",
+      "穴位准确定位与按压操作"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "hospital-education",
+    "fetchMethod": "public HTTPS HTML text extraction"
+  },
+  {
+    "id": "nhs-bloating",
+    "title": "Bloating",
+    "publisher": "英国 NHS",
+    "url": "https://www.nhs.uk/conditions/bloating/",
+    "publishedAt": null,
+    "reviewedAt": "2026-01-21",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "腹胀的一般饮食习惯与持续腹胀的就诊时机。",
+    "supportedClaims": [
+      "闭口咀嚼有助于减少进食时吞入空气。",
+      "腹胀时可尝试少量多餐，避免单次大餐。",
+      "腹胀时应避免大量饮用碳酸饮料。",
+      "经常腹胀时应寻求医疗评估。"
+    ],
+    "unsupportedClaims": [
+      "以腹胀判定某种中医证型",
+      "排除器质性疾病",
+      "腹部按摩的操作安全",
+      "限制所有蔬菜豆类"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "public HTTPS HTML text extraction"
+  },
+  {
+    "id": "nhs-heartburn",
+    "title": "Heartburn and acid reflux",
+    "publisher": "英国 NHS",
+    "url": "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/",
+    "publishedAt": null,
+    "reviewedAt": "2023-11-20",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "反酸烧心的一般生活习惯及不要自行停处方药。",
+    "supportedClaims": [
+      "反酸烧心时可避免在睡前三至四小时内进食。",
+      "反酸烧心时应避免腰部过紧的衣物。",
+      "反酸烧心时可避免明确会诱发自身症状的食物或饮品。",
+      "怀疑处方药引起反酸时，不应自行停药。"
+    ],
+    "unsupportedClaims": [
+      "将任何胸痛归因反酸",
+      "诊断胃食管反流病",
+      "药物选择、剂量或疗程"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "public HTTPS HTML text extraction"
+  },
+  {
+    "id": "nhs-constipation",
+    "title": "Constipation",
+    "publisher": "英国 NHS",
+    "url": "https://www.nhs.uk/conditions/constipation/",
+    "publishedAt": null,
+    "reviewedAt": "2023-10-26",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "成人便秘的一般纤维、如厕与活动习惯。页面计划复核日为2026-10-26，核对时已过期；文本仍在线，需优先复核。视频另有2026-05-12复核日，不冒充正文复核日期。",
+    "supportedClaims": [
+      "调整便秘饮食时，膳食纤维应逐步增加。",
+      "规律、留有充足时间的如厕安排有助于便秘的日常管理。",
+      "有便意时不要拖延如厕。",
+      "日常步行可以帮助排便更规律。"
+    ],
+    "unsupportedClaims": [
+      "排除肠梗阻或其他病因",
+      "保证数日有效",
+      "自行灌肠或取出粪便",
+      "声称正文已按2026年更新"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "public HTTPS HTML text extraction",
+    "sourceNextReviewAt": "2026-10-26",
+    "freshnessNote": "原站计划复核日已过；2026-11-05正文仍可读取。项目的90天复核计划不等于原站更新。"
+  },
+  {
+    "id": "nhs-diarrhoea",
+    "title": "Diarrhoea and vomiting",
+    "publisher": "英国 NHS",
+    "url": "https://www.nhs.uk/conditions/diarrhoea-and-vomiting/",
+    "publishedAt": null,
+    "reviewedAt": "2023-12-21",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "成人短期腹泻或呕吐的一般饮水、饮食、卫生与就医提示。",
+    "supportedClaims": [
+      "腹泻或呕吐伴恶心时，可以小口喝水。",
+      "腹泻时果汁或碳酸饮料可能使腹泻加重。",
+      "腹泻或呕吐期间，勤用肥皂和水洗手有助于减少感染传播。",
+      "持续呕吐、无法留住液体时，应及时就医。"
+    ],
+    "unsupportedClaims": [
+      "确诊感染病原",
+      "个人补液量",
+      "药物选择或剂量",
+      "可无条件居家等待"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "public HTTPS HTML text extraction"
+  },
+  {
+    "id": "who-healthy-diet",
+    "title": "Healthy diet",
+    "publisher": "世界卫生组织 WHO",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/healthy-diet",
+    "publishedAt": null,
+    "reviewedAt": "2026-01-26",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "健康饮食的多样性、全谷物等食物来源、果汁中的游离糖和减盐。reviewedAt记录页面所示日期，页面未另标审阅者或初始发布日期。",
+    "supportedClaims": [
+      "健康饮食应包含多样的营养食物。",
+      "膳食碳水化合物宜主要来自全谷物、蔬菜、水果和豆类。",
+      "没有添加糖或过量钠的冷冻、罐装果蔬也可作为选择。",
+      "多数果汁即使没有添加糖，也含较多游离糖。",
+      "减少烹调中的盐和高钠调味品，有助于降低盐摄入。"
+    ],
+    "unsupportedClaims": [
+      "用特定食物治疗疾病",
+      "保证个人减重",
+      "个体化营养处方",
+      "所有人都可用含钾代盐"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "public HTTPS HTML text extraction"
+  },
+  {
+    "id": "who-physical-activity",
+    "title": "Physical activity",
+    "publisher": "世界卫生组织 WHO",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity",
+    "publishedAt": null,
+    "reviewedAt": "2026-11-04",
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "身体活动包含日常移动；适量活动与减少久坐、肌肉力量活动的公共健康原则。reviewedAt记录页面所示日期，页面未另标审阅者或初始发布日期。",
+    "supportedClaims": [
+      "身体活动也包括通勤和家务中的身体移动。",
+      "在适合自身条件的前提下，一些身体活动好过完全不活动。",
+      "应减少久坐的时间。",
+      "肌肉力量活动也是有健康价值的身体活动。",
+      "规律身体活动有助于身心健康。"
+    ],
+    "unsupportedClaims": [
+      "任何运动对所有人都安全",
+      "具体康复动作或强度处方",
+      "疾病治疗效果保证",
+      "八段锦专项疗效"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex source extraction",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "public HTTPS HTML text extraction"
+  },
+  {
+    "id": "beijing-huairou-holiday-care",
+    "title": "【今日科普】收假上秤emo！分清假性增重，温和调理",
+    "publisher": "北京中医医院怀柔医院 · 北京市卫生健康委员会转载",
+    "url": "https://wjw.beijing.gov.cn/bmfw_20143/jkzs/jksh/202610/t20261008_4892929.html",
+    "publishedAt": "2026-10-08",
+    "reviewedAt": null,
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "本库仅摘录足三里与内关的位置描述及不以催吐减重的提醒。",
+    "supportedClaims": [
+      "足三里位于外膝眼下3寸、胫骨外侧一横指处。",
+      "内关穴位于手腕横纹向上2寸、两筋之间。",
+      "不应通过催吐来减重。"
+    ],
+    "unsupportedClaims": [
+      "不采纳文中的个体减重速度、体重回落时间、穴位疗效与按揉时长。",
+      "不支持自行针刺、艾灸操作或用穴位处理急症。",
+      "不支持用文字确认个人取穴准确，也不支持对个人体重变化进行诊断。"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex public-page check",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Chrome rendered public page; title, attribution, date and quoted excerpt checked; Firecrawl command unavailable",
+    "sourceNextReviewAt": null,
+    "freshnessNote": "网页未标注下次复核日期；项目复核截止日不代表原机构再次审查。"
+  },
+  {
+    "id": "tongguan-zusanli-knowledge",
+    "title": "足三里：保健强身第一穴",
+    "publisher": "铜官区人民政府 · 页面注明来源为安徽省中医药管理局",
+    "url": "https://www.tltg.gov.cn/tgqrmzf/cjwt/pc/content/content_1915676398972624896.html",
+    "publishedAt": "2025-04-21",
+    "reviewedAt": null,
+    "checkedAt": "2026-11-05",
+    "expiresAt": "2027-02-03",
+    "summary": "本库只保留足三里归属足阳明胃经的术语知识，不收录文中的治疗效果宣传。",
+    "supportedClaims": [
+      "足三里归属于足阳明胃经。"
+    ],
+    "unsupportedClaims": [
+      "不支持文中有关免疫、抗衰老、精神疾病、预防中风等疗效断言。",
+      "未核验所署来源的原始页面，不把转载署名当作临床证据。",
+      "不据经络归属推断个人脏腑状态或处方。"
+    ],
+    "populations": [
+      "adult"
+    ],
+    "exclusions": [
+      "pregnant",
+      "lactating",
+      "child"
+    ],
+    "reviewer": "Codex public-page check",
+    "reviewStatus": "machine-checked; human-review-pending",
+    "evidenceLevel": "official-health",
+    "fetchMethod": "Chrome rendered public page; title, attribution, date and quoted excerpt checked; Firecrawl command unavailable",
+    "sourceNextReviewAt": null,
+    "freshnessNote": "网页未标注下次复核日期；项目复核截止日不代表原机构再次审查。"
+  }
+]

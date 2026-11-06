@@ -1,0 +1,30 @@
+{
+  "hosts": [
+    "www.nhs.uk",
+    "www.nhc.gov.cn",
+    "wjw.beijing.gov.cn",
+    "www.who.int",
+    "www.tltg.gov.cn"
+  ],
+  "sourceIds": [
+    "nhs-fatigue",
+    "nhs-fatigue-self-help",
+    "nhs-insomnia",
+    "nhs-periods",
+    "nhs-period-pain",
+    "nhs-pms",
+    "nhs-stress",
+    "nhs-anxiety",
+    "nhs-breathing",
+    "sleep-core",
+    "baduanjin",
+    "nhs-bloating",
+    "nhs-heartburn",
+    "nhs-constipation",
+    "nhs-diarrhoea",
+    "who-healthy-diet",
+    "who-physical-activity",
+    "beijing-huairou-holiday-care",
+    "tongguan-zusanli-knowledge"
+  ]
+}

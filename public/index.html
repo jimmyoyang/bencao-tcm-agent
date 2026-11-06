@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f9f5">
+  <meta name="description" content="本草中医健康助手。聊聊身体的小信号，了解中医知识与日常调养。">
+  <title>本草 · 中医健康助手</title>
+  <link rel="icon" type="image/svg+xml" href="./leaf.svg">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M19.8 4.2C10 2.4 4.1 6.3 5.2 13c.6 3.8 5 5.3 8.4 3.4C17 14.5 18.8 9.8 19.8 4.2Z"/><path d="M4 21c1-5 5-9 10-12"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="m7 10 5-5 5 5M12 5v14"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-8 8c-1.3 0-2.5-.3-3.6-.8L4 20l1.3-4.4A8 8 0 1 1 20 11.5Z"/><path d="M8 10h8M8 14h5"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.6 5.4a5 5 0 0 0-7.1 0L12 7l-1.5-1.6a5 5 0 0 0-7.1 7L12 21l8.6-8.6a5 5 0 0 0 0-7Z"/><path d="M3 12h5l2-3 3 7 2-4h6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+    <symbol id="i-herb" viewBox="0 0 24 24"><path d="M12 21V8m0 7c-6 1-9-3-8-7 5 0 8 3 8 7Zm0-3c6 1 9-3 8-7-5 0-8 3-8 7Z"/></symbol>
+    <symbol id="i-point" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M1 12h4m14 0h4"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></symbol>
+  </defs></svg>
+  <aside class="sidebar">
+    <a class="brand home-link" href="./" aria-label="本草首页"><span class="brand-icon"><svg><use href="#i-leaf"/></svg></span><span>本草<small>中医健康助手</small></span></a>
+    <button class="new-chat side-new" type="button"><svg><use href="#i-plus"/></svg>开启新对话</button>
+    <button class="side-current home-link" type="button"><svg><use href="#i-leaf"/></svg>首页 · 探索健康<span>↗</span></button>
+    <div class="history-heading"><span>历史对话</span><button class="export-history" type="button">导出</button></div>
+    <div class="history-list sidebar-history" aria-label="历史对话列表"></div>
+    <p class="history-storage-note">每轮自动保存在此浏览器<br>换设备或清除浏览器数据后不可用</p><button class="privacy-trigger privacy-link" type="button">隐私与本机数据</button>
+    <button class="about-button" type="button"><svg><use href="#i-info"/></svg>关于这个 Demo <span>↗</span></button>
+  </aside>
+  <div class="workspace">
+    <header class="topbar">
+      <div class="mobile-brand"><span class="brand-icon"><svg><use href="#i-leaf"/></svg></span><strong>本草</strong></div>
+      <div class="page-label">中医健康问答 <span class="demo-badge">DEMO</span></div>
+      <nav class="top-navigation" aria-label="主要导航"><button class="home-link top-nav-button" type="button">首页</button><button class="history-trigger top-nav-button" type="button">历史</button><button class="new-chat top-new" type="button"><svg><use href="#i-plus"/></svg><span>新对话</span></button></nav>
+    </header>
+    <main id="main">
+      <div id="save-warning" role="alert" hidden></div>
+      <section id="welcome" class="welcome" aria-labelledby="welcome-title">
+        <button id="resume-chat" class="resume-chat" type="button" hidden>← 回到刚才的对话<span>内容已保留</span></button>
+        <div class="hero">
+          <div class="hero-copy"><div class="eyebrow"><span></span>让健康，多一点日常的关照</div><h1 id="welcome-title">身体的小信号，<br>一起<span>慢慢理清。</span></h1><p>你好，我是本草。<br>把身体的小困扰说清楚，把日常调养做得更适合自己。</p></div>
+          <div class="botanical" aria-hidden="true">
+            <svg viewBox="0 0 260 290" fill="none"><defs><linearGradient id="bowl" x1="80" y1="207" x2="190" y2="270" gradientUnits="userSpaceOnUse"><stop stop-color="#c6d5be"/><stop offset="1" stop-color="#91ae95"/></linearGradient><linearGradient id="leaves" x1="80" y1="40" x2="172" y2="215"><stop stop-color="#6f9c70"/><stop offset="1" stop-color="#315d47"/></linearGradient></defs><circle cx="136" cy="145" r="104" fill="#e9eee1"/><circle cx="136" cy="145" r="86" stroke="#d8e2d1" stroke-dasharray="2 7"/><ellipse cx="136" cy="267" rx="75" ry="9" fill="#dce5d8" opacity=".65"/><path d="M132 220C136 176 120 124 150 55M133 188C100 157 83 131 73 96M132 162C159 142 177 119 184 89" stroke="#51765b" stroke-width="3" stroke-linecap="round"/><g fill="url(#leaves)"><path d="M139 92c-18-16-13-38 17-59 6 29-1 49-17 59Z"/><path d="M132 123c-29-8-40-26-34-51 28 6 42 24 34 51Z"/><path d="M135 149c6-30 25-44 51-39-5 26-22 40-51 39Z"/><path d="M101 146c-28-1-44-15-44-40 28-1 44 14 44 40Z"/><path d="M86 120c5-23 0-43-22-53-8 22-1 42 22 53Z"/><path d="M166 126c-4-28 9-47 35-52 5 23-8 44-35 52Z"/><path d="M128 187c-27 4-48-6-55-30 27-7 46 5 55 30Z"/><path d="M135 204c5-25 24-40 50-36-5 27-25 41-50 36Z"/></g><g stroke="#bdcfaf" stroke-linecap="round" opacity=".65"><path d="m139 87 13-42M128 115l-24-34M143 142l32-23M95 139l-30-24M168 119l25-33M119 180l-35-16M144 197l31-22"/></g><path d="M84 218h105l-12 37a12 12 0 0 1-11 8h-59a12 12 0 0 1-11-8Z" fill="url(#bowl)"/><ellipse cx="136.5" cy="218" rx="52.5" ry="9" fill="#d5dfcd"/><ellipse cx="136.5" cy="217" rx="44" ry="5" fill="#536e50"/><path d="M132 216v-12" stroke="#51765b" stroke-width="3"/><path d="M93 229c23 8 58 10 86 0" stroke="#eef2e6" opacity=".65"/><circle cx="212" cy="174" r="3" fill="#bfa575"/><circle cx="59" cy="183" r="2" fill="#bfa575"/></svg>
+            <span class="plant-label">一草一木 · 养在日常</span>
+          </div>
+        </div>
+        <div class="topics-heading"><h2>今天，想了解些什么？</h2><span>从一个小问题开始</span></div>
+        <div class="topic-grid">
+          <button class="topic-card" data-question="最近睡不好，日常可以怎么调整？"><span class="topic-icon sage"><svg><use href="#i-sun"/></svg></span><strong>睡眠与作息</strong><span>入睡、夜醒、睡前放松</span><svg class="card-arrow"><use href="#i-chevron"/></svg></button>
+          <button class="topic-card" data-question="最近总是疲惫没精神，应该留意什么？"><span class="topic-icon sand"><svg><use href="#i-heart"/></svg></span><strong>精力与疲惫</strong><span>作息、饮食与就医时机</span><svg class="card-arrow"><use href="#i-chevron"/></svg></button>
+          <button class="topic-card" data-question="饭后容易胃胀，有哪些日常习惯可以留意？"><span class="topic-icon peach"><svg><use href="#i-herb"/></svg></span><strong>胃口与消化</strong><span>胃胀、反酸与排便</span><svg class="card-arrow"><use href="#i-chevron"/></svg></button>
+          <button class="topic-card" data-question="经期不舒服，日常可以怎么照顾自己？"><span class="topic-icon lavender"><svg><use href="#i-heart"/></svg></span><strong>女性日常</strong><span>经期不适，不猜测你的情绪</span><svg class="card-arrow"><use href="#i-chevron"/></svg></button>
+          <button class="topic-card" data-question="最近工作压力大，怎么放松一下？"><span class="topic-icon sage"><svg><use href="#i-leaf"/></svg></span><strong>情绪与压力</strong><span>紧张、呼吸与温和放松</span><svg class="card-arrow"><use href="#i-chevron"/></svg></button>
+          <button class="topic-card" data-question="什么是八段锦？"><span class="topic-icon sand"><svg><use href="#i-sun"/></svg></span><strong>日常活动与养生</strong><span>传统导引、活动与均衡饮食</span><svg class="card-arrow"><use href="#i-chevron"/></svg></button>
+        </div>
+        <button id="quick-test-start" class="quick-test-entry" type="button"><span class="quick-test-icon"><svg><use href="#i-chat"/></svg></span><span class="quick-test-copy"><strong>不知道从哪儿问起？先做 3 题快测</strong><small>用几个选择题梳理现在最困扰你的事，再给你一份简短小结</small></span><span class="quick-test-meta">约 1 分钟 <b>→</b></span></button>
+        <div class="preferences-entry"><button class="preferences-trigger" type="button">日常偏好 <span>仅保存在此浏览器 ↗</span></button></div><div class="suggested"><span>也可以这样问</span><div><button data-question="日常如何减少久坐？">日常如何减少久坐？ <span>↗</span></button><button data-question="最近睡不好，能先从哪些习惯调整？">最近睡不好，怎么调？ <span>↗</span></button><button data-question="八段锦适合所有人吗？">八段锦适合所有人吗？ <span>↗</span></button></div></div>
+        <button id="show-example" class="example-link" type="button">先看一段示例对话 <span>→</span></button>
+      </section>
+      <div id="conversation-bar" hidden><div><h2 id="conversation-title">与本草的对话</h2><span id="saved-state">自动保存在此浏览器</span></div><div class="conversation-tools"><button id="visit-summary-open" type="button">就医摘要</button><button class="export-history" type="button">导出全部</button></div></div>
+      <section id="conversation" class="conversation" aria-label="与本草的对话" hidden></section>
+    </main>
+    <div class="composer-dock">
+      <div class="composer-wrap">
+        <form id="chat-form" class="composer"><label for="question" class="sr-only">你想问的健康问题</label><textarea id="question" rows="1" maxlength="2000" placeholder="说说你的困扰，或问一个中医问题…"></textarea><div class="composer-bottom"><span><svg><use href="#i-leaf"/></svg>认真倾听，循序了解</span><button class="image-trigger" type="button" aria-label="图片预览与使用边界">图片说明</button><span id="char-count" hidden></span><button id="send" type="submit" aria-label="发送问题" disabled><svg><use href="#i-arrow"/></svg></button></div></form>
+        <div class="composer-privacy"><span>对话在本机保存，提问时相关内容会发给模型。</span><button class="privacy-trigger" type="button">隐私与清除</button><label><input type="checkbox" id="use-preferences" checked>本轮使用日常偏好</label></div><p class="disclaimer">AI 健康科普，仅供参考，不替代医生诊疗。急重症请及时就医。<button class="preferences-trigger" type="button">建议偏好</button><button class="about-button" type="button" aria-label="了解使用说明">ⓘ</button></p>
+      </div>
+    </div>
+  </div>
+  <dialog id="about"><form method="dialog"><button class="close-dialog" aria-label="关闭使用说明">×</button><span class="dialog-leaf"><svg><use href="#i-leaf"/></svg></span><h2>你好，我是本草</h2><p>这是一个中医健康问答 Demo，提供知识解释、日常调养建议和症状信息梳理。</p><p>回答由 AI 生成，可能不准确。支持睡眠、疲惫、消化、女性日常、压力及日常活动六个资料主题。回答从精选资料中检索并核对结论与行动，资料由 AI 辅助整理，尚未完成人工医学复核，不代表个人适用性已验证；不是实时搜索，没有接入百度健康知识库。资料不足时会明确停止。图片只做本机预览与分辨率、曝光和细节提示，不上传、不诊断。涉及疾病诊断、药物选择与治疗，请咨询医生或药师。出现急重症表现应立即就医。</p><p class="privacy-note">每轮对话自动保存在当前浏览器，刷新和新建对话后仍可在历史中找回。可逐条删除或导出；未跨设备同步，清除浏览器数据后会丢失。同一浏览器的其他使用者也可能看到记录。你主动保存的日常偏好 30 天有效，仅用于勾选使用偏好的症状与日常建议，可随时清除。近期相关提问、确认的信息和本轮允许使用的偏好会发送至模型服务，请勿输入无关的姓名、电话等信息。</p><button class="dialog-confirm">知道了，开始聊聊</button></form></dialog>
+  <dialog id="image-dialog" aria-labelledby="image-title"><form method="dialog"><button class="close-dialog" aria-label="关闭图片预览">×</button><h2 id="image-title">照片先留在你手里</h2><p>舌苔照片受光线、饮食、拍摄角度影响，不能单凭照片判断疾病或体质。本版仅在本机检查分辨率、曝光和细节是否不足，不做图像诊断，也不会把照片发给问答模型。检查无提示也不代表照片可用于诊断。</p><label class="field-label" for="image-file">选一张照片，仅在本机预览</label><input id="image-file" type="file" accept="image/jpeg,image/png,image/webp"><p>请裁掉姓名、面部及其他无关信息。可在自然光下拍摄，避免滤镜；请医生结合症状面诊评估。</p><img id="image-preview" alt="本机选择的照片预览，未上传" hidden><p id="image-status" role="status">照片只在当前窗口预览，不上传、不保存、不做诊断。</p><button id="image-clear" type="button" class="text-action">移除照片</button><button class="dialog-confirm">关闭并清除预览</button></form></dialog>
+  <dialog id="history-dialog" aria-labelledby="history-title"><form method="dialog"><button class="close-dialog" aria-label="关闭历史对话">×</button><h2 id="history-title">聊过的，都在这里</h2><p>每轮自动保存在此浏览器。打开一段对话，就能接着聊。</p><div class="history-list dialog-history" aria-label="历史对话列表"></div><p class="history-storage-note">记录仅在本机浏览器内，换设备不共享。清除浏览器数据前，记得导出。</p><p>导出包含完整问答、确认信息、感受记录、证据和偏好，文件名不含姓名；请自行妥善保管。</p><button class="export-history dialog-confirm" type="button">导出全部对话</button><button class="privacy-trigger text-action" type="button">隐私与清除全部数据</button></form></dialog>
+  <dialog id="delete-session" aria-labelledby="delete-title"><form method="dialog"><h2 id="delete-title">删除这段对话？</h2><p id="delete-session-title"></p><p>删除后无法找回，其他对话会保留。</p><div class="dialog-actions"><button value="cancel">先保留</button><button value="delete" class="dialog-confirm">删除这段对话</button></div></form></dialog>
+  <dialog id="quick-test" aria-labelledby="quick-question-title"><form method="dialog" class="quick-test-shell"><button class="close-dialog" value="close" aria-label="关闭快测">×</button><div class="quick-test-top"><span class="quick-test-kicker"><svg><use href="#i-chat"/></svg> 快速梳理</span><span id="quick-progress">1 / 3</span></div><h2 id="quick-question-title">现在最困扰你的是什么？</h2><p id="quick-question-note">先选一个最接近的，不需要想得很准确。</p><div id="quick-options" class="quick-options"></div><div class="quick-test-bottom"><button id="quick-back" type="button" hidden>← 上一题</button><button id="quick-skip" class="quick-skip" type="button">先不做快测，直接提问</button></div></form></dialog>
+  <dialog id="visit-summary" aria-labelledby="visit-summary-title"><form method="dialog"><button class="close-dialog" aria-label="关闭就医摘要">×</button><h2 id="visit-summary-title">把情况带给医生</h2><p>已整理你在本次对话中提供的信息。可以直接修改、补充，再复制给医生或药师。</p><label for="visit-summary-text" class="sr-only">核对并编辑就医摘要</label><textarea id="visit-summary-text" rows="10"></textarea><p id="visit-summary-status" role="status" aria-live="polite"></p><button id="visit-summary-copy" type="button" class="dialog-confirm">复制核对后的摘要</button></form></dialog>
+  <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+
+  <dialog id="care-dialog" aria-labelledby="care-title"><div class="care-shell">
+    <button type="button" class="close-dialog" id="care-close" aria-label="关闭情况梳理">×</button>
+    <div class="care-kicker"><span id="care-kicker">一起理清楚</span><span id="care-progress"></span></div>
+    <p class="sensitive-note">填写内容仅在确认后保存并发送给模型。过敏、用药、妊娠等是敏感健康信息，只填本次必要内容，不填姓名或联系方式。</p><h2 id="care-title" tabindex="-1"></h2><p id="care-note"></p><div id="care-body"></div>
+    <div class="care-footer"><button id="care-back" type="button">← 上一步</button><button id="care-skip" type="button">暂不填写</button></div><button type="button" id="care-exit" class="care-exit">不保存，返回对话</button>
+  </div></dialog>
+  <dialog id="preferences-dialog" aria-labelledby="preferences-title"><form id="preferences-form">
+    <button type="button" class="close-dialog" id="preferences-close" aria-label="关闭日常偏好">×</button>
+    <h2 id="preferences-title">日常偏好</h2><p>仅保存在此浏览器，保存后 30 天有效；不跨设备同步。勾选“本轮使用日常偏好”时，会随症状或日常建议问题发送给模型服务。知识与用药问答不使用这些偏好。</p>
+    <label class="field-label" for="preference-approach">你更愿意从哪里开始？</label><select id="preference-approach"><option>都可以</option><option>作息与放松</option><option>轻量活动</option><option>日常饮食</option></select>
+    <label class="field-label" for="preference-food">饮食或生活偏好（选填）</label><textarea id="preference-food" maxlength="200" rows="3" placeholder="例如吃素，或不太方便做饭"></textarea>
+    <p>这些是你确认的偏好，不是健康诊断；不会自动从聊天中建立健康档案。可随时修改或清除。</p>
+    <p class="sensitive-note">这里不是病历或过敏档案。请勿在此长期保存药物、妊娠等信息；必要健康限制可在具体问题中说明。若填写了敏感内容，也会按上述规则发送给模型。</p><p id="preferences-status" role="status"></p><button type="submit" class="dialog-confirm">保存偏好，有效期 30 天</button><button id="preferences-clear" class="text-action" type="button">清除已保存的偏好</button>
+  </form></dialog>
+  <dialog id="privacy-dialog" aria-labelledby="privacy-title"><form method="dialog"><button class="close-dialog" aria-label="关闭隐私说明">×</button><h2 id="privacy-title">隐私与本机数据</h2><p>聊天、确认的健康情况、今日感受会保存在当前浏览器，直到你删除或清除本站数据。同一浏览器的其他使用者也能看到；没有账户同步。健康情况用于后续问答最长 7 天，超过后仍可查看历史，但不再自动带入模型；特殊人群安全限制需要你重新说明或更正，不会因换话题就被解除。</p><p>发送问题时，会将当前问题和相关会话内容发往 POPO 模型服务。日常偏好需主动保存，30 天有效，可在输入框下取消本轮使用。清除本机记录不会撤销已经发送的请求，也不能删除模型服务已收到的内容；服务端保留规则由服务提供方决定。</p><p class="privacy-note">过敏、药物、妊娠及其他健康信息可能敏感。只提供本次必要内容，不填写无关的姓名、电话、身份证号。导出包含健康记录，请妥善保管。</p><div class="metrics-control"><label><input type="checkbox" id="metrics-consent">允许此浏览器记录匿名使用计数</label><p>默认关闭。只数检索命中、依据点击、纠正、弃答与拦截次数，不记录问题、主题、身份或健康内容，不上传。关闭即清除计数。</p><p id="metrics-summary" role="status"></p></div><button class="export-history text-action" type="button">先导出全部记录</button><button id="clear-all-open" class="dialog-confirm" type="button">清除全部本机数据</button></form></dialog>
+  <dialog id="clear-all-dialog" aria-labelledby="clear-all-title"><form method="dialog"><h2 id="clear-all-title">清除本草的全部本机数据？</h2><p>将停止生成，并删除此浏览器中本草的所有聊天、确认信息、感受记录、日常偏好、使用计数、图片预览和未提交草稿。无法恢复，其他网站的数据不受影响。</p><div class="dialog-actions"><button value="cancel">先保留</button><button id="clear-all-confirm" type="button" class="dialog-confirm">确认清除全部</button></div></form></dialog>
+  <dialog id="sleep-guide" aria-labelledby="sleep-guide-title"><form method="dialog"><button class="close-dialog" aria-label="关闭睡眠日常建议">×</button><span class="care-kicker">今天，选一件就好</span><h2 id="sleep-guide-title">给睡眠一点日常关照</h2><p>这是一般日常建议。先选你愿意、也方便做的一件，不需要一次改变所有习惯。</p><div id="sleep-guide-cards"></div><p>症状持续、影响生活，或打鼾伴呼吸停顿，请就诊评估。针灸、中药等需要专业辨证，不能按一个症状自行套用。</p><button id="sleep-guide-personalize" type="button" class="dialog-confirm">结合我的情况，聊聊怎么安排</button></form></dialog>
+
+  <div id="toast" role="status" hidden></div>
+</body>
+</html>

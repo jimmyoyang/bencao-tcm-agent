@@ -1,0 +1,4 @@
+.local-setup-status.json
+screenshots/
+__pycache__/
+tests/__pycache__/

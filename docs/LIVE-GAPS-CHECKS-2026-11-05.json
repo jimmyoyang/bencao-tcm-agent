@@ -1,0 +1,109 @@
+{
+  "date": "2026-11-05",
+  "version": 15,
+  "model": "gpt-6.1-sol",
+  "syntheticScenariosOnly": true,
+  "cycleLiveCheck": {
+    "answer": "当前没有足够匹配且可核验依据，暂时不能针对这个问题给出具体调养建议。你可以说明最想了解的一点，或向医生、药师咨询；我不会用其他主题的资料替你下结论。",
+    "ctaCount": 0,
+    "evidenceCount": 0,
+    "riskNote": ""
+  },
+  "pointLiveCheck": {
+    "answer": "可以先这样理解。下面是相关资料支持的要点：足三里位于外膝眼下3寸、胫骨外侧一横指处。如需实际辨认，请医师现场示范；文字位置不能确认你已正确找到穴位。需要留意位置不确定时不据文字自行针刺或艾灸。孕期、哺乳期和儿童不在本演示适用范围。",
+    "ctas": 0,
+    "evidence": [
+      "足三里位于外膝眼下3寸、胫骨外侧一横指处。【今日科普】收假上秤emo！分清假性增重，温和调理支持范围：仅支持该穴位的位置科普不确定性：这是医院科普的位置描述，不是个人取穴确认或治疗有效性证据；不提供操作深度、时长与疗效。原文短摘录足三里：外膝眼下3寸，胫骨外侧一横指北京中医医院怀柔医院 · 北京市卫生健康委员会转载 · 原文更新 2026-10-08 · 核对 2026-11-05 · 复核截止 2027-02-03网页未标注下次复核日期；项目复核截止日不代表原机构再次审查。"
+    ]
+  },
+  "neiguanLiveCheck": {
+    "answer": "可以先这样理解。下面是相关资料支持的要点：内关穴位于手腕横纹向上2寸、两筋之间。如需实际辨认，请医师现场示范；文字位置不能确认你已正确找到穴位。需要留意位置不确定时不据文字自行针刺或艾灸。孕期、哺乳期和儿童不在本演示适用范围。",
+    "ctas": 0,
+    "evidence": [
+      "内关穴位于手腕横纹向上2寸、两筋之间。【今日科普】收假上秤emo！分清假性增重，温和调理支持范围：仅支持该穴位的位置科普不确定性：这是医院科普的位置描述，不是个人取穴确认或治疗有效性证据；不提供操作深度、时长与疗效。原文短摘录内关穴：手腕横纹向上2寸，两筋之间北京中医医院怀柔医院 · 北京市卫生健康委员会转载 · 原文更新 2026-10-08 · 核对 2026-11-05 · 复核截止 2027-02-03网页未标注下次复核日期；项目复核截止日不代表原机构再次审查。"
+    ]
+  },
+  "riskLiveCheck": {
+    "answer": "你描述的情况可能需要立即处理。请现在拨打 120 或寻求急诊帮助，不要等待在线问答。 如果身边有人，请让对方协助，避免自行驾车，也不要先尝试按摩、运动或自行用药来延误求助。这里无法判断具体病因。",
+    "ctas": [
+      "整理就医信息核对后可带给医生；不要因此延误求助"
+    ],
+    "evidenceCount": 0,
+    "riskNote": "请优先拨打 120 或寻求急诊帮助，不要等待或尝试普通调养。"
+  },
+  "localRiskCheck": {
+    "answer": "你描述的情况可能需要立即处理。请现在拨打 120 或寻求急诊帮助，不要等待在线问答。 如果身边有人，请让对方协助，避免自行驾车，也不要先尝试按摩、运动或自行用药来延误求助。这里无法判断具体病因。",
+    "modelRequests": "本地模拟请求：0"
+  },
+  "v15HistoryCheck": {
+    "turns": 4,
+    "evidenceCount": 2,
+    "identical": true
+  },
+  "imageFlowChecks": [
+    {
+      "label": "测试暗图",
+      "blobPreview": true,
+      "modelRequests": "本地模拟请求：0",
+      "previewVisible": true,
+      "status": "画面可能偏暗，试着移到均匀的自然光下。 可辨细节较少，可能失焦，也可能画面本身平整；请放大检查。 以上只是拍摄提示，不能验证颜色真实性，也不能据此诊断舌象。 图片没有上传；关闭窗口或点“移除照片”即清除预览。"
+    },
+    {
+      "label": "测试亮图",
+      "blobPreview": true,
+      "modelRequests": "本地模拟请求：0",
+      "previewVisible": true,
+      "status": "画面可能过亮，避开直射光和闪光灯。 可辨细节较少，可能失焦，也可能画面本身平整；请放大检查。 以上只是拍摄提示，不能验证颜色真实性，也不能据此诊断舌象。 图片没有上传；关闭窗口或点“移除照片”即清除预览。"
+    },
+    {
+      "label": "测试平滑图",
+      "blobPreview": true,
+      "modelRequests": "本地模拟请求：0",
+      "previewVisible": true,
+      "status": "可辨细节较少，可能失焦，也可能画面本身平整；请放大检查。 以上只是拍摄提示，不能验证颜色真实性，也不能据此诊断舌象。 图片没有上传；关闭窗口或点“移除照片”即清除预览。"
+    },
+    {
+      "label": "测试细节图",
+      "blobPreview": true,
+      "modelRequests": "本地模拟请求：0",
+      "previewVisible": true,
+      "status": "未发现明显的曝光或细节问题，仍请自行核对对焦和光线。 以上只是拍摄提示，不能验证颜色真实性，也不能据此诊断舌象。 图片没有上传；关闭窗口或点“移除照片”即清除预览。"
+    }
+  ],
+  "imageClearCheck": {
+    "fileValue": "",
+    "hidden": true,
+    "modelRequests": "本地模拟请求：0",
+    "src": null
+  },
+  "sourceExcerptChecks": [
+    {
+      "url": "https://wjw.beijing.gov.cn/bmfw_20143/jkzs/jksh/202610/t20261008_4892929.html",
+      "checks": [
+        {
+          "excerpt": "足三里：外膝眼下3寸，胫骨外侧一横指",
+          "found": true
+        },
+        {
+          "excerpt": "内关穴：手腕横纹向上2寸，两筋之间",
+          "found": true
+        },
+        {
+          "excerpt": "断食、催吐、泻药、暴汗服减重均不可取。",
+          "found": true
+        }
+      ]
+    },
+    {
+      "url": "https://www.tltg.gov.cn/tgqrmzf/cjwt/pc/content/content_1915676398972624896.html",
+      "checks": [
+        {
+          "excerpt": "足三里，归属于足阳明胃经",
+          "found": true
+        }
+      ]
+    }
+  ],
+  "nativeFileChooser": "not-tested: existing extension file URL permission limitation; generated images exercise decode/preview/clear without reading files",
+  "humanMedicalReview": "pending"
+}

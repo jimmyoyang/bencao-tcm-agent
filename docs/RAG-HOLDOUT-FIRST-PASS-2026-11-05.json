@@ -1,0 +1,761 @@
+{
+  "type": "first-pass independent synthetic holdout; not live-user or clinical evaluation",
+  "supportedCount": 24,
+  "recallAt3": 0.3333333333333333,
+  "unsupportedNeedModelAbstention": [
+    {
+      "id": "holdout-abstain-01",
+      "intentGroup": "sleep",
+      "query": "想调整卧室环境来帮助睡眠，请告诉我室温和相对湿度各应保持在什么具体数值范围。",
+      "topic": "sleep",
+      "expectedIds": [],
+      "expectAbstain": true,
+      "context": {
+        "intent": "lifestyle",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-dark-quiet",
+        "sleep-tcm-individual-care",
+        "sleep-needs-vary"
+      ],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-abstain-02",
+      "intentGroup": "fatigue",
+      "query": "我是健康成年人，想靠午睡缓解下午的疲惫。午睡具体多长时间最能提神，又不会醒后发懵？",
+      "topic": "fatigue",
+      "expectedIds": [],
+      "expectAbstain": true,
+      "context": {
+        "intent": "symptom",
+        "topic": "fatigue",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-fatigue-01",
+        "a-fatigue-02",
+        "a-fatigue-09",
+        "a-fatigue-08",
+        "a-fatigue-06"
+      ],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-abstain-03",
+      "intentGroup": "digest",
+      "query": "消化保健科普里提到足三里，我只想知道这个穴位在小腿上的准确位置，以及用什么骨性标志辨认。",
+      "topic": "digest",
+      "expectedIds": [],
+      "expectAbstain": true,
+      "context": {
+        "intent": "knowledge",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-abstain-04",
+      "intentGroup": "women",
+      "query": "记录月经周期时，第一天该从少量点滴出血那天算，还是从正式出血那天算？我想弄清楚日历记录的计数规则。",
+      "topic": "women",
+      "expectedIds": [],
+      "expectAbstain": true,
+      "context": {
+        "intent": "lifestyle",
+        "topic": "women",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "professional",
+      "retrievedIds": [],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-abstain-05",
+      "intentGroup": "stress",
+      "query": "想了解渐进式肌肉放松的操作顺序：应该从哪个部位开始，每组肌肉收紧和放松各持续几秒？",
+      "topic": "stress",
+      "expectedIds": [],
+      "expectAbstain": true,
+      "context": {
+        "intent": "lifestyle",
+        "topic": "stress",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-stress-09",
+        "a-stress-06",
+        "a-stress-10",
+        "a-stress-12"
+      ],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-abstain-06",
+      "intentGroup": "wellness",
+      "query": "食品标签上的钠含量写的是毫克，想换算成食盐的克数。钠和食盐之间的具体换算公式是什么？",
+      "topic": "wellness",
+      "expectedIds": [],
+      "expectAbstain": true,
+      "context": {
+        "intent": "knowledge",
+        "topic": "general",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false
+    }
+  ],
+  "rows": [
+    {
+      "id": "holdout-sleep-01",
+      "intentGroup": "sleep",
+      "query": "朋友说成年人必须睡满八小时，少一点就肯定没睡够。每个人都得按这个数吗？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-needs-vary",
+        "a-fatigue-09"
+      ],
+      "context": {
+        "intent": "unknown",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "low",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-sleep-02",
+      "intentGroup": "sleep",
+      "query": "我喜欢窝在被子里用平板追剧，一集接一集看到准备闭眼。这个习惯会不会妨碍睡觉？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-evening-screens"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-sleep-03",
+      "intentGroup": "sleep",
+      "query": "租的房间有路灯照进来，窗外也有声音。想让卧室更适合休息，可以从哪里改起？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-dark-quiet"
+      ],
+      "context": {
+        "intent": "unknown",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "low",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-sleep-04",
+      "intentGroup": "sleep",
+      "query": "到了我定的睡觉时间却还清醒着，要先躺进被窝等，还是有想睡的感觉再去床上？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-go-to-bed-sleepy",
+        "a-fatigue-10"
+      ],
+      "context": {
+        "intent": "unknown",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "low",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-fatigue-01",
+      "intentGroup": "fatigue",
+      "query": "人一疲惫就一定是身体出了某一种病吗？日常有哪些不同因素都可能让人提不起劲？",
+      "topic": "fatigue",
+      "expectedIds": [
+        "a-fatigue-01"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "fatigue",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-fatigue-01",
+        "a-fatigue-08",
+        "a-fatigue-02",
+        "a-fatigue-07",
+        "a-fatigue-11"
+      ],
+      "hitAt3": true
+    },
+    {
+      "id": "holdout-fatigue-02",
+      "intentGroup": "fatigue",
+      "query": "这一个月下班连去买菜的力气都不太有，自己也想不出缘由。是不是该找门诊聊聊了？",
+      "topic": "fatigue",
+      "expectedIds": [
+        "a-fatigue-02"
+      ],
+      "context": {
+        "intent": "unknown",
+        "topic": "general",
+        "continuation": false,
+        "confidence": "low",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-fatigue-03",
+      "intentGroup": "fatigue",
+      "query": "开会常常把午餐挤掉，等到傍晚人就像电池耗光了。想让白天精力稳一点，吃饭怎么安排更合适？",
+      "topic": "fatigue",
+      "expectedIds": [
+        "a-fatigue-05"
+      ],
+      "context": {
+        "intent": "unknown",
+        "topic": "general",
+        "continuation": false,
+        "confidence": "low",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-fatigue-04",
+      "intentGroup": "fatigue",
+      "query": "工作时水杯放在那里一整天都没动几口，人又蔫蔫的。喝水太少和这种疲倦有没有可能有关？",
+      "topic": "fatigue",
+      "expectedIds": [
+        "a-fatigue-08"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "fatigue",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-fatigue-08",
+        "a-fatigue-02"
+      ],
+      "hitAt3": true
+    },
+    {
+      "id": "holdout-digest-01",
+      "intentGroup": "digest",
+      "query": "吃完有点鼓胀，听说吃东西时会把空气也吞进去。嚼东西的时候嘴巴应该怎么做，才能少吞一点？",
+      "topic": "digest",
+      "expectedIds": [
+        "digest-bloating-chew"
+      ],
+      "context": {
+        "intent": "unknown",
+        "topic": "general",
+        "continuation": false,
+        "confidence": "low",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-digest-02",
+      "intentGroup": "digest",
+      "query": "我偶尔有酸水往上返的感觉，平时很爱穿收腹的紧身裤。衣服这方面有需要调整的吗？",
+      "topic": "digest",
+      "expectedIds": [
+        "digest-reflux-tight-waist"
+      ],
+      "context": {
+        "intent": "unknown",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "low",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-digest-03",
+      "intentGroup": "digest",
+      "query": "最近大便偏干，想把粗粮和蔬菜一下子加很多。增加食物里的纤维要一步到位，还是慢慢来？",
+      "topic": "digest",
+      "expectedIds": [
+        "digest-constipation-gradual-fibre"
+      ],
+      "context": {
+        "intent": "unknown",
+        "topic": "wellness",
+        "continuation": false,
+        "confidence": "low",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-digest-04",
+      "intentGroup": "digest",
+      "query": "今天有一点拉肚子，精神还可以。和家人共用卫生间，上完厕所怎样洗手比较合适？",
+      "topic": "digest",
+      "expectedIds": [
+        "digest-diarrhoea-handwashing"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "digest-diarrhoea-handwashing",
+        "digest-diarrhoea-small-sips",
+        "digest-constipation-toilet-routine",
+        "digest-diarrhoea-juice-fizzy",
+        "digest-constipation-urge"
+      ],
+      "hitAt3": true
+    },
+    {
+      "id": "holdout-women-01",
+      "intentGroup": "women",
+      "query": "月经一定要隔二十八天来一次吗？普通成年人的周期一般会落在哪个范围？",
+      "topic": "women",
+      "expectedIds": [
+        "a-women-01"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "women",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-women-01",
+        "a-women-02",
+        "a-women-05",
+        "a-women-06",
+        "a-women-04"
+      ],
+      "hitAt3": true
+    },
+    {
+      "id": "holdout-women-02",
+      "intentGroup": "women",
+      "query": "每次月经快结束、只剩一点点的时候，颜色会偏褐色，别的没什么不舒服。经血量少时也会有这种颜色吗？",
+      "topic": "women",
+      "expectedIds": [
+        "a-women-03"
+      ],
+      "context": {
+        "intent": "unknown",
+        "topic": "women",
+        "continuation": false,
+        "confidence": "low",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-women-03",
+      "intentGroup": "women",
+      "query": "这次来月经还是平常那种轻微的小腹酸痛，想抱个暖水袋舒服一点。可以这样做吗，需要隔层布吗？",
+      "topic": "women",
+      "expectedIds": [
+        "a-women-05"
+      ],
+      "context": {
+        "intent": "unknown",
+        "topic": "women",
+        "continuation": false,
+        "confidence": "low",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-women-04",
+      "intentGroup": "women",
+      "query": "大姨妈来之前那几天有时烦躁、有时犯困，我想下次门诊能说清楚。平时该记些什么，大概要记多久？",
+      "topic": "women",
+      "expectedIds": [
+        "a-women-10"
+      ],
+      "context": {
+        "intent": "lifestyle",
+        "topic": "women",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-women-02",
+        "a-women-01",
+        "a-women-03",
+        "a-women-05",
+        "a-women-06"
+      ],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-stress-01",
+      "intentGroup": "stress",
+      "query": "待办堆在一起，看着就紧张，越想一口气弄完越不知道从哪下手。怎么把事情安排得容易开始一点？",
+      "topic": "stress",
+      "expectedIds": [
+        "a-stress-01"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "stress",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-stress-03",
+        "a-stress-05",
+        "a-stress-01",
+        "a-stress-06",
+        "a-stress-07"
+      ],
+      "hitAt3": true
+    },
+    {
+      "id": "holdout-stress-02",
+      "intentGroup": "stress",
+      "query": "最近工作压得我心里堵，但又觉得跟朋友说这些是在添麻烦。找一个愿意听的人聊聊，算是应对压力的方法吗？",
+      "topic": "stress",
+      "expectedIds": [
+        "a-stress-02"
+      ],
+      "context": {
+        "intent": "unknown",
+        "topic": "stress",
+        "continuation": false,
+        "confidence": "low",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-stress-03",
+      "intentGroup": "stress",
+      "query": "我打算做呼吸放松，有人说每一口都得拼命吸到底。做这种日常练习时，需要这么用力吗？",
+      "topic": "stress",
+      "expectedIds": [
+        "a-stress-11"
+      ],
+      "context": {
+        "intent": "lifestyle",
+        "topic": "stress",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-stress-09",
+        "a-stress-10",
+        "a-stress-11",
+        "a-stress-12",
+        "a-stress-02"
+      ],
+      "hitAt3": true
+    },
+    {
+      "id": "holdout-stress-04",
+      "intentGroup": "stress",
+      "query": "午休想练一会儿呼吸，让自己松下来，办公室只有椅子。靠着椅背坐着做行不行，还是必须躺平？",
+      "topic": "stress",
+      "expectedIds": [
+        "a-stress-10"
+      ],
+      "context": {
+        "intent": "unknown",
+        "topic": "general",
+        "continuation": false,
+        "confidence": "low",
+        "population": "adult"
+      },
+      "route": "professional",
+      "retrievedIds": [],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-wellness-01",
+      "intentGroup": "wellness",
+      "query": "没时间天天买菜，冰柜里的冷冻西兰花、货架上的罐装蔬菜能算健康饮食的选择吗？挑的时候看什么？",
+      "topic": "wellness",
+      "expectedIds": [
+        "wellness-diet-frozen-produce"
+      ],
+      "context": {
+        "intent": "lifestyle",
+        "topic": "wellness",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "wellness-diet-variety",
+        "wellness-diet-frozen-produce",
+        "wellness-activity-some-is-better",
+        "wellness-activity-health",
+        "wellness-diet-juice-sugars"
+      ],
+      "hitAt3": true
+    },
+    {
+      "id": "holdout-wellness-02",
+      "intentGroup": "wellness",
+      "query": "瓶子上写着百分百果汁、没加糖，是不是就能当白水随便喝，糖不用再考虑了？",
+      "topic": "wellness",
+      "expectedIds": [
+        "wellness-diet-juice-sugars"
+      ],
+      "context": {
+        "intent": "unknown",
+        "topic": "general",
+        "continuation": false,
+        "confidence": "low",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-wellness-03",
+      "intentGroup": "wellness",
+      "query": "我不去健身房，但每天走路去地铁站，回家也会拖地收拾。这些算身体活动，还是得专门训练才算？",
+      "topic": "wellness",
+      "expectedIds": [
+        "wellness-activity-everyday"
+      ],
+      "context": {
+        "intent": "unknown",
+        "topic": "wellness",
+        "continuation": false,
+        "confidence": "low",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-wellness-04",
+      "intentGroup": "wellness",
+      "query": "想从头了解八段锦，网上跟练视频太多了。有没有资料里明确提到的正规演练来源可以先看？",
+      "topic": "movement",
+      "expectedIds": [
+        "wellness-baduanjin-instruction"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "movement",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "wellness-baduanjin-breath",
+        "wellness-baduanjin-instruction"
+      ],
+      "hitAt3": true
+    },
+    {
+      "id": "holdout-abstain-01",
+      "intentGroup": "sleep",
+      "query": "想调整卧室环境来帮助睡眠，请告诉我室温和相对湿度各应保持在什么具体数值范围。",
+      "topic": "sleep",
+      "expectedIds": [],
+      "expectAbstain": true,
+      "context": {
+        "intent": "lifestyle",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-dark-quiet",
+        "sleep-tcm-individual-care",
+        "sleep-needs-vary"
+      ],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-abstain-02",
+      "intentGroup": "fatigue",
+      "query": "我是健康成年人，想靠午睡缓解下午的疲惫。午睡具体多长时间最能提神，又不会醒后发懵？",
+      "topic": "fatigue",
+      "expectedIds": [],
+      "expectAbstain": true,
+      "context": {
+        "intent": "symptom",
+        "topic": "fatigue",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-fatigue-01",
+        "a-fatigue-02",
+        "a-fatigue-09",
+        "a-fatigue-08",
+        "a-fatigue-06"
+      ],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-abstain-03",
+      "intentGroup": "digest",
+      "query": "消化保健科普里提到足三里，我只想知道这个穴位在小腿上的准确位置，以及用什么骨性标志辨认。",
+      "topic": "digest",
+      "expectedIds": [],
+      "expectAbstain": true,
+      "context": {
+        "intent": "knowledge",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-abstain-04",
+      "intentGroup": "women",
+      "query": "记录月经周期时，第一天该从少量点滴出血那天算，还是从正式出血那天算？我想弄清楚日历记录的计数规则。",
+      "topic": "women",
+      "expectedIds": [],
+      "expectAbstain": true,
+      "context": {
+        "intent": "lifestyle",
+        "topic": "women",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "professional",
+      "retrievedIds": [],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-abstain-05",
+      "intentGroup": "stress",
+      "query": "想了解渐进式肌肉放松的操作顺序：应该从哪个部位开始，每组肌肉收紧和放松各持续几秒？",
+      "topic": "stress",
+      "expectedIds": [],
+      "expectAbstain": true,
+      "context": {
+        "intent": "lifestyle",
+        "topic": "stress",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-stress-09",
+        "a-stress-06",
+        "a-stress-10",
+        "a-stress-12"
+      ],
+      "hitAt3": false
+    },
+    {
+      "id": "holdout-abstain-06",
+      "intentGroup": "wellness",
+      "query": "食品标签上的钠含量写的是毫克，想换算成食盐的克数。钠和食盐之间的具体换算公式是什么？",
+      "topic": "wellness",
+      "expectedIds": [],
+      "expectAbstain": true,
+      "context": {
+        "intent": "knowledge",
+        "topic": "general",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false
+    }
+  ]
+}

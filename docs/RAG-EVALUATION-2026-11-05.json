@@ -1,0 +1,2317 @@
+{
+  "additionalRegression": {
+    "count": 25,
+    "recallAt3": 0.88,
+    "firstPassArchived": "RAG-HOLDOUT-FIRST-PASS-2026-11-05.json",
+    "note": "After error analysis and generic fixes; no longer an unseen holdout."
+  },
+  "generatedAt": "2026-11-06T03:25:31.306Z",
+  "dataset": "synthetic; authored before retrieval tuning; not independent or live-user validation",
+  "count": 85,
+  "top20CompleteCoverage": 1,
+  "recallAt3": 0.9647058823529412,
+  "topicAccuracy": 0.9764705882352941,
+  "localColdRetrievalP95Ms": 0.33291600000000443,
+  "canonicalAnswerContract": {
+    "accepted": 82,
+    "forgedExtraClaimRejected": 82,
+    "note": "Uses constructed model-output contracts; not measured model medical correctness."
+  },
+  "humanCitationCorrectness": null,
+  "humanReviewStatus": "pending; not substitutable by AI review",
+  "realUserCoverage": null,
+  "rows": [
+    {
+      "id": "sleep-onset-1",
+      "intentGroup": "sleep-onset",
+      "query": "晚上躺着睡不着，有什么日常建议？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-go-to-bed-sleepy"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-go-to-bed-sleepy",
+        "sleep-months-consult",
+        "sleep-dinner-timing",
+        "sleep-evening-stimulants"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "sleep-onset-2",
+      "intentGroup": "sleep-onset",
+      "query": "没有困意时要硬躺在床上吗？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-go-to-bed-sleepy"
+      ],
+      "context": {
+        "intent": "lifestyle",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-go-to-bed-sleepy"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "sleep-onset-3",
+      "intentGroup": "sleep-onset",
+      "query": "入睡困难，怎样安排上床时间？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-go-to-bed-sleepy"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-go-to-bed-sleepy",
+        "sleep-months-consult",
+        "sleep-dinner-timing",
+        "sleep-fixed-wake-time",
+        "sleep-evening-stimulants"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "wake-routine-1",
+      "intentGroup": "wake-routine",
+      "query": "睡懒觉会不会影响作息？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-fixed-wake-time"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-fixed-wake-time"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "wake-routine-2",
+      "intentGroup": "wake-routine",
+      "query": "睡不好，周末几点起床合适？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-fixed-wake-time"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-months-consult",
+        "sleep-go-to-bed-sleepy",
+        "sleep-fixed-wake-time",
+        "sleep-dinner-timing",
+        "sleep-evening-stimulants"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "wake-routine-3",
+      "intentGroup": "wake-routine",
+      "query": "想调整作息，起床时间要固定吗？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-fixed-wake-time"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-fixed-wake-time",
+        "sleep-needs-vary"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "sleep-stimulants-1",
+      "intentGroup": "sleep-stimulants",
+      "query": "睡前喝茶对睡眠有影响吗？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-evening-stimulants"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-evening-stimulants",
+        "sleep-evening-screens",
+        "sleep-wind-down",
+        "sleep-tcm-individual-care",
+        "sleep-needs-vary"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "sleep-stimulants-2",
+      "intentGroup": "sleep-stimulants",
+      "query": "喝酒助眠靠谱吗？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-evening-stimulants"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-evening-stimulants",
+        "sleep-tcm-individual-care"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "sleep-stimulants-3",
+      "intentGroup": "sleep-stimulants",
+      "query": "下午喝咖啡，晚上睡不着怎么办？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-evening-stimulants"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-go-to-bed-sleepy",
+        "sleep-evening-stimulants",
+        "sleep-months-consult",
+        "sleep-dinner-timing"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "sleep-screens-1",
+      "intentGroup": "sleep-screens",
+      "query": "睡前刷手机会影响睡眠吗？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-evening-screens"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-evening-screens",
+        "sleep-wind-down",
+        "sleep-tcm-individual-care",
+        "sleep-needs-vary",
+        "sleep-dark-quiet"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "sleep-screens-2",
+      "intentGroup": "sleep-screens",
+      "query": "晚上刷视频到很晚，对睡觉有什么影响？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-evening-screens"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-evening-screens",
+        "sleep-dinner-timing"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "sleep-screens-3",
+      "intentGroup": "sleep-screens",
+      "query": "失眠时可以一直看电子产品吗？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-evening-screens"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-evening-screens",
+        "sleep-months-consult",
+        "sleep-go-to-bed-sleepy",
+        "sleep-dinner-timing",
+        "sleep-evening-stimulants"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "sleep-room-1",
+      "intentGroup": "sleep-room",
+      "query": "卧室太亮睡不好，可以怎么调整？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-dark-quiet"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-dark-quiet",
+        "sleep-months-consult",
+        "sleep-go-to-bed-sleepy",
+        "sleep-dinner-timing",
+        "sleep-evening-stimulants"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "sleep-room-2",
+      "intentGroup": "sleep-room",
+      "query": "噪音总把我吵醒怎么办？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-dark-quiet"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-dark-quiet"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "sleep-room-3",
+      "intentGroup": "sleep-room",
+      "query": "睡眠环境要注意什么？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-dark-quiet"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-dark-quiet",
+        "sleep-tcm-individual-care",
+        "sleep-needs-vary"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "fatigue-explanation-1",
+      "intentGroup": "fatigue-explanation",
+      "query": "最近总没精神，疲劳可能有哪些原因？",
+      "topic": "fatigue",
+      "expectedIds": [
+        "a-fatigue-01"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "fatigue",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-fatigue-01",
+        "a-fatigue-02",
+        "a-fatigue-08",
+        "a-fatigue-07",
+        "a-fatigue-05"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "fatigue-explanation-2",
+      "intentGroup": "fatigue-explanation",
+      "query": "什么原因会让人一直乏力？",
+      "topic": "fatigue",
+      "expectedIds": [
+        "a-fatigue-01"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "fatigue",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-fatigue-01",
+        "a-fatigue-02",
+        "a-fatigue-08",
+        "a-fatigue-07",
+        "a-fatigue-11"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "fatigue-explanation-3",
+      "intentGroup": "fatigue-explanation",
+      "query": "总是累，能简单解释常见原因吗？",
+      "topic": "fatigue",
+      "expectedIds": [
+        "a-fatigue-01"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "fatigue",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-fatigue-01"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "fatigue-meals-1",
+      "intentGroup": "fatigue-meals",
+      "query": "工作忙到忘吃饭，饿得没劲，日常怎么调整？",
+      "topic": "fatigue",
+      "expectedIds": [
+        "a-fatigue-05"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "fatigue",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-fatigue-05",
+        "a-fatigue-02",
+        "a-fatigue-08",
+        "a-fatigue-01",
+        "a-fatigue-07"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "fatigue-meals-2",
+      "intentGroup": "fatigue-meals",
+      "query": "疲惫时，规律吃饭对精力有帮助吗？",
+      "topic": "fatigue",
+      "expectedIds": [
+        "a-fatigue-05"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "fatigue",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-fatigue-05",
+        "a-fatigue-01",
+        "a-fatigue-08",
+        "a-fatigue-02",
+        "a-fatigue-07"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "fatigue-meals-3",
+      "intentGroup": "fatigue-meals",
+      "query": "经常疲劳又饮食不规律，先改什么？",
+      "topic": "fatigue",
+      "expectedIds": [
+        "a-fatigue-05"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "fatigue",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-fatigue-05",
+        "a-fatigue-01",
+        "a-fatigue-08",
+        "a-fatigue-03",
+        "a-fatigue-02"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "fatigue-consult-1",
+      "intentGroup": "fatigue-consult",
+      "query": "累了好几周也不清楚原因，要去看医生吗？",
+      "topic": "fatigue",
+      "expectedIds": [
+        "a-fatigue-02"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "fatigue",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-fatigue-02",
+        "a-fatigue-01"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "fatigue-consult-2",
+      "intentGroup": "fatigue-consult",
+      "query": "疲劳已经影响工作，何时需要就医？",
+      "topic": "fatigue",
+      "expectedIds": [
+        "a-fatigue-02"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "fatigue",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-fatigue-02",
+        "a-fatigue-01",
+        "a-fatigue-08",
+        "a-fatigue-07",
+        "a-fatigue-11"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "fatigue-consult-3",
+      "intentGroup": "fatigue-consult",
+      "query": "一直没精神，休息也不好，要不要做评估？",
+      "topic": "fatigue",
+      "expectedIds": [
+        "a-fatigue-02"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "fatigue",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-fatigue-02",
+        "a-fatigue-01",
+        "a-fatigue-08",
+        "a-fatigue-07",
+        "a-fatigue-05"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "bloating-meal-1",
+      "intentGroup": "bloating-meal",
+      "query": "饭后肚子胀，吃饭方式可以怎么改？",
+      "topic": "digest",
+      "expectedIds": [
+        "digest-bloating-chew",
+        "digest-bloating-small-meals"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "digest-bloating-chew",
+        "digest-bloating-small-meals",
+        "digest-bloating-persistent",
+        "digest-diarrhoea-handwashing",
+        "digest-reflux-before-bed"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "bloating-meal-2",
+      "intentGroup": "bloating-meal",
+      "query": "总吃太快又饭后胀，怎么调整？",
+      "topic": "digest",
+      "expectedIds": [
+        "digest-bloating-chew",
+        "digest-bloating-small-meals"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "digest-bloating-small-meals",
+        "digest-bloating-chew",
+        "digest-bloating-fizzy-drinks",
+        "digest-bloating-persistent"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "bloating-meal-3",
+      "intentGroup": "bloating-meal",
+      "query": "一顿吃撑容易胀气，怎么吃舒服一点？",
+      "topic": "digest",
+      "expectedIds": [
+        "digest-bloating-chew",
+        "digest-bloating-small-meals"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "digest-bloating-small-meals",
+        "digest-bloating-fizzy-drinks",
+        "digest-bloating-chew",
+        "digest-bloating-persistent",
+        "digest-reflux-prescribed-meds"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "reflux-evening-1",
+      "intentGroup": "reflux-evening",
+      "query": "夜里反酸，晚饭时间可以怎么调整？",
+      "topic": "digest",
+      "expectedIds": [
+        "digest-reflux-before-bed"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "digest-reflux-before-bed",
+        "digest-reflux-personal-triggers",
+        "digest-reflux-tight-waist",
+        "digest-reflux-prescribed-meds",
+        "digest-constipation-toilet-routine"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "reflux-evening-2",
+      "intentGroup": "reflux-evening",
+      "query": "烧心时睡前多久不吃东西？",
+      "topic": "digest",
+      "expectedIds": [
+        "digest-reflux-before-bed"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "digest-reflux-before-bed",
+        "digest-reflux-tight-waist",
+        "digest-reflux-personal-triggers",
+        "digest-reflux-prescribed-meds"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "reflux-evening-3",
+      "intentGroup": "reflux-evening",
+      "query": "反酸跟睡前吃饭有关吗？",
+      "topic": "digest",
+      "expectedIds": [
+        "digest-reflux-before-bed"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "digest-reflux-before-bed",
+        "digest-reflux-personal-triggers",
+        "digest-reflux-tight-waist",
+        "digest-reflux-prescribed-meds",
+        "digest-bloating-chew"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "constipation-habit-1",
+      "intentGroup": "constipation-habit",
+      "query": "便秘，平时有便意总忍着，可以怎么改？",
+      "topic": "digest",
+      "expectedIds": [
+        "digest-constipation-toilet-routine",
+        "digest-constipation-urge"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "digest-constipation-gradual-fibre",
+        "digest-constipation-urge",
+        "digest-constipation-toilet-routine",
+        "digest-constipation-walk"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "constipation-habit-2",
+      "intentGroup": "constipation-habit",
+      "query": "排便困难，怎样养成规律的如厕习惯？",
+      "topic": "digest",
+      "expectedIds": [
+        "digest-constipation-toilet-routine",
+        "digest-constipation-urge"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "digest-constipation-gradual-fibre",
+        "digest-constipation-toilet-routine",
+        "digest-constipation-walk",
+        "digest-constipation-urge"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "constipation-habit-3",
+      "intentGroup": "constipation-habit",
+      "query": "经常憋便又拉不出来，有什么日常建议？",
+      "topic": "digest",
+      "expectedIds": [
+        "digest-constipation-toilet-routine",
+        "digest-constipation-urge"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "digest-constipation-gradual-fibre",
+        "digest-constipation-toilet-routine",
+        "digest-constipation-urge",
+        "digest-constipation-walk",
+        "digest-bloating-persistent"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "diarrhoea-drinks-1",
+      "intentGroup": "diarrhoea-drinks",
+      "query": "拉肚子时喝果汁可以吗？",
+      "topic": "digest",
+      "expectedIds": [
+        "digest-diarrhoea-juice-fizzy",
+        "digest-diarrhoea-small-sips"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "digest-diarrhoea-small-sips",
+        "digest-diarrhoea-juice-fizzy",
+        "digest-diarrhoea-handwashing",
+        "digest-vomiting-fluid-consult",
+        "digest-bloating-chew"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "diarrhoea-drinks-2",
+      "intentGroup": "diarrhoea-drinks",
+      "query": "腹泻有点恶心，水要怎么喝？",
+      "topic": "digest",
+      "expectedIds": [
+        "digest-diarrhoea-juice-fizzy",
+        "digest-diarrhoea-small-sips"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "digest-diarrhoea-small-sips",
+        "digest-diarrhoea-handwashing",
+        "digest-diarrhoea-juice-fizzy",
+        "digest-vomiting-fluid-consult",
+        "digest-bloating-chew"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "diarrhoea-drinks-3",
+      "intentGroup": "diarrhoea-drinks",
+      "query": "拉稀的时候喝汽水会不会不好？",
+      "topic": "digest",
+      "expectedIds": [
+        "digest-diarrhoea-juice-fizzy",
+        "digest-diarrhoea-small-sips"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "digest-diarrhoea-juice-fizzy",
+        "digest-bloating-fizzy-drinks"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "cycle-knowledge-1",
+      "intentGroup": "cycle-knowledge",
+      "query": "月经周期一定是28天吗？",
+      "topic": "women",
+      "expectedIds": [
+        "a-women-01"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "women",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-women-01",
+        "a-women-02",
+        "a-women-05",
+        "a-women-06",
+        "a-women-04"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "cycle-knowledge-2",
+      "intentGroup": "cycle-knowledge",
+      "query": "大姨妈不是28天来一次就异常吗？",
+      "topic": "women",
+      "expectedIds": [
+        "a-women-01"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "women",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-women-01",
+        "a-women-02",
+        "a-women-05",
+        "a-women-06",
+        "a-women-04"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "cycle-knowledge-3",
+      "intentGroup": "cycle-knowledge",
+      "query": "经期怎么算，通常隔多少天来一次？",
+      "topic": "women",
+      "expectedIds": [
+        "a-women-01"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "women",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-women-01",
+        "a-women-02",
+        "a-women-05",
+        "a-women-06",
+        "a-women-04"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "period-care-1",
+      "intentGroup": "period-care",
+      "query": "姨妈肚子疼，想了解日常热敷。",
+      "topic": "women",
+      "expectedIds": [
+        "a-women-05",
+        "a-women-06"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "women",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-women-05",
+        "a-women-06",
+        "a-women-01",
+        "a-women-02"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "period-care-2",
+      "intentGroup": "period-care",
+      "query": "痛经想试试热水袋，要注意什么？",
+      "topic": "women",
+      "expectedIds": [
+        "a-women-05",
+        "a-women-06"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "women",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-women-05",
+        "a-women-07",
+        "a-women-08",
+        "a-women-06"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "period-care-3",
+      "intentGroup": "period-care",
+      "query": "经期可以散步这类温和运动吗？",
+      "topic": "women",
+      "expectedIds": [
+        "a-women-05",
+        "a-women-06"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "women",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-women-06",
+        "a-women-01",
+        "a-women-02",
+        "a-women-05",
+        "a-women-11"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "pms-diary-1",
+      "intentGroup": "pms-diary",
+      "query": "经前症状记录需要记多久？",
+      "topic": "women",
+      "expectedIds": [
+        "a-women-10"
+      ],
+      "context": {
+        "intent": "lifestyle",
+        "topic": "women",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-women-10",
+        "a-women-11",
+        "a-women-02",
+        "a-women-12",
+        "a-women-09"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "pms-diary-2",
+      "intentGroup": "pms-diary",
+      "query": "每月情绪波动，想做经期日记有什么建议？",
+      "topic": "women",
+      "expectedIds": [
+        "a-women-10"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "women",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-women-10",
+        "a-women-01",
+        "a-women-02",
+        "a-women-09",
+        "a-women-03"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "pms-diary-3",
+      "intentGroup": "pms-diary",
+      "query": "PMS记录能给医生什么帮助？",
+      "topic": "women",
+      "expectedIds": [
+        "a-women-10"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "women",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-women-10",
+        "a-women-12",
+        "a-women-11",
+        "a-women-09"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "stress-small-steps-1",
+      "intentGroup": "stress-small-steps",
+      "query": "压力大事情太多，先从哪里开始？",
+      "topic": "stress",
+      "expectedIds": [
+        "a-stress-01"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "stress",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-stress-01",
+        "a-stress-03",
+        "a-stress-04",
+        "a-stress-02"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "stress-small-steps-2",
+      "intentGroup": "stress-small-steps",
+      "query": "工作任务堆积，很有压力，怎么拆小目标？",
+      "topic": "stress",
+      "expectedIds": [
+        "a-stress-01"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "stress",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-stress-01",
+        "a-stress-02",
+        "a-stress-04",
+        "a-stress-03",
+        "a-stress-07"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "stress-small-steps-3",
+      "intentGroup": "stress-small-steps",
+      "query": "忙不过来很紧张，日常如何安排任务？",
+      "topic": "stress",
+      "expectedIds": [
+        "a-stress-01"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "stress",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-stress-01",
+        "a-stress-05",
+        "a-stress-07",
+        "a-stress-06",
+        "a-stress-03"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "breathing-relaxation-1",
+      "intentGroup": "breathing-relaxation",
+      "query": "紧张时怎么练习呼吸放松？",
+      "topic": "stress",
+      "expectedIds": [
+        "a-stress-09",
+        "a-stress-10",
+        "a-stress-11",
+        "a-stress-12"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "stress",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-stress-09",
+        "a-stress-10",
+        "a-stress-12",
+        "a-stress-05",
+        "a-stress-06"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "breathing-relaxation-2",
+      "intentGroup": "breathing-relaxation",
+      "query": "放松呼吸是不是越深越好？",
+      "topic": "stress",
+      "expectedIds": [
+        "a-stress-09",
+        "a-stress-10",
+        "a-stress-11",
+        "a-stress-12"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "stress",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-stress-10",
+        "a-stress-09",
+        "a-stress-12",
+        "a-stress-11",
+        "a-stress-06"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "breathing-relaxation-3",
+      "intentGroup": "breathing-relaxation",
+      "query": "想在办公室做温和呼吸练习，怎么坐？",
+      "topic": "stress",
+      "expectedIds": [
+        "a-stress-09",
+        "a-stress-10",
+        "a-stress-11",
+        "a-stress-12"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "stress",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-stress-09",
+        "a-stress-10",
+        "a-stress-12",
+        "a-stress-11",
+        "a-stress-06"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "food-variety-1",
+      "intentGroup": "food-variety",
+      "query": "健康饮食有哪些基本原则？",
+      "topic": "wellness",
+      "expectedIds": [
+        "wellness-diet-variety"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "wellness",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "wellness-diet-variety",
+        "wellness-activity-health",
+        "wellness-diet-juice-sugars"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "food-variety-2",
+      "intentGroup": "food-variety",
+      "query": "日常均衡饮食怎么吃？",
+      "topic": "wellness",
+      "expectedIds": [
+        "wellness-diet-variety"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "wellness",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "wellness-diet-variety",
+        "wellness-activity-everyday",
+        "wellness-activity-health"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "food-variety-3",
+      "intentGroup": "food-variety",
+      "query": "养生吃法一定要很复杂吗，怎么让食物多样？",
+      "topic": "wellness",
+      "expectedIds": [
+        "wellness-diet-variety"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "wellness",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "wellness-diet-variety",
+        "wellness-baduanjin-breath",
+        "wellness-activity-health"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "less-sitting-1",
+      "intentGroup": "less-sitting",
+      "query": "办公室坐一天，怎样减少久坐？",
+      "topic": "wellness",
+      "expectedIds": [
+        "wellness-activity-less-sitting"
+      ],
+      "context": {
+        "intent": "lifestyle",
+        "topic": "wellness",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "wellness-activity-less-sitting"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "less-sitting-2",
+      "intentGroup": "less-sitting",
+      "query": "日常如何减少久坐？",
+      "topic": "wellness",
+      "expectedIds": [
+        "wellness-activity-less-sitting"
+      ],
+      "context": {
+        "intent": "lifestyle",
+        "topic": "wellness",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "wellness-activity-less-sitting",
+        "wellness-activity-everyday",
+        "wellness-activity-health"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "less-sitting-3",
+      "intentGroup": "less-sitting",
+      "query": "久坐的人平时要留意什么？",
+      "topic": "wellness",
+      "expectedIds": [
+        "wellness-activity-less-sitting"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "wellness",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "wellness-activity-less-sitting"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "baduanjin-knowledge-1",
+      "intentGroup": "baduanjin-knowledge",
+      "query": "什么是八段锦？",
+      "topic": "movement",
+      "expectedIds": [
+        "wellness-baduanjin-breath",
+        "wellness-baduanjin-instruction"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "movement",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "wellness-baduanjin-breath",
+        "wellness-baduanjin-instruction"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "baduanjin-knowledge-2",
+      "intentGroup": "baduanjin-knowledge",
+      "query": "八段锦的动作与呼吸是什么关系？",
+      "topic": "movement",
+      "expectedIds": [
+        "wellness-baduanjin-breath",
+        "wellness-baduanjin-instruction"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "movement",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "wellness-baduanjin-breath",
+        "wellness-baduanjin-instruction"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "baduanjin-knowledge-3",
+      "intentGroup": "baduanjin-knowledge",
+      "query": "想学八段锦，哪里有正规教学？",
+      "topic": "movement",
+      "expectedIds": [
+        "wellness-baduanjin-breath",
+        "wellness-baduanjin-instruction"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "movement",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "wellness-baduanjin-breath",
+        "wellness-baduanjin-instruction"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-sleep-01",
+      "intentGroup": "sleep",
+      "query": "朋友说成年人必须睡满八小时，少一点就肯定没睡够。每个人都得按这个数吗？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-needs-vary",
+        "a-fatigue-09"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-needs-vary"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-sleep-02",
+      "intentGroup": "sleep",
+      "query": "我喜欢窝在被子里用平板追剧，一集接一集看到准备闭眼。这个习惯会不会妨碍睡觉？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-evening-screens"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-evening-screens"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-sleep-03",
+      "intentGroup": "sleep",
+      "query": "租的房间有路灯照进来，窗外也有声音。想让卧室更适合休息，可以从哪里改起？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-dark-quiet"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-dark-quiet",
+        "sleep-tcm-individual-care",
+        "sleep-needs-vary"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-sleep-04",
+      "intentGroup": "sleep",
+      "query": "到了我定的睡觉时间却还清醒着，要先躺进被窝等，还是有想睡的感觉再去床上？",
+      "topic": "sleep",
+      "expectedIds": [
+        "sleep-go-to-bed-sleepy",
+        "a-fatigue-10"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "sleep",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "sleep-go-to-bed-sleepy",
+        "sleep-needs-vary",
+        "sleep-fixed-wake-time"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-fatigue-01",
+      "intentGroup": "fatigue",
+      "query": "人一疲惫就一定是身体出了某一种病吗？日常有哪些不同因素都可能让人提不起劲？",
+      "topic": "fatigue",
+      "expectedIds": [
+        "a-fatigue-01"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "fatigue",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-fatigue-01",
+        "a-fatigue-08",
+        "a-fatigue-02",
+        "a-fatigue-07",
+        "a-fatigue-05"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-fatigue-02",
+      "intentGroup": "fatigue",
+      "query": "这一个月下班连去买菜的力气都不太有，自己也想不出缘由。是不是该找门诊聊聊了？",
+      "topic": "fatigue",
+      "expectedIds": [
+        "a-fatigue-02"
+      ],
+      "context": {
+        "intent": "unknown",
+        "topic": "general",
+        "continuation": false,
+        "confidence": "low",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false,
+      "topicCorrect": false,
+      "canonicalAccepted": false,
+      "inventedRejected": false
+    },
+    {
+      "id": "holdout-fatigue-03",
+      "intentGroup": "fatigue",
+      "query": "开会常常把午餐挤掉，等到傍晚人就像电池耗光了。想让白天精力稳一点，吃饭怎么安排更合适？",
+      "topic": "fatigue",
+      "expectedIds": [
+        "a-fatigue-05"
+      ],
+      "context": {
+        "intent": "lifestyle",
+        "topic": "fatigue",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-fatigue-05",
+        "a-fatigue-01",
+        "a-fatigue-08",
+        "a-fatigue-02",
+        "a-fatigue-07"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-fatigue-04",
+      "intentGroup": "fatigue",
+      "query": "工作时水杯放在那里一整天都没动几口，人又蔫蔫的。喝水太少和这种疲倦有没有可能有关？",
+      "topic": "fatigue",
+      "expectedIds": [
+        "a-fatigue-08"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "fatigue",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-fatigue-08",
+        "a-fatigue-02"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-digest-01",
+      "intentGroup": "digest",
+      "query": "吃完有点鼓胀，听说吃东西时会把空气也吞进去。嚼东西的时候嘴巴应该怎么做，才能少吞一点？",
+      "topic": "digest",
+      "expectedIds": [
+        "digest-bloating-chew"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "digest-bloating-chew"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-digest-02",
+      "intentGroup": "digest",
+      "query": "我偶尔有酸水往上返的感觉，平时很爱穿收腹的紧身裤。衣服这方面有需要调整的吗？",
+      "topic": "digest",
+      "expectedIds": [
+        "digest-reflux-tight-waist"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false,
+      "topicCorrect": true,
+      "canonicalAccepted": false,
+      "inventedRejected": false
+    },
+    {
+      "id": "holdout-digest-03",
+      "intentGroup": "digest",
+      "query": "最近大便偏干，想把粗粮和蔬菜一下子加很多。增加食物里的纤维要一步到位，还是慢慢来？",
+      "topic": "digest",
+      "expectedIds": [
+        "digest-constipation-gradual-fibre"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "digest-constipation-gradual-fibre",
+        "digest-constipation-walk",
+        "digest-constipation-toilet-routine",
+        "digest-constipation-urge",
+        "digest-bloating-chew"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-digest-04",
+      "intentGroup": "digest",
+      "query": "今天有一点拉肚子，精神还可以。和家人共用卫生间，上完厕所怎样洗手比较合适？",
+      "topic": "digest",
+      "expectedIds": [
+        "digest-diarrhoea-handwashing"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "digest",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "digest-diarrhoea-handwashing",
+        "digest-diarrhoea-small-sips",
+        "digest-constipation-toilet-routine",
+        "digest-diarrhoea-juice-fizzy",
+        "digest-constipation-urge"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-women-01",
+      "intentGroup": "women",
+      "query": "月经一定要隔二十八天来一次吗？普通成年人的周期一般会落在哪个范围？",
+      "topic": "women",
+      "expectedIds": [
+        "a-women-01"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "women",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-women-01",
+        "a-women-02",
+        "a-women-05",
+        "a-women-06",
+        "a-women-04"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-women-02",
+      "intentGroup": "women",
+      "query": "每次月经快结束、只剩一点点的时候，颜色会偏褐色，别的没什么不舒服。经血量少时也会有这种颜色吗？",
+      "topic": "women",
+      "expectedIds": [
+        "a-women-03"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "women",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-women-03",
+        "a-women-01",
+        "a-women-02",
+        "a-women-09",
+        "a-women-05"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-women-03",
+      "intentGroup": "women",
+      "query": "这次来月经还是平常那种轻微的小腹酸痛，想抱个暖水袋舒服一点。可以这样做吗，需要隔层布吗？",
+      "topic": "women",
+      "expectedIds": [
+        "a-women-05"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "women",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-women-05",
+        "a-women-01",
+        "a-women-02",
+        "a-women-06",
+        "a-women-04"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-women-04",
+      "intentGroup": "women",
+      "query": "大姨妈来之前那几天有时烦躁、有时犯困，我想下次门诊能说清楚。平时该记些什么，大概要记多久？",
+      "topic": "women",
+      "expectedIds": [
+        "a-women-10"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "women",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-women-10",
+        "a-women-02",
+        "a-women-01",
+        "a-women-03",
+        "a-women-11"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-stress-01",
+      "intentGroup": "stress",
+      "query": "待办堆在一起，看着就紧张，越想一口气弄完越不知道从哪下手。怎么把事情安排得容易开始一点？",
+      "topic": "stress",
+      "expectedIds": [
+        "a-stress-01"
+      ],
+      "context": {
+        "intent": "symptom",
+        "topic": "stress",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-stress-03",
+        "a-stress-05",
+        "a-stress-01",
+        "a-stress-06",
+        "a-stress-07"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-stress-02",
+      "intentGroup": "stress",
+      "query": "最近工作压得我心里堵，但又觉得跟朋友说这些是在添麻烦。找一个愿意听的人聊聊，算是应对压力的方法吗？",
+      "topic": "stress",
+      "expectedIds": [
+        "a-stress-02"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "stress",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-stress-02",
+        "a-stress-03",
+        "a-stress-04",
+        "a-stress-01",
+        "a-stress-07"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-stress-03",
+      "intentGroup": "stress",
+      "query": "我打算做呼吸放松，有人说每一口都得拼命吸到底。做这种日常练习时，需要这么用力吗？",
+      "topic": "stress",
+      "expectedIds": [
+        "a-stress-11"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "stress",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "a-stress-09",
+        "a-stress-10",
+        "a-stress-11",
+        "a-stress-12",
+        "a-stress-02"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-stress-04",
+      "intentGroup": "stress",
+      "query": "午休想练一会儿呼吸，让自己松下来，办公室只有椅子。靠着椅背坐着做行不行，还是必须躺平？",
+      "topic": "stress",
+      "expectedIds": [
+        "a-stress-10"
+      ],
+      "context": {
+        "intent": "unknown",
+        "topic": "general",
+        "continuation": false,
+        "confidence": "low",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [],
+      "hitAt3": false,
+      "topicCorrect": false,
+      "canonicalAccepted": false,
+      "inventedRejected": false
+    },
+    {
+      "id": "holdout-wellness-01",
+      "intentGroup": "wellness",
+      "query": "没时间天天买菜，冰柜里的冷冻西兰花、货架上的罐装蔬菜能算健康饮食的选择吗？挑的时候看什么？",
+      "topic": "wellness",
+      "expectedIds": [
+        "wellness-diet-frozen-produce"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "wellness",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "wellness-diet-variety",
+        "wellness-diet-frozen-produce",
+        "wellness-activity-some-is-better",
+        "wellness-activity-health",
+        "wellness-diet-juice-sugars"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-wellness-02",
+      "intentGroup": "wellness",
+      "query": "瓶子上写着百分百果汁、没加糖，是不是就能当白水随便喝，糖不用再考虑了？",
+      "topic": "wellness",
+      "expectedIds": [
+        "wellness-diet-juice-sugars"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "wellness",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "wellness-diet-juice-sugars"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-wellness-03",
+      "intentGroup": "wellness",
+      "query": "我不去健身房，但每天走路去地铁站，回家也会拖地收拾。这些算身体活动，还是得专门训练才算？",
+      "topic": "wellness",
+      "expectedIds": [
+        "wellness-activity-everyday"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "wellness",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "wellness-activity-everyday",
+        "wellness-activity-strength",
+        "wellness-activity-health",
+        "wellness-activity-some-is-better",
+        "wellness-baduanjin-breath"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-wellness-04",
+      "intentGroup": "wellness",
+      "query": "想从头了解八段锦，网上跟练视频太多了。有没有资料里明确提到的正规演练来源可以先看？",
+      "topic": "movement",
+      "expectedIds": [
+        "wellness-baduanjin-instruction"
+      ],
+      "context": {
+        "intent": "knowledge",
+        "topic": "movement",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "wellness-baduanjin-breath",
+        "wellness-baduanjin-instruction"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    },
+    {
+      "id": "holdout-abstain-03",
+      "intentGroup": "digest",
+      "query": "消化保健科普里提到足三里，我只想知道这个穴位在小腿上的准确位置，以及用什么骨性标志辨认。",
+      "topic": "wellness",
+      "expectedIds": [
+        "wellness-zusanli-location"
+      ],
+      "addedEvidenceIn": "2026-11-05.2; previously unsupported, original first-pass report preserved",
+      "context": {
+        "intent": "knowledge",
+        "topic": "wellness",
+        "continuation": false,
+        "confidence": "high",
+        "population": "adult"
+      },
+      "route": "retrieve",
+      "retrievedIds": [
+        "wellness-zusanli-location",
+        "wellness-zusanli-meridian"
+      ],
+      "hitAt3": true,
+      "topicCorrect": true,
+      "canonicalAccepted": true,
+      "inventedRejected": true
+    }
+  ]
+}

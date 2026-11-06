@@ -1,0 +1,430 @@
+{
+  "date": "2026-11-05",
+  "workId": "67677",
+  "versionNo": 16,
+  "deliveryRevision": "review-gate-v16",
+  "visibility": "specified",
+  "url": "https://bencao-tcm-tm.popo.baidu-int.com/",
+  "archive": "bencao-rag-delivery-20261105-v16.zip",
+  "exclusions": [
+    "credentials",
+    "deployment records",
+    "local setup status",
+    "browser health data",
+    "caches",
+    "old model-setup screenshots"
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 70,
+      "sha256": "68ad438333f9358f7e07250880ddf9100e68312dde25b29e4500b96305891942"
+    },
+    {
+      "path": "PLAN.md",
+      "bytes": 2130,
+      "sha256": "681d26dbede588b454812930db1e2aa3a878f865196db8c9c9e9e9e351dce6d2"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5385,
+      "sha256": "4232b64d4b1d29888bafbcc6c00e11f87e44ce5dd0382a66d34e86aeac7d5638"
+    },
+    {
+      "path": "data/knowledge-cards.jsonl",
+      "bytes": 76932,
+      "sha256": "0fadb299cd2363d1630acf08389d09738d73e58535bc694773319d09818c7538"
+    },
+    {
+      "path": "data/rag-a-cards.jsonl",
+      "bytes": 34894,
+      "sha256": "29db994ee4a1bda06587149e43591b25d2fcf6d842ee443d8e9b7f127bb9060a"
+    },
+    {
+      "path": "data/rag-a-sources.json",
+      "bytes": 14879,
+      "sha256": "fe7c9abb9b748244264308a4d3d4d7a44240235b650e61f19f7c85c7c91f9341"
+    },
+    {
+      "path": "data/rag-b-cards.jsonl",
+      "bytes": 38462,
+      "sha256": "73fe10f8359b836889b22b3663334d7b6829fc41282b3ce2cfeacf29017434c6"
+    },
+    {
+      "path": "data/rag-b-sources.json",
+      "bytes": 11543,
+      "sha256": "44f001739f721ffec2e1d45d713ee6aec02b0d7f12f631237c0cbffa878b0388"
+    },
+    {
+      "path": "data/rag-c-cards.jsonl",
+      "bytes": 3576,
+      "sha256": "8b130e6fe348fb69c1b0debe0c8be84c2394cc4a96dbed2d45e8afcd931a74fe"
+    },
+    {
+      "path": "data/rag-c-sources.json",
+      "bytes": 2877,
+      "sha256": "73d3dd0993d61a5368a8d5c1fc7f93126d2b4cdd656eb7905dfee1e0792e3220"
+    },
+    {
+      "path": "docs/ACCEPTANCE-2026-11-05.md",
+      "bytes": 3392,
+      "sha256": "2191de58c6338d05d7f018eecf063e8d1d41eaaaf8d3e23a7a580d82921da134"
+    },
+    {
+      "path": "docs/ACCEPTANCE-RAG-2026-11-05.md",
+      "bytes": 15011,
+      "sha256": "7b8974c0ef73337a126392dd63b957be8bdc38d53c2d1316fe0dae6d9d4e37cb"
+    },
+    {
+      "path": "docs/ACCEPTANCE-TRUST-2026-11-05.md",
+      "bytes": 5814,
+      "sha256": "b25f553c2227de815af40b5c130d12ca54db7a03fa9b2fd7691b796948219e4c"
+    },
+    {
+      "path": "docs/COUNTERPART-REVIEW-2026-11-05.md",
+      "bytes": 10988,
+      "sha256": "556f7d8cb89993be47a564957ea0f23df4e046e27163df30e2d64629511e44f6"
+    },
+    {
+      "path": "docs/GOAL-COMPLETION-AUDIT-2026-11-05.md",
+      "bytes": 5226,
+      "sha256": "b7b5813aa331ae5736564ea29d5e912a206628fad3343c052e30e11596c5d078"
+    },
+    {
+      "path": "docs/LIVE-GAPS-CHECKS-2026-11-05.json",
+      "bytes": 6447,
+      "sha256": "4fbd9e937d9725b0e72f7710d651b835e0f444f5faaeec7b4b52599433819436"
+    },
+    {
+      "path": "docs/LIVE-RAG-CHECKS-2026-11-05.json",
+      "bytes": 13153,
+      "sha256": "e8a00db415ca897efcbc2da90e64087d8e042aff63cd050636fa41266811602d"
+    },
+    {
+      "path": "docs/POLICY-EVALUATION-2026-11-05.json",
+      "bytes": 8628,
+      "sha256": "c4a6ee5d842ba65719b860ade8bf26d10ecae7b840a28b970b7fb972d19697b3"
+    },
+    {
+      "path": "docs/RAG-CORPUS-REVIEW-2026-11-05.md",
+      "bytes": 8365,
+      "sha256": "b8e3fcf8ef3e82344375be9bc3677e67c9c1d5db015da4a2d43270a68c72323b"
+    },
+    {
+      "path": "docs/RAG-EVALUATION-2026-11-05.json",
+      "bytes": 62326,
+      "sha256": "8547334185440e176af5869ac48e5723c9f57c586b2466bb9ce9718749c0d562"
+    },
+    {
+      "path": "docs/RAG-HOLDOUT-FIRST-PASS-2026-11-05.json",
+      "bytes": 22017,
+      "sha256": "3752f60cd7e4673fab2f43d50b882b0ce9c4cf5d469492b65da672fceccd48e7"
+    },
+    {
+      "path": "docs/RAG-RUNTIME-REVIEW-2026-11-05.md",
+      "bytes": 7785,
+      "sha256": "06c6259007576e51fb58184acd2fb33d21a27eac8a45a7187c5ac54781933397"
+    },
+    {
+      "path": "docs/REDTEAM-EVALUATION-2026-11-05.json",
+      "bytes": 63847,
+      "sha256": "c04ae3b22ff0060f96953a9b6c5fabe56aefc5b94bf1fa53f04e61bf2926e9f8"
+    },
+    {
+      "path": "docs/research/2026-11-05-sleep-sources.md",
+      "bytes": 1813,
+      "sha256": "816c451775378cd7b2b5a552545eaad8ed10355e23fd88eb0583b9cb5bafa1c9"
+    },
+    {
+      "path": "docs/research/rag-a.md",
+      "bytes": 7087,
+      "sha256": "475b73a7c4eecd187be0df2bd7ff6937010f14b988c04b9f114cca4d15a85111"
+    },
+    {
+      "path": "docs/research/rag-b.md",
+      "bytes": 9577,
+      "sha256": "f70604e81fc03e358c1e2bdb4844f0f38f995ab032c776cb679d03dddaab7ad1"
+    },
+    {
+      "path": "docs/research/rag-point-sources.md",
+      "bytes": 1464,
+      "sha256": "6f492f71c1d48fd47f78e2db0360ec3941314643cd67fbc41b5584107b0ea7e5"
+    },
+    {
+      "path": "docs/review/REVIEW-GUIDE.md",
+      "bytes": 6050,
+      "sha256": "0a79937239ee6172c532b09d7e8b72bd0a70197432d4953225f8197f77f01f65"
+    },
+    {
+      "path": "docs/review/citation-human-review.json",
+      "bytes": 115857,
+      "sha256": "24f5e7ab89ce827dd68d2708319adbab69ddb849b578cc6ba2ba45736941979e"
+    },
+    {
+      "path": "docs/review/source-human-review.json",
+      "bytes": 11684,
+      "sha256": "d8f6be0e16141c6f121dd9b1357564810b6125e6b585b08193adfad71cb86679"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-05-care-flow.md",
+      "bytes": 3437,
+      "sha256": "05a3cf4f29cf4f9f103a6eb5b9f1f5bb664f521a536da750c10adc34ae44eac7"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-05-completion-gaps.md",
+      "bytes": 2635,
+      "sha256": "2e98f66f708dee9fe3cd45cf2748d79cbfba6251bd47cf64f508868c9458a790"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-05-curated-rag.md",
+      "bytes": 5320,
+      "sha256": "e0bb8aee4faf1cb8dfb1be5aebfff29e48468524392550a918346b49ce588731"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-05-trust-fixes.md",
+      "bytes": 3380,
+      "sha256": "0230c2d5718f6c8ecccb54653fe945aab911f74862d32929b7ff66f5710f70c1"
+    },
+    {
+      "path": "package.json",
+      "bytes": 344,
+      "sha256": "a83ce2e8b125b9aa2f09ea9d6a951d7294e9392494062662304ea45978c12cdd"
+    },
+    {
+      "path": "public/app.js",
+      "bytes": 54060,
+      "sha256": "0be98ed6f931cec61a008bfafe25b6b997b89a409a4d8c9565040542d2847110"
+    },
+    {
+      "path": "public/care.mjs",
+      "bytes": 15519,
+      "sha256": "143aa8f54de6acd8fbf1a1b26b4635d8a73bc90b8983278064ac9e7ecc72d6b8"
+    },
+    {
+      "path": "public/config.js",
+      "bytes": 88,
+      "sha256": "19552670dc5292ca3b995c0f442f1c5e0efccf02790a26c5a6a77b8ca74d865d"
+    },
+    {
+      "path": "public/core.mjs",
+      "bytes": 14161,
+      "sha256": "331520536354ee842c4891b8323fc7a0500c49f27297e64ed7fa9189428a71ae"
+    },
+    {
+      "path": "public/history.mjs",
+      "bytes": 5621,
+      "sha256": "8764ab6b4799ac1e36f7eec5107a563e3a31e9afda80495397c50555564cf112"
+    },
+    {
+      "path": "public/image.mjs",
+      "bytes": 2526,
+      "sha256": "b5d13e3cc340a04e11fa490fcbf2cb27ed7b4554b7eddc15046c825f50e72bc7"
+    },
+    {
+      "path": "public/index.html",
+      "bytes": 22602,
+      "sha256": "d0498d6292f9445bee7d34ec27c281ef32815ef85eecfc0026a424f2642ce4ea"
+    },
+    {
+      "path": "public/knowledge/allowlist.json",
+      "bytes": 576,
+      "sha256": "bc1cb3403213633517a3c5b1d7674e172401f1221340e9bcf6f799c0e48a41e3"
+    },
+    {
+      "path": "public/knowledge/index.json",
+      "bytes": 151038,
+      "sha256": "a430a08374b3166e8eb141d453f6342ed912f499ac70dcfab82df42798304fa5"
+    },
+    {
+      "path": "public/knowledge/sources.json",
+      "bytes": 28586,
+      "sha256": "b5102a4fec4003584aaffd2aba8f16fc71bc9281c6d599eee10511402734e235"
+    },
+    {
+      "path": "public/knowledge/verified-index.json",
+      "bytes": 3700,
+      "sha256": "370f881c1ec4412c6593b06d7f56fa813ef53569833d212cc0abc8a047009911"
+    },
+    {
+      "path": "public/leaf.svg",
+      "bytes": 318,
+      "sha256": "201e41cad026d4dfdde9b164f0ebda851a58283e4144af56b5aa10c0faececfa"
+    },
+    {
+      "path": "public/metrics.mjs",
+      "bytes": 1207,
+      "sha256": "d0c66445296f5778a5dba8e434acb18d89d080c6f5c50b3b9aed0e0176a19a4e"
+    },
+    {
+      "path": "public/policy.mjs",
+      "bytes": 18165,
+      "sha256": "6e2859db06901684733c0dcd1bb211868316f2c8e7c494b8a8fdc06e07359e1d"
+    },
+    {
+      "path": "public/rag.mjs",
+      "bytes": 10547,
+      "sha256": "e74c30919765314451a4568acfe3b1d369abc025f12b2659fb7121ed2f908ee3"
+    },
+    {
+      "path": "public/style.css",
+      "bytes": 32046,
+      "sha256": "0c537a4de94312f29c58eeed3d29a98c084efc9e97ef13a6f16494f78e8ca99a"
+    },
+    {
+      "path": "screenshots/local-v15-image-quality.png",
+      "bytes": 46322,
+      "sha256": "155ffa46b2a82cc022c619d32c5a8ba388f04fb8fcaaa07e51150abdaba32841"
+    },
+    {
+      "path": "screenshots/published-rag-desktop.png",
+      "bytes": 65010,
+      "sha256": "2b3cab143d2859ba510c3a6baa82e133bf2889f6451e1149b15182cf9e1b506a"
+    },
+    {
+      "path": "screenshots/published-rag-mobile.png",
+      "bytes": 52334,
+      "sha256": "5131fe82b6b05476639470530089a8303390f82b0d9c719ea87b7f5abb989968"
+    },
+    {
+      "path": "screenshots/published-rag-scenes.png",
+      "bytes": 62735,
+      "sha256": "10418c1b49b68fcc1e47aed164701d8837b51d8fdeaf10e6aaf0816af61d0b94"
+    },
+    {
+      "path": "screenshots/published-rag-v15-evidence.png",
+      "bytes": 70409,
+      "sha256": "d8ade9fc8ac663f10a0224ea988d3998f85a9a02962c24e85207a8119dd90d34"
+    },
+    {
+      "path": "tests/care.test.mjs",
+      "bytes": 9076,
+      "sha256": "bf5640254a8dadf3ace8f469a6b85a04aed203b774bcfeaf43165dd26e6f8869"
+    },
+    {
+      "path": "tests/core.test.mjs",
+      "bytes": 5084,
+      "sha256": "3ad4de22ec9af8d4764257b1cbf472d0f1a08798447c595af55bc6902dd1fb9f"
+    },
+    {
+      "path": "tests/fixtures/local-preview.png",
+      "bytes": 3690,
+      "sha256": "ca1e9755adeb1b2c74ca0b8cba1b41c8626430eb6a58c67c1b5847fb2bbc4a68"
+    },
+    {
+      "path": "tests/history.test.mjs",
+      "bytes": 3232,
+      "sha256": "ef54595f470aba54255e8a7b237940acbcb4e02dac4195d36d5173b007be1054"
+    },
+    {
+      "path": "tests/image.test.mjs",
+      "bytes": 1710,
+      "sha256": "6f3be6de585ea354677f8b04e9e8d15901202169357b97ee0cc757608a241092"
+    },
+    {
+      "path": "tests/point-knowledge.test.mjs",
+      "bytes": 1684,
+      "sha256": "d8e4862acee906c6d1f082b6ab50ee01f086796380f550da6256e113021da099"
+    },
+    {
+      "path": "tests/policy.test.mjs",
+      "bytes": 21516,
+      "sha256": "abbea1dabf8cda65261f57d30c8dd96b301db2fab755034911d3dc8d86ad5f7b"
+    },
+    {
+      "path": "tests/quality-cases.mjs",
+      "bytes": 2834,
+      "sha256": "dd179dc3326b2c98ee24f05056533abac85f7022501a757d1ed68059f5429d53"
+    },
+    {
+      "path": "tests/rag-history.test.mjs",
+      "bytes": 4446,
+      "sha256": "d25d1d9c6d5b6c119a0822842f1a4d530158106f923f93bf40647c2710424da7"
+    },
+    {
+      "path": "tests/rag.test.mjs",
+      "bytes": 4715,
+      "sha256": "9aee57e2a11ad0f180069843bd7b9f70e494516606d34825e74babdad395a364"
+    },
+    {
+      "path": "tests/redteam-cases.mjs",
+      "bytes": 7408,
+      "sha256": "78d39a18530992181c0a174d4436aa92d1407faf5068c7cab4553ade610a2f57"
+    },
+    {
+      "path": "tests/retrieval-cases.mjs",
+      "bytes": 4315,
+      "sha256": "813a26970b5fb7f5a5b32f46c440d1846c4ac584e31f22a4cb94ab747ce7ffa2"
+    },
+    {
+      "path": "tests/retrieval-holdout.mjs",
+      "bytes": 8153,
+      "sha256": "89c1da3fbce40578132139ad7fbd053f2c193e856809fb217c9842e6e7bc3618"
+    },
+    {
+      "path": "tests/review-build.test.mjs",
+      "bytes": 3549,
+      "sha256": "b996876ac59a2811bdc5afa81a97ce51fa805ec19da1082aa574e2f5becb3ff3"
+    },
+    {
+      "path": "tests/serve_fixture.py",
+      "bytes": 1161,
+      "sha256": "183c547fa893ee7590946860c793568454bd1cdf6e6de677a45e08337d782efa"
+    },
+    {
+      "path": "tests/test_model_setup.py",
+      "bytes": 1902,
+      "sha256": "f19e0c2e943cb2dc674f0a881c883544bc29e37778986f0ff5cfe5d81672ddba"
+    },
+    {
+      "path": "tests/ui-fixture.js",
+      "bytes": 3394,
+      "sha256": "dc6d2f43faa87a7f2c24738a0b2b42990faa7471c2ca96e055c0ba76994edcc2"
+    },
+    {
+      "path": "tools/build-knowledge.mjs",
+      "bytes": 7317,
+      "sha256": "e693307d29fee6ee9ea285601d7a36d23279e176c90c53cf7acc37ecc75a5146"
+    },
+    {
+      "path": "tools/evaluate-policy.mjs",
+      "bytes": 1763,
+      "sha256": "b3670eb0d48db0d913b9e9f533edddae33cc84f05fe892f4c7edf145276a37d4"
+    },
+    {
+      "path": "tools/evaluate-rag.mjs",
+      "bytes": 3060,
+      "sha256": "fd58b4691803c70ac4f65a0af4fd8e2eb63461a27ea03533aa9c9292b9dac441"
+    },
+    {
+      "path": "tools/evaluate-redteam.mjs",
+      "bytes": 3272,
+      "sha256": "528faaa1605b83c1d729d90f77c08234462630c016efed825a7a99da419c52cc"
+    },
+    {
+      "path": "tools/model_setup.py",
+      "bytes": 11205,
+      "sha256": "3ba0e970cabd7ad078e2ffd4d8b72466a2b0e81e8c34cc59cbe0e552dfe4c0a9"
+    },
+    {
+      "path": "tools/review-schema.mjs",
+      "bytes": 976,
+      "sha256": "60e03c465d0696456ea5f958696408cd746a10ad31e7b3b25e08ec1623a46b98"
+    }
+  ],
+  "expectedZipEntries": 80,
+  "checks": {
+    "nodeTests": "71/71",
+    "pythonTests": "3/3",
+    "syntheticRedteam": "100/100",
+    "retrieval": "82/85 synthetic",
+    "corpus": "80 cards / 19 sources",
+    "latestLiveHistory": "4 rounds / 2 evidence items restored exactly",
+    "imageGeneratedFileFlow": "4 samples decoded, previewed, and cleared; 0 model requests",
+    "humanMedicalReview": "0/80 completed; 80 pending",
+    "sourceReview": "0/19 completed; 3 stale machine findings",
+    "verifiedIndex": "blocked; 0 cards",
+    "realUserCoverage": "not measured",
+    "nativeFileChooserE2E": "browser permission limitation"
+  },
+  "archiveValidation": "CRC and per-entry SHA256 checked after creation; archive hash saved beside ZIP."
+}
