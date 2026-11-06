@@ -7,7 +7,7 @@
 - 公开代码：[jimmyoyang/bencao-tcm-agent](https://github.com/jimmyoyang/bencao-tcm-agent)
 - 当前 POPO 版本：v17
 - 当前模型：gpt-6.1-sol
-- 访问说明  POPO 授权链接的有效性和可见范围由 POPO 控制，链接失效时请从线上作品页进入
+- POPO 授权链接的有效性和可见范围由 POPO 控制，链接失效时请从线上作品页进入
 
 ## 项目背景
 
