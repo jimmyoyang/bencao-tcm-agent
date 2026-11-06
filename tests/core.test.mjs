@@ -83,3 +83,18 @@ test('就医摘要保留用户原话和快测信息，不混入 AI 推测、示�
   assert.doesNotMatch(summary, /示例症状|某种疾病|模型的进一步推测|FOLLOWUPS|我完成了快测/);
   assert.match(summary, /请核对/);
 });
+
+test('兼容 Responses 非流式 output_text', async () => {
+  const response = new Response(JSON.stringify({ output_text:'来自 Responses 的回答' }), {headers:{'content-type':'application/json'} });
+  assert.equal(await readCompletion(response, () => {}), '来自 Responses 的回答');
+});
+
+test('兼容 Responses SSE output_text.delta', async () => {
+  const source = 'data: {"type":"response.output_text.delta","delta":"第一段"}\n\n' +
+    'data: {"type":"response.output_text.delta","delta":"第二段"}\n\n' +
+    'data: {"type":"response.completed"}\n\n';
+  const chunks=[];
+  const response = new Response(source, {headers:{'content-type':'text/event-stream'} });
+  assert.equal(await readCompletion(response, value => chunks.push(value)), '第一段第二段');
+  assert.deepEqual(chunks, ['第一段','第一段第二段']);
+});

@@ -4,8 +4,9 @@
 
 - 直接体验：[本草 · 中医健康助手（POPO 外部授权链接）](https://bencao-tcm-tm.popo.baidu.com/?k=psajtik7)
 - 公开代码：[jimmyoyang/bencao-tcm-agent](https://github.com/jimmyoyang/bencao-tcm-agent)
-- 当前 POPO 版本：v17
-- 当前模型：gpt-6.1-sol
+- 当前 POPO 版本：v18
+- 默认模型：gpt-6.1-sol（POPO 演示模式）
+- 连接方式：POPO 演示模式或用户自带 API（BYOK）
 - POPO 授权链接的有效性和可见范围由 POPO 控制，链接失效时请从线上作品页进入
 
 ## 项目背景
@@ -100,6 +101,22 @@
 
 每轮内容会保存到当前浏览器。刷新后可以继续对话，也可以导出全部记录。就医摘要保留用户原话和已确认信息，用户核对后再复制给医生或药师。
 
+### 模型连接与用户自带 API
+
+本草现在提供两种模型连接方式。
+
+- **POPO 演示模式**：默认使用 POPO 作品绑定的模型，适合直接体验；调用额度由作品绑定配置承担。
+- **用户自带 API（BYOK）**：在“模型连接”中填写自己的 Base URL、API Key、模型名称和协议，浏览器直接请求用户填写的 OpenAI 兼容接口，不经过 POPO 模型代理。
+
+BYOK 支持：
+
+- `POST /v1/responses`，请求字段为 `input`
+- `POST /v1/chat/completions`，请求字段为 `messages`
+
+Key 只保存在当前页面内存中，不写入 URL、localStorage、sessionStorage、历史记录、埋点、截图或 GitHub。刷新页面或点击清除后需要重新填写。用户的接口需要允许当前页面的 CORS 请求；如果接口不支持浏览器跨域，测试连接会失败。页面 JavaScript 可以读取用户主动填写的 Key，因此只应使用自己信任的页面和接口。
+
+当前功能仍然是浏览器直连方案，没有用户账户、额度控制或后端代理。
+
 ### 图片入口
 
 当前图片入口只做本机预览、格式检查、分辨率检查、曝光提示和细节提示。照片不会上传给模型，也不会用于舌象或体质诊断。
@@ -114,7 +131,7 @@ flowchart LR
     B --> C[意图 主题 人群 风险预筛]
     C -->|急症或专业边界| D[就医提示与就医摘要]
     C -->|可回答| E[精选知识卡检索]
-    E --> F[POPO 模型流式回答]
+    E --> F[模型适配层：POPO 或用户自有 API]
     F --> G[结论 来源 风险字段校验]
     G --> H[回答 行动 依据 下一步]
     H --> I[本机历史与可控记录]
@@ -126,7 +143,7 @@ flowchart LR
 | --- | --- |
 | 页面 | HTML5、CSS3、原生 JavaScript ES Modules |
 | 交互 | 原生 Dialog、表单、Radio、File API、localStorage、sessionStorage |
-| 模型 | POPO PopSDK，OpenAI 兼容的流式 Chat Completions 请求 |
+| 模型 | POPO PopSDK 默认代理；可切换用户自有 OpenAI 兼容 Responses 或 Chat Completions 接口 |
 | 检索 | Node.js 构建脚本、本地 BM25 倒排索引、中文短词切分和主题过滤 |
 | 内容 | JSONL 原始卡片、JSON 来源注册表、构建后的页面索引 |
 | 测试 | Node.js node:test、Python unittest、浏览器模拟服务 |
@@ -157,6 +174,7 @@ flowchart LR
 | v15 | 扩充到 80 张卡、19 个来源，加入穴位位置科普、图片本机质量提示和更完整的历史恢复 | 覆盖更多常见问题，同时保留能力边界 |
 | v16 | 加入来源级和卡片级人工审核表、来源新鲜度、问题编码和 verified-index 门禁 | 让资料能否上线有明确状态，不把机器整理写成医学审核 |
 | v17 | 首页移除重复的睡眠问诊入口和场景栏，保留睡眠知识入口、问答后问诊和日常偏好 | 减少首页分流，让入口与回答后的下一步职责一致 |
+| v18 | 增加模型连接设置，支持 POPO 演示模式与用户自带 API，兼容 Responses 和 Chat Completions | 降低作者 API 额度被外部访问消耗的风险，让评审者可以使用自己的模型服务 |
 
 ## 截图
 
@@ -209,7 +227,7 @@ flowchart LR
 
 以下结果来自合成回归集和浏览器模拟，不代表临床准确率或真实用户满意度。
 
-- Node 测试 73/73
+- Node 测试 82/82（含模型连接与 Responses 解析）
 - Python 测试 3/3
 - 精选资料构建成功，80 张卡、19 个来源
 - 检索回归 85 题，Recall@3 为 82/85，约 96.47%

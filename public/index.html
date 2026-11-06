@@ -37,7 +37,7 @@
     <header class="topbar">
       <div class="mobile-brand"><span class="brand-icon"><svg><use href="#i-leaf"/></svg></span><strong>本草</strong></div>
       <div class="page-label">中医健康问答 <span class="demo-badge">DEMO</span></div>
-      <nav class="top-navigation" aria-label="主要导航"><button class="home-link top-nav-button" type="button">首页</button><button class="history-trigger top-nav-button" type="button">历史</button><button class="new-chat top-new" type="button"><svg><use href="#i-plus"/></svg><span>新对话</span></button></nav>
+      <nav class="top-navigation" aria-label="主要导航"><button class="home-link top-nav-button" type="button">首页</button><button class="history-trigger top-nav-button" type="button">历史</button><button class="model-trigger top-nav-button" type="button">模型连接</button><button class="new-chat top-new" type="button"><svg><use href="#i-plus"/></svg><span>新对话</span></button></nav>
     </header>
     <main id="main">
       <div id="save-warning" role="alert" hidden></div>
@@ -69,10 +69,21 @@
     <div class="composer-dock">
       <div class="composer-wrap">
         <form id="chat-form" class="composer"><label for="question" class="sr-only">你想问的健康问题</label><textarea id="question" rows="1" maxlength="2000" placeholder="说说你的困扰，或问一个中医问题…"></textarea><div class="composer-bottom"><span><svg><use href="#i-leaf"/></svg>认真倾听，循序了解</span><button class="image-trigger" type="button" aria-label="图片预览与使用边界">图片说明</button><span id="char-count" hidden></span><button id="send" type="submit" aria-label="发送问题" disabled><svg><use href="#i-arrow"/></svg></button></div></form>
-        <div class="composer-privacy"><span>对话在本机保存，提问时相关内容会发给模型。</span><button class="privacy-trigger" type="button">隐私与清除</button><label><input type="checkbox" id="use-preferences" checked>本轮使用日常偏好</label></div><p class="disclaimer">AI 健康科普，仅供参考，不替代医生诊疗。急重症请及时就医。<button class="preferences-trigger" type="button">建议偏好</button><button class="about-button" type="button" aria-label="了解使用说明">ⓘ</button></p>
+        <div class="composer-privacy"><span>对话在本机保存，提问时相关内容会发给模型。</span><button class="model-trigger" id="model-status" type="button">POPO 演示模式</button><button class="privacy-trigger" type="button">隐私与清除</button><label><input type="checkbox" id="use-preferences" checked>本轮使用日常偏好</label></div><p class="disclaimer">AI 健康科普，仅供参考，不替代医生诊疗。急重症请及时就医。<button class="preferences-trigger" type="button">建议偏好</button><button class="about-button" type="button" aria-label="了解使用说明">ⓘ</button></p>
       </div>
     </div>
   </div>
+  <dialog id="model-settings" aria-labelledby="model-settings-title"><form id="model-settings-form">
+    <button type="button" class="close-dialog" id="model-settings-close" aria-label="关闭模型连接设置">×</button>
+    <span class="dialog-leaf"><svg><use href="#i-leaf"/></svg></span><h2 id="model-settings-title">模型连接</h2>
+    <p>默认使用 POPO 演示模式。你也可以只在当前页面使用自己的 OpenAI 兼容接口，模型请求会从浏览器直接发往你填写的 Base URL。</p>
+    <label class="field-label" for="model-protocol">接口协议</label><select id="model-protocol"><option value="responses">Responses · /v1/responses</option><option value="chat">Chat Completions · /v1/chat/completions</option></select>
+    <label class="field-label" for="model-base-url">Base URL</label><input id="model-base-url" type="url" autocomplete="url" placeholder="https://你的中转站地址">
+    <label class="field-label" for="model-api-key">API Key</label><input id="model-api-key" type="password" autocomplete="off" placeholder="只在当前页面使用，不会保存">
+    <label class="field-label" for="model-name">模型名称</label><input id="model-name" type="text" autocomplete="off" placeholder="例如 gpt-6.1-sol">
+    <p class="privacy-note">Key 只保存在当前页面内存中，不写入 URL、浏览器存储、历史或 GitHub。刷新页面后需要重新填写。你的接口必须允许当前页面跨域请求（CORS）。请只填写你信任的 Base URL。</p>
+    <p id="model-settings-status" role="status"></p><div class="dialog-actions"><button id="model-test" type="button">测试连接</button><button id="model-save" type="submit" class="dialog-confirm">保存并使用</button></div><button id="model-clear" class="text-action" type="button">清除自有 API，恢复 POPO 模式</button>
+  </form></dialog>
   <dialog id="about"><form method="dialog"><button class="close-dialog" aria-label="关闭使用说明">×</button><span class="dialog-leaf"><svg><use href="#i-leaf"/></svg></span><h2>你好，我是本草</h2><p>这是一个中医健康问答 Demo，提供知识解释、日常调养建议和症状信息梳理。</p><p>回答由 AI 生成，可能不准确。支持睡眠、疲惫、消化、女性日常、压力及日常活动六个资料主题。回答从精选资料中检索并核对结论与行动，资料由 AI 辅助整理，尚未完成人工医学复核，不代表个人适用性已验证；不是实时搜索，没有接入百度健康知识库。资料不足时会明确停止。图片只做本机预览与分辨率、曝光和细节提示，不上传、不诊断。涉及疾病诊断、药物选择与治疗，请咨询医生或药师。出现急重症表现应立即就医。</p><p class="privacy-note">每轮对话自动保存在当前浏览器，刷新和新建对话后仍可在历史中找回。可逐条删除或导出；未跨设备同步，清除浏览器数据后会丢失。同一浏览器的其他使用者也可能看到记录。你主动保存的日常偏好 30 天有效，仅用于勾选使用偏好的症状与日常建议，可随时清除。近期相关提问、确认的信息和本轮允许使用的偏好会发送至模型服务，请勿输入无关的姓名、电话等信息。</p><button class="dialog-confirm">知道了，开始聊聊</button></form></dialog>
   <dialog id="image-dialog" aria-labelledby="image-title"><form method="dialog"><button class="close-dialog" aria-label="关闭图片预览">×</button><h2 id="image-title">照片先留在你手里</h2><p>舌苔照片受光线、饮食、拍摄角度影响，不能单凭照片判断疾病或体质。本版仅在本机检查分辨率、曝光和细节是否不足，不做图像诊断，也不会把照片发给问答模型。检查无提示也不代表照片可用于诊断。</p><label class="field-label" for="image-file">选一张照片，仅在本机预览</label><input id="image-file" type="file" accept="image/jpeg,image/png,image/webp"><p>请裁掉姓名、面部及其他无关信息。可在自然光下拍摄，避免滤镜；请医生结合症状面诊评估。</p><img id="image-preview" alt="本机选择的照片预览，未上传" hidden><p id="image-status" role="status">照片只在当前窗口预览，不上传、不保存、不做诊断。</p><button id="image-clear" type="button" class="text-action">移除照片</button><button class="dialog-confirm">关闭并清除预览</button></form></dialog>
   <dialog id="history-dialog" aria-labelledby="history-title"><form method="dialog"><button class="close-dialog" aria-label="关闭历史对话">×</button><h2 id="history-title">聊过的，都在这里</h2><p>每轮自动保存在此浏览器。打开一段对话，就能接着聊。</p><div class="history-list dialog-history" aria-label="历史对话列表"></div><p class="history-storage-note">记录仅在本机浏览器内，换设备不共享。清除浏览器数据前，记得导出。</p><p>导出包含完整问答、确认信息、感受记录、证据和偏好，文件名不含姓名；请自行妥善保管。</p><button class="export-history dialog-confirm" type="button">导出全部对话</button><button class="privacy-trigger text-action" type="button">隐私与清除全部数据</button></form></dialog>

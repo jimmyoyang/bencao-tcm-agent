@@ -1,4 +1,5 @@
 import { MODEL } from './config.js';
+import { requestModel, testModelConfig, setModelConfig, clearModelConfig, getModelConfig, modelStatus } from './model.mjs';
 import { buildMessages, splitAnswer, readCompletion, friendlyError, quickTestPrompt, buildVisitSummary, turnPrompt, userDescription, routeTurn } from './core.mjs';
 import {SOURCES,TOPICS,CHECKIN_QUESTIONS,allQuestions,questionsFor,confirmedFacts,detectTopic,normalizeCareData,careRows,careTriage,sourceIdsFor,citedSources,cleanPreferences,localDate,answerWithSources,canConfirmCare,evidenceFor,preferenceRecord,activePreferences,recentTurn} from './care.mjs';
 import { loadHistory, saveSession, deleteSession,clearLocalData,dataEpoch,EPOCH_KEY,saveLocalPreference,loadLocalPreference } from './history.mjs';
@@ -321,8 +322,7 @@ async function run(turn) {
     if(!retrieval.cards.length) {metric('abstentions');finishLocal(turn,ABSTAIN,'consult','abstained',retrieval.reason);return;}
     metric('retrievalHits');
     showThinking(turn);turn.answerEl.querySelector('.thinking span').textContent='已找到相关资料，正在核对回答…';
-    if(!window.PopSDK?.model?.request)throw new Error('SDK_UNAVAILABLE');
-    const response=await window.PopSDK.model.request({model:MODEL,messages:buildMessages(turns.slice(0,turns.indexOf(turn)),modelInput,{retrieval,preferences,currentCareData:turn.careData,context:turn.context}),stream:true,max_tokens:1400,temperature:0.2},{path:'/v1/chat/completions',signal:request.controller.signal});
+    const response=await requestModel({model:MODEL,messages:buildMessages(turns.slice(0,turns.indexOf(turn)),modelInput,{retrieval,preferences,currentCareData:turn.careData,context:turn.context}),stream:true,max_tokens:1400,temperature:0.2},{signal:request.controller.signal});
     if(request.controller.signal.aborted || request.cleared)throw new DOMException('Aborted','AbortError');
     // Never render or persist unvalidated model prose, including streaming fragments.
     const raw=await readCompletion(response,()=>{if(request.controller.signal.aborted || request.cleared)throw new DOMException('Aborted','AbortError');});
@@ -498,6 +498,36 @@ function finishCare() {
   run(createTurn(title,false,{careData:data}));careState=null;
 }
 function readPreferenceRecord() {try {return loadLocalPreference(localStorage);}catch{return null;}}
+function renderModelStatus() {
+  const status=modelStatus();
+  const button=$('#model-status');
+  if(button) { button.textContent=status.label; button.title=`${status.label} · ${status.model}`; }
+}
+function openModelSettings() {
+  const current=getModelConfig();
+  $('#model-protocol').value=current?.protocol || 'responses';
+  $('#model-base-url').value=current?.baseUrl || '';
+  $('#model-api-key').value='';
+  $('#model-name').value=current?.model || MODEL;
+  $('#model-settings-status').textContent=current ? `当前使用本页自有 API（${current.model}）。如需修改，请重新填写 Key。` : '当前使用 POPO 演示模式。';
+  $('#model-settings').showModal();
+}
+function modelFormValue() {
+  return {protocol:$('#model-protocol').value,baseUrl:$('#model-base-url').value,apiKey:$('#model-api-key').value,model:$('#model-name').value};
+}
+async function testModelConnection() {
+  const button=$('#model-test'),status=$('#model-settings-status');
+  button.disabled=true;status.textContent='正在发送一条最小测试请求，请稍候…';
+  try { await testModelConfig(modelFormValue()); status.textContent='连接成功。还没有切换模式，点击“保存并使用”后才会用于问答。'; }
+  catch(error) { status.textContent=error.code==='BYOK_NETWORK_ERROR'?'连接失败：接口可能未允许当前页面跨域（CORS），或地址无法访问。':error.status===401||error.status===403?'连接失败：API Key 或模型权限不正确。':'连接失败：请检查 Base URL、协议和模型名称。'; }
+  finally { button.disabled=false; }
+}
+function saveModelConnection(event) {
+  event.preventDefault();
+  try { setModelConfig(modelFormValue()); $('#model-api-key').value=''; $('#model-settings-status').textContent='已保存。Key 只在当前页面内存中使用。'; renderModelStatus(); toast('已切换为本页自有 API'); }
+  catch(error) { $('#model-settings-status').textContent=error.message || '保存失败，请检查填写内容。'; }
+}
+
 function openPreferences() {
   const record=readPreferenceRecord(),value=activePreferences(record,{intent:'lifestyle'});
   $('#preference-approach').value=value?.approach || '都可以';$('#preference-food').value=value?.food || '';
@@ -588,6 +618,11 @@ $('#care-dialog').addEventListener('close',()=>{const opener=careState?.opener;c
 $('#care-exit').addEventListener('click',()=>$('#care-dialog').close());
 $('#care-back').addEventListener('click',()=>{if(careState){if(careState.editing){careState.editing=false;careState.index=careState.questions.length;}else careState.index=Math.max(0,careState.index-1);renderCareQuestion();}});
 $('#care-skip').addEventListener('click',()=>chooseCare(''));
+document.querySelectorAll('.model-trigger').forEach(button=>button.addEventListener('click',openModelSettings));
+$('#model-settings-close').addEventListener('click',()=>$('#model-settings').close());
+$('#model-test').addEventListener('click',testModelConnection);
+$('#model-settings-form').addEventListener('submit',saveModelConnection);
+$('#model-clear').addEventListener('click',()=>{clearModelConfig();renderModelStatus();$('#model-settings').close();toast('已恢复 POPO 演示模式');});
 document.querySelectorAll('.preferences-trigger').forEach(button=>button.addEventListener('click',openPreferences));
 $('#preferences-close').addEventListener('click',()=>$('#preferences-dialog').close());
 $('#preferences-form').addEventListener('submit',event=>{event.preventDefault();
@@ -637,6 +672,7 @@ window.addEventListener('pagehide',persistSession);
 document.addEventListener('visibilitychange',()=>{if(document.hidden) persistSession();});
 window.addEventListener('storage',event=>{if(event.key===EPOCH_KEY || event.key===null){forgetInMemory();toast('本机数据已在其他标签页清除');}else if(event.key?.startsWith('bencao.chat.v1.')) refreshHistory();});
 resizeInput();
+renderModelStatus();
 new ResizeObserver(entries => {
   $('#main').style.paddingBottom = `${entries[0].target.offsetHeight + 30}px`;
 }).observe($('.composer-dock'));
