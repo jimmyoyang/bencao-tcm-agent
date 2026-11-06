@@ -177,6 +177,8 @@ flowchart LR
 
 ### 模型连接设置
 
+![已发布的个人 API 配置窗口](screenshots/model-connection-published.jpg)
+
 ![模型连接设置（390px 手机布局验证）](screenshots/model-connection-mobile.jpg)
 
 ### 桌面端首页与回答

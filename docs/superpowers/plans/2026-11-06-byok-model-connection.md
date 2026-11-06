@@ -11,5 +11,6 @@
 - [x] Disable the existing POPO oneapi service and read back enabled:false.
 - [x] Verify browser setup, saved question retry, refresh, no fallback and local emergency message.
 - [x] Update public documentation and mobile screenshot for BYOK-only behavior.
-- [ ] Run final tests/build and code review, then merge and push main.
-- [ ] Publish the existing POPO work, verify external access and capture the live settings screenshot.
+- [x] Run final tests/build and code review, then merge and push main.
+- [x] Publish v18, verify the internal page, and capture the live settings screenshot.
+- [ ] External access awaits platform moderation; observed review-pending page and profile badge, recorded in acceptance notes.
